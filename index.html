@@ -12,56 +12,212 @@
   html, body { width: 100%; height: 100%; overflow: hidden; background: #000; color: #fff; touch-action: none; position: fixed; }
   canvas { display: block; }
 
+  /* ============================================================ */
+  /* ==================== КРАСИВОЕ МЕНЮ ========================== */
+  /* ============================================================ */
   .overlay {
     position: fixed; inset: 0; z-index: 100;
     display: flex; flex-direction: column; align-items: center; justify-content: center;
-    background: radial-gradient(ellipse at center, #1a1a3e 0%, #0a0e27 60%, #050510 100%);
+    background: #0a0a14;
     padding: 20px; overflow-y: auto;
   }
   .overlay.hidden { display: none !important; }
-  .overlay::before {
-    content: ''; position: absolute; inset: 0;
+
+  /* Анимированный фон меню */
+  .menu-bg {
+    position: absolute; inset: 0; overflow: hidden; z-index: -1;
+    background: radial-gradient(ellipse at top, #1a1a3e 0%, #0a0e27 50%, #050510 100%);
+  }
+  .menu-bg::before {
+    content: ''; position: absolute; inset: -50%;
     background:
-      radial-gradient(circle at 20% 30%, rgba(240,165,0,0.08) 0%, transparent 40%),
-      radial-gradient(circle at 80% 70%, rgba(0,150,255,0.08) 0%, transparent 40%);
-    pointer-events: none; z-index: -1;
+      radial-gradient(circle at 20% 30%, rgba(240,165,0,0.15) 0%, transparent 35%),
+      radial-gradient(circle at 80% 70%, rgba(0,150,255,0.12) 0%, transparent 35%),
+      radial-gradient(circle at 50% 100%, rgba(255,50,50,0.08) 0%, transparent 40%);
+    animation: bgFloat 15s ease-in-out infinite;
+  }
+  @keyframes bgFloat {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    50% { transform: translate(-3%, -3%) scale(1.05); }
   }
 
+  /* Сетка на фоне */
+  .menu-bg::after {
+    content: ''; position: absolute; inset: 0;
+    background-image:
+      linear-gradient(rgba(240,165,0,0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(240,165,0,0.04) 1px, transparent 1px);
+    background-size: 40px 40px;
+    mask-image: radial-gradient(ellipse at center, black 20%, transparent 70%);
+    -webkit-mask-image: radial-gradient(ellipse at center, black 20%, transparent 70%);
+    animation: bgGrid 20s linear infinite;
+  }
+  @keyframes bgGrid {
+    from { background-position: 0 0; }
+    to { background-position: 40px 40px; }
+  }
+
+  /* Логотип */
+  #menu .logo-wrap {
+    position: relative; margin-bottom: 6px;
+    animation: logoIn 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+  }
+  @keyframes logoIn {
+    from { opacity: 0; transform: translateY(-30px) scale(0.9); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
+  }
   #menu .logo {
-    font-size: clamp(36px, 9vw, 96px); font-weight: 900;
-    letter-spacing: clamp(3px, 1.5vw, 12px);
-    background: linear-gradient(180deg, #fff 0%, #f0a500 55%, #c07800 100%);
+    font-size: clamp(52px, 12vw, 120px);
+    font-weight: 900;
+    letter-spacing: clamp(4px, 2vw, 16px);
+    background: linear-gradient(180deg, #ffffff 0%, #f0a500 50%, #c07800 100%);
     -webkit-background-clip: text; -webkit-text-fill-color: transparent;
     background-clip: text;
-    filter: drop-shadow(0 0 40px rgba(240,165,0,0.6));
-    margin-bottom: 4px; text-align: center; text-transform: uppercase;
+    filter: drop-shadow(0 0 50px rgba(240,165,0,0.6));
+    text-align: center; text-transform: uppercase;
+    line-height: 1;
     position: relative;
   }
-  #menu .logo::after {
-    content: '3'; position: absolute; top: -8px; right: -20px;
-    font-size: 0.4em;
-    background: linear-gradient(180deg, #fff, #ff3333);
+  #menu .logo-num {
+    position: absolute;
+    top: -10px; right: -25px;
+    font-size: 0.42em;
+    background: linear-gradient(180deg, #ffffff 0%, #ff3333 60%, #aa0000 100%);
     -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    background-clip: text;
     transform: rotate(15deg);
-    filter: drop-shadow(0 0 15px rgba(255,50,50,0.8));
+    filter: drop-shadow(0 0 20px rgba(255,50,50,0.9));
+    animation: numPulse 2s ease-in-out infinite;
   }
-  #menu .tagline { color: #f0a500; letter-spacing: 8px; font-size: 11px; margin-bottom: 24px; opacity: 0.75; text-transform: uppercase; text-align: center; }
+  @keyframes numPulse {
+    0%, 100% { transform: rotate(15deg) scale(1); }
+    50% { transform: rotate(15deg) scale(1.15); }
+  }
+
+  #menu .tagline {
+    color: #f0a500;
+    letter-spacing: 12px;
+    font-size: clamp(10px, 1.4vw, 13px);
+    margin-bottom: 40px;
+    opacity: 0.7;
+    text-transform: uppercase;
+    position: relative;
+    padding: 0 20px;
+  }
+  #menu .tagline::before,
+  #menu .tagline::after {
+    content: ''; position: absolute; top: 50%; width: 40px; height: 1px;
+    background: linear-gradient(90deg, transparent, #f0a500, transparent);
+  }
+  #menu .tagline::before { left: -30px; }
+  #menu .tagline::after { right: -30px; }
+
+  /* Ник */
   #menu .name-input {
-    width: min(340px, 85vw); padding: 14px 20px; margin-bottom: 20px;
-    background: rgba(255,255,255,0.04); border: 2px solid rgba(240,165,0,0.35);
-    color: #fff; font-size: 16px; letter-spacing: 2px; text-align: center;
-    outline: none; font-weight: 600; border-radius: 4px; transition: all 0.2s;
+    width: min(380px, 88vw); padding: 16px 22px; margin-bottom: 26px;
+    background: rgba(255,255,255,0.03);
+    border: 2px solid rgba(240,165,0,0.3);
+    color: #fff; font-size: 16px; letter-spacing: 3px; text-align: center;
+    outline: none; font-weight: 700; border-radius: 8px;
+    transition: all 0.3s;
+    text-transform: uppercase;
+    backdrop-filter: blur(10px);
   }
-  #menu .name-input:focus { border-color: #f0a500; box-shadow: 0 0 25px rgba(240,165,0,0.4); }
+  #menu .name-input:focus {
+    border-color: #f0a500;
+    box-shadow: 0 0 30px rgba(240,165,0,0.4), inset 0 0 20px rgba(240,165,0,0.05);
+    background: rgba(240,165,0,0.05);
+  }
+  #menu .name-input::placeholder { color: rgba(240,165,0,0.35); letter-spacing: 4px; }
+
+  /* Кнопки меню */
+  #menu .btn-menu {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    width: min(380px, 88vw);
+    padding: 16px 22px;
+    margin: 6px;
+    background: linear-gradient(90deg, rgba(240,165,0,0.08) 0%, rgba(240,165,0,0.02) 100%);
+    border: 1px solid rgba(240,165,0,0.25);
+    border-left: 4px solid #f0a500;
+    color: #f0a500;
+    font-size: 14px;
+    letter-spacing: 3px;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-weight: 700;
+    transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+    text-align: left;
+    border-radius: 6px;
+    font-family: inherit;
+    position: relative;
+    overflow: hidden;
+    backdrop-filter: blur(5px);
+  }
+  #menu .btn-menu::before {
+    content: ''; position: absolute; inset: 0;
+    background: linear-gradient(90deg, #f0a500 0%, #ffcc00 100%);
+    opacity: 0;
+    transition: opacity 0.3s;
+    z-index: -1;
+  }
+  #menu .btn-menu:hover, #menu .btn-menu:active {
+    color: #000;
+    border-color: #f0a500;
+    transform: translateX(8px);
+    box-shadow: -10px 0 40px rgba(240,165,0,0.5), 0 0 30px rgba(240,165,0,0.3);
+    padding-left: 28px;
+  }
+  #menu .btn-menu:hover::before, #menu .btn-menu:active::before { opacity: 1; }
+  #menu .btn-menu .icon {
+    font-size: 22px;
+    width: 28px;
+    text-align: center;
+    filter: drop-shadow(0 0 8px currentColor);
+  }
+  #menu .btn-menu .label {
+    flex: 1;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* Версия */
+  #menu .version {
+    position: absolute;
+    bottom: 16px;
+    right: 20px;
+    color: rgba(240,165,0,0.4);
+    font-size: 10px;
+    letter-spacing: 3px;
+  }
+  #menu .version span { color: rgba(255,50,50,0.6); }
+
+  /* ============================================================ */
+  /* ==================== ОБЩИЕ ЭКРАНЫ =========================== */
+  /* ============================================================ */
+  .screen-title {
+    font-size: clamp(22px, 5vw, 32px);
+    font-weight: 900;
+    letter-spacing: 6px;
+    color: #f0a500;
+    margin-bottom: 26px;
+    text-shadow: 0 0 40px rgba(240,165,0,0.6);
+    text-transform: uppercase;
+    text-align: center;
+  }
 
   .btn {
     display: block;
-    width: min(340px, 85vw); padding: 15px 20px; margin: 5px;
+    width: min(340px, 85vw);
+    padding: 15px 20px;
+    margin: 5px;
     background: linear-gradient(90deg, rgba(240,165,0,0.08), rgba(240,165,0,0.02));
-    border: 1px solid rgba(240,165,0,0.35); border-left: 4px solid #f0a500;
+    border: 1px solid rgba(240,165,0,0.35);
+    border-left: 4px solid #f0a500;
     color: #f0a500; font-size: 14px; letter-spacing: 3px; cursor: pointer;
-    text-transform: uppercase; font-weight: 700; transition: all 0.2s;
-    text-align: left; padding-left: 22px; border-radius: 4px;
+    text-transform: uppercase; font-weight: 700; transition: all 0.25s;
+    text-align: left; padding-left: 22px; border-radius: 6px;
     font-family: inherit;
   }
   .btn:hover, .btn:active {
@@ -71,22 +227,17 @@
     box-shadow: -8px 0 30px rgba(240,165,0,0.3);
   }
   .btn.small { width: auto; padding: 10px 22px; font-size: 12px; text-align: center; }
+  .btn.center { text-align: center; padding-left: 20px; }
 
-  .screen-title {
-    font-size: clamp(20px, 5vw, 26px); font-weight: 800; letter-spacing: 5px;
-    color: #f0a500; margin-bottom: 20px;
-    text-shadow: 0 0 30px rgba(240,165,0,0.5); text-transform: uppercase;
-    text-align: center;
-  }
-
-  .map-grid, .mode-grid { display: flex; gap: 16px; margin-bottom: 20px; flex-wrap: wrap; justify-content: center; }
+  /* Карты / режимы */
+  .map-grid, .mode-grid { display: flex; gap: 18px; margin-bottom: 24px; flex-wrap: wrap; justify-content: center; }
   .map-card {
     width: min(240px, 42vw); height: min(160px, 28vw); min-height: 110px;
     cursor: pointer; position: relative; overflow: hidden;
-    border: 2px solid rgba(240,165,0,0.25); transition: all 0.2s; border-radius: 5px;
+    border: 2px solid rgba(240,165,0,0.25); transition: all 0.25s; border-radius: 8px;
   }
-  .map-card:hover, .map-card:active { border-color: #f0a500; transform: translateY(-4px); box-shadow: 0 10px 30px rgba(240,165,0,0.4); }
-  .map-card.selected { border-color: #f0a500; box-shadow: 0 0 0 3px rgba(240,165,0,0.3), 0 10px 30px rgba(240,165,0,0.5); }
+  .map-card:hover, .map-card:active { border-color: #f0a500; transform: translateY(-6px); box-shadow: 0 14px 40px rgba(240,165,0,0.4); }
+  .map-card.selected { border-color: #f0a500; box-shadow: 0 0 0 3px rgba(240,165,0,0.3), 0 14px 40px rgba(240,165,0,0.5); }
   .map-card .preview { width: 100%; height: 100%; position: relative; overflow: hidden; }
   .map-card .preview.dust { background: linear-gradient(180deg, #87b8e8 0%, #b8d0e0 40%, #d4c8a0 60%, #b8a878 100%); }
   .map-card .preview.dust::before {
@@ -109,49 +260,53 @@
   .map-card .label {
     position: absolute; bottom: 0; left: 0; right: 0;
     background: linear-gradient(180deg, rgba(0,0,0,0.4), rgba(0,0,0,0.9));
-    color: #f0a500; padding: 8px;
+    color: #f0a500; padding: 9px;
     text-align: center; letter-spacing: 3px; font-weight: 800; font-size: 11px;
   }
-  .map-card.selected .label { color: #fff; background: linear-gradient(180deg, rgba(240,165,0,0.3), rgba(0,0,0,0.9)); }
+  .map-card.selected .label { color: #fff; background: linear-gradient(180deg, rgba(240,165,0,0.35), rgba(0,0,0,0.9)); }
 
   .mode-card {
-    width: min(200px, 40vw); padding: 14px 12px; cursor: pointer;
-    border: 2px solid rgba(240,165,0,0.25); transition: all 0.2s; border-radius: 6px;
+    width: min(200px, 40vw); padding: 16px 12px; cursor: pointer;
+    border: 2px solid rgba(240,165,0,0.25); transition: all 0.25s; border-radius: 8px;
     background: linear-gradient(180deg, rgba(30,30,45,0.6), rgba(15,15,25,0.8));
     text-align: center;
   }
-  .mode-card:hover, .mode-card:active { border-color: #f0a500; transform: translateY(-4px); box-shadow: 0 8px 30px rgba(240,165,0,0.3); }
-  .mode-card.selected { border-color: #f0a500; box-shadow: 0 0 0 3px rgba(240,165,0,0.3); background: linear-gradient(180deg, rgba(240,165,0,0.12), rgba(240,165,0,0.03)); }
-  .mode-card .mc-icon { font-size: clamp(24px, 6vw, 34px); margin-bottom: 6px; }
+  .mode-card:hover, .mode-card:active { border-color: #f0a500; transform: translateY(-5px); box-shadow: 0 10px 30px rgba(240,165,0,0.3); }
+  .mode-card.selected { border-color: #f0a500; box-shadow: 0 0 0 3px rgba(240,165,0,0.3); background: linear-gradient(180deg, rgba(240,165,0,0.15), rgba(240,165,0,0.03)); }
+  .mode-card .mc-icon { font-size: clamp(26px, 6vw, 38px); margin-bottom: 6px; filter: drop-shadow(0 0 10px currentColor); }
   .mode-card .mc-name { color: #f0a500; font-size: clamp(12px, 3vw, 14px); font-weight: 800; letter-spacing: 2px; margin-bottom: 4px; }
   .mode-card .mc-desc { color: #999; font-size: clamp(9px, 2vw, 10px); line-height: 1.4; }
   .mode-card.selected .mc-name { color: #fff; }
 
+  /* Лобби */
   .lobby-box {
-    background: rgba(20,20,35,0.75);
+    background: rgba(20,20,35,0.8);
     border: 1px solid rgba(240,165,0,0.3);
     border-top: 3px solid #f0a500;
-    padding: 18px; min-width: min(480px, 90vw); max-width: 90vw;
-    border-radius: 5px;
+    padding: 20px; min-width: min(480px, 90vw); max-width: 90vw;
+    border-radius: 8px;
     box-shadow: 0 20px 60px rgba(0,0,0,0.5);
     margin-bottom: 16px;
+    backdrop-filter: blur(10px);
   }
   .room-code {
     font-size: clamp(22px, 6vw, 28px); color: #f0a500; letter-spacing: 6px; font-weight: 900;
-    text-align: center; margin: 12px 0; padding: 12px;
+    text-align: center; margin: 12px 0; padding: 14px;
     background: rgba(0,0,0,0.5); border: 2px dashed rgba(240,165,0,0.5);
-    cursor: pointer; border-radius: 4px;
+    cursor: pointer; border-radius: 6px;
     font-family: 'Courier New', monospace;
+    transition: all 0.25s;
   }
+  .room-code:hover, .room-code:active { background: rgba(240,165,0,0.1); border-color: #f0a500; }
   .hint { color: #777; font-size: 10px; letter-spacing: 2px; text-align: center; margin: 6px 0; text-transform: uppercase; }
   .players-list {
-    margin-top: 12px; padding: 10px; background: rgba(0,0,0,0.4);
-    border: 1px solid rgba(240,165,0,0.15); border-radius: 4px; min-height: 60px;
+    margin-top: 12px; padding: 12px; background: rgba(0,0,0,0.4);
+    border: 1px solid rgba(240,165,0,0.15); border-radius: 6px; min-height: 60px;
     max-height: 200px; overflow-y: auto;
   }
-  .players-list h3 { color: #f0a500; font-size: 10px; letter-spacing: 3px; margin-bottom: 8px; }
+  .players-list h3 { color: #f0a500; font-size: 11px; letter-spacing: 3px; margin-bottom: 8px; }
   .player-row {
-    padding: 7px 10px; margin: 3px 0;
+    padding: 8px 10px; margin: 3px 0;
     background: rgba(240,165,0,0.08);
     border-left: 3px solid #f0a500; font-size: 12px;
     border-radius: 0 4px 4px 0;
@@ -159,51 +314,54 @@
   }
   .player-row.me { border-left-color: #0f0; background: rgba(0,255,0,0.08); }
   .friend-btn {
-    padding: 4px 9px; font-size: 9px; letter-spacing: 1px;
+    padding: 4px 10px; font-size: 9px; letter-spacing: 1px;
     background: rgba(240,165,0,0.15); border: 1px solid rgba(240,165,0,0.4);
-    color: #f0a500; cursor: pointer; border-radius: 3px;
+    color: #f0a500; cursor: pointer; border-radius: 4px;
     font-family: inherit; text-transform: uppercase; font-weight: 700;
   }
   .friend-btn:hover, .friend-btn:active { background: #f0a500; color: #000; }
   .status { color: #aaa; font-size: 11px; margin-top: 10px; letter-spacing: 2px; text-align: center; }
   .code-input {
-    width: 100%; padding: 12px; margin: 6px 0;
+    width: 100%; padding: 14px; margin: 6px 0;
     background: rgba(0,0,0,0.5); border: 2px solid rgba(240,165,0,0.35);
     color: #f0a500; font-size: 18px; letter-spacing: 5px; text-align: center;
-    outline: none; font-weight: 900; border-radius: 4px;
+    outline: none; font-weight: 900; border-radius: 6px;
     text-transform: uppercase; font-family: 'Courier New', monospace;
   }
-  .code-input:focus { border-color: #f0a500; }
+  .code-input:focus { border-color: #f0a500; box-shadow: 0 0 20px rgba(240,165,0,0.3); }
 
   .row { display: flex; align-items: center; gap: 12px; width: min(440px, 88vw); margin: 10px 0; }
-  .row label { width: 120px; text-align: right; color: #ccc; letter-spacing: 2px; font-size: 11px; }
+  .row label { width: 130px; text-align: right; color: #ccc; letter-spacing: 2px; font-size: 11px; }
   .row input[type=range] { flex: 1; accent-color: #f0a500; }
   .row .val { width: 60px; color: #f0a500; font-weight: bold; font-size: 12px; }
 
   .friend-item {
-    padding: 7px 10px; margin: 3px 0;
+    padding: 8px 10px; margin: 3px 0;
     background: rgba(0,255,0,0.06);
-    border-left: 3px solid #0f0; border-radius: 0 3px 3px 0;
+    border-left: 3px solid #0f0; border-radius: 0 4px 4px 0;
     display: flex; justify-content: space-between; align-items: center;
     font-size: 12px;
   }
   .friend-item .fname { color: #0f0; font-weight: 700; }
   .friend-item .finvite {
-    padding: 3px 9px; font-size: 9px; letter-spacing: 1px;
+    padding: 3px 10px; font-size: 9px; letter-spacing: 1px;
     background: rgba(240,165,0,0.15); border: 1px solid rgba(240,165,0,0.4);
-    color: #f0a500; cursor: pointer; border-radius: 3px;
+    color: #f0a500; cursor: pointer; border-radius: 4px;
     font-family: inherit; font-weight: 700;
   }
   .friend-item .fremove { color: #f55; cursor: pointer; font-size: 14px; padding: 0 6px; font-weight: 700; }
 
+  /* ============================================================ */
+  /* ==================== HUD ==================================== */
+  /* ============================================================ */
   #hud { position: fixed; inset: 0; pointer-events: none; display: none; z-index: 10; }
   #hud.active { display: block; }
 
   #crosshair {
     position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%);
-    width: 22px; height: 22px;
+    width: 24px; height: 24px;
   }
-  #crosshair span { position: absolute; background: #0f0; box-shadow: 0 0 4px #000; }
+  #crosshair span { position: absolute; background: #0f0; box-shadow: 0 0 5px #000, 0 0 2px #0f0; }
   #crosshair .t { left: 50%; top: 0; width: 2px; height: 8px; transform: translateX(-50%); }
   #crosshair .b { left: 50%; bottom: 0; width: 2px; height: 8px; transform: translateX(-50%); }
   #crosshair .l { top: 50%; left: 0; height: 2px; width: 8px; transform: translateY(-50%); }
@@ -217,6 +375,7 @@
   #hitmarker::before, #hitmarker::after {
     content: ''; position: absolute;
     background: #fff; width: 2px; height: 100%; top: 0; left: 50%;
+    box-shadow: 0 0 4px #000;
   }
   #hitmarker::before { transform: translateX(-50%) rotate(45deg); }
   #hitmarker::after { transform: translateX(-50%) rotate(-45deg); }
@@ -228,9 +387,10 @@
   .kf-entry {
     display: flex; align-items: center; gap: 6px;
     background: rgba(15,15,25,0.9); border-left: 3px solid #f0a500;
-    padding: 5px 10px; font-size: 11px; letter-spacing: 1px;
+    padding: 6px 12px; font-size: 11px; letter-spacing: 1px;
     animation: kfIn 0.3s, kfOut 0.5s 4.5s forwards;
-    border-radius: 0 3px 3px 0;
+    border-radius: 0 4px 4px 0;
+    backdrop-filter: blur(5px);
   }
   .kf-entry .attacker { color: #ffd700; font-weight: 700; }
   .kf-entry .victim { color: #ff5555; font-weight: 700; }
@@ -240,7 +400,7 @@
 
   .hud-bottom { position: absolute; bottom: 20px; left: 0; right: 0; display: flex; justify-content: space-between; align-items: flex-end; padding: 0 20px; }
   .hp-block { display: flex; align-items: center; gap: 10px; }
-  .hp-icon { font-size: 24px; color: #f0a500; }
+  .hp-icon { font-size: 24px; color: #f0a500; filter: drop-shadow(0 0 8px rgba(240,165,0,0.6)); }
   .hp-value { font-size: 32px; font-weight: 900; text-shadow: 2px 2px 8px #000; }
   .hp-value.low { color: #ff3333; } .hp-value.mid { color: #ffaa00; } .hp-value.ok { color: #fff; }
   .ammo-block { text-align: right; }
@@ -248,13 +408,13 @@
   .ammo-value .reserve { font-size: 18px; color: #888; margin-left: 3px; }
   .weapon-name { font-size: 10px; color: #f0a500; letter-spacing: 2px; margin-bottom: 2px; font-weight: 700; }
 
-  #wave-info { position: absolute; top: 12px; left: 50%; transform: translateX(-50%); font-size: 12px; color: #f0a500; letter-spacing: 3px; font-weight: 700; background: rgba(15,15,25,0.8); padding: 6px 16px; border: 1px solid rgba(240,165,0,0.3); border-radius: 3px; }
+  #wave-info { position: absolute; top: 12px; left: 50%; transform: translateX(-50%); font-size: 12px; color: #f0a500; letter-spacing: 3px; font-weight: 700; background: rgba(15,15,25,0.8); padding: 6px 16px; border: 1px solid rgba(240,165,0,0.3); border-radius: 4px; backdrop-filter: blur(5px); }
   #net-info { position: absolute; top: 46px; left: 50%; transform: translateX(-50%); font-size: 10px; color: #0f0; letter-spacing: 2px; opacity: 0.85; }
-  #team-info { position: absolute; top: 66px; left: 50%; transform: translateX(-50%); font-size: 11px; letter-spacing: 2px; font-weight: 700; padding: 3px 12px; border-radius: 3px; display: none; }
+  #team-info { position: absolute; top: 66px; left: 50%; transform: translateX(-50%); font-size: 11px; letter-spacing: 2px; font-weight: 700; padding: 3px 12px; border-radius: 4px; display: none; }
   #team-info.active { display: block; }
   #team-info.ct { color: #4aa3ff; background: rgba(74,163,255,0.1); border: 1px solid rgba(74,163,255,0.4); }
   #team-info.t { color: #ffaa00; background: rgba(255,170,0,0.1); border: 1px solid rgba(255,170,0,0.4); }
-  #score-info { position: absolute; top: 12px; left: 12px; font-size: 12px; letter-spacing: 2px; background: rgba(15,15,25,0.8); padding: 6px 12px; border-radius: 3px; display: none; }
+  #score-info { position: absolute; top: 12px; left: 12px; font-size: 12px; letter-spacing: 2px; background: rgba(15,15,25,0.8); padding: 6px 12px; border-radius: 4px; display: none; backdrop-filter: blur(5px); }
   #score-info.active { display: flex; gap: 12px; }
   #score-info .ct { color: #4aa3ff; font-weight: 700; }
   #score-info .t { color: #ffaa00; font-weight: 700; }
@@ -277,12 +437,14 @@
     background: rgba(15,15,25,0.92);
     border: 1px solid rgba(240,165,0,0.3);
     border-top: 3px solid #f0a500;
-    border-radius: 4px; padding: 10px;
+    border-radius: 6px; padding: 12px;
     display: none; font-size: 12px; pointer-events: auto;
+    backdrop-filter: blur(10px);
   }
   #friends-panel.active { display: block; }
   #friends-panel h3 { color: #f0a500; font-size: 11px; letter-spacing: 3px; margin-bottom: 8px; padding-bottom: 6px; border-bottom: 1px solid rgba(240,165,0,0.2); }
 
+  /* Магазин */
   #shop {
     position: fixed; inset: 0; z-index: 30;
     display: none; align-items: center; justify-content: center;
@@ -294,50 +456,51 @@
     width: min(1000px, 96vw); max-height: 92vh;
     background: linear-gradient(180deg, rgba(20,20,35,0.98), rgba(10,10,20,0.98));
     border: 2px solid rgba(240,165,0,0.4); border-top: 4px solid #f0a500;
-    border-radius: 6px; padding: 16px;
+    border-radius: 10px; padding: 20px;
     box-shadow: 0 30px 80px rgba(0,0,0,0.8);
     overflow-y: auto;
   }
   #shop .shop-header {
     display: flex; justify-content: space-between; align-items: center;
-    margin-bottom: 14px; padding-bottom: 10px;
+    margin-bottom: 16px; padding-bottom: 12px;
     border-bottom: 1px solid rgba(240,165,0,0.2);
   }
-  #shop h2 { color: #f0a500; font-size: 18px; letter-spacing: 4px; font-weight: 800; }
+  #shop h2 { color: #f0a500; font-size: 20px; letter-spacing: 5px; font-weight: 800; }
   #shop .close-hint { color: #888; font-size: 10px; letter-spacing: 2px; }
   #shop .close-hint b { color: #f0a500; }
 
-  #shop .weapons-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 10px; }
+  #shop .weapons-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 12px; }
   .weapon-card {
     background: linear-gradient(180deg, rgba(30,30,45,0.9), rgba(15,15,25,0.9));
-    border: 2px solid rgba(240,165,0,0.15); border-radius: 5px;
-    padding: 10px; cursor: pointer; transition: all 0.2s; position: relative;
+    border: 2px solid rgba(240,165,0,0.15); border-radius: 6px;
+    padding: 12px; cursor: pointer; transition: all 0.25s; position: relative;
   }
-  .weapon-card:hover, .weapon-card:active { border-color: #f0a500; transform: translateY(-2px); }
+  .weapon-card:hover, .weapon-card:active { border-color: #f0a500; transform: translateY(-3px); box-shadow: 0 8px 25px rgba(240,165,0,0.3); }
   .weapon-card.owned { border-color: rgba(0,255,0,0.3); }
   .weapon-card.equipped { border-color: #f0a500; background: linear-gradient(180deg, rgba(240,165,0,0.15), rgba(240,165,0,0.05)); }
   .weapon-card.locked { opacity: 0.5; }
-  .weapon-card .wc-icon { font-size: 24px; text-align: center; margin-bottom: 4px; }
-  .weapon-card .wc-name { font-size: 13px; font-weight: 800; letter-spacing: 1px; color: #f0a500; text-align: center; margin-bottom: 2px; }
+  .weapon-card .wc-icon { font-size: 26px; text-align: center; margin-bottom: 4px; }
+  .weapon-card .wc-name { font-size: 14px; font-weight: 800; letter-spacing: 1px; color: #f0a500; text-align: center; margin-bottom: 2px; }
   .weapon-card .wc-type { font-size: 9px; color: #888; letter-spacing: 2px; text-align: center; margin-bottom: 6px; text-transform: uppercase; }
   .weapon-card .wc-stats { font-size: 10px; color: #ccc; margin-bottom: 8px; display: flex; flex-direction: column; gap: 2px; }
   .weapon-card .wc-stats span { display: flex; justify-content: space-between; }
   .weapon-card .wc-stats b { color: #f0a500; }
-  .weapon-card .wc-price { text-align: center; font-size: 12px; font-weight: 800; padding: 6px; border-radius: 3px; background: rgba(0,0,0,0.4); color: #0f0; }
+  .weapon-card .wc-price { text-align: center; font-size: 12px; font-weight: 800; padding: 6px; border-radius: 4px; background: rgba(0,0,0,0.4); color: #0f0; }
   .weapon-card.locked .wc-price { color: #f55; }
   .weapon-card.equipped .wc-price { background: #f0a500; color: #000; }
-  .weapon-card .wc-badge { position: absolute; top: 5px; right: 5px; background: #0f0; color: #000; padding: 2px 6px; font-size: 8px; font-weight: 800; border-radius: 2px; }
+  .weapon-card .wc-badge { position: absolute; top: 5px; right: 5px; background: #0f0; color: #000; padding: 2px 6px; font-size: 8px; font-weight: 800; border-radius: 3px; }
   .weapon-card.equipped .wc-badge { background: #f0a500; }
-  #shop .money-bar { display: flex; justify-content: space-between; align-items: center; margin-top: 14px; padding-top: 10px; border-top: 1px solid rgba(240,165,0,0.2); }
-  #shop .money-amount { font-size: 20px; font-weight: 900; color: #0f0; }
+  #shop .money-bar { display: flex; justify-content: space-between; align-items: center; margin-top: 16px; padding-top: 12px; border-top: 1px solid rgba(240,165,0,0.2); }
+  #shop .money-amount { font-size: 22px; font-weight: 900; color: #0f0; }
   #shop .money-label { font-size: 10px; color: #888; letter-spacing: 2px; margin-bottom: 2px; }
 
   #click-hint {
     position: fixed; top: 50%; left: 50%; transform: translate(-50%,-50%);
     background: rgba(0,0,0,0.85); border: 2px solid #f0a500;
     padding: 16px 30px; color: #f0a500; font-size: 15px; letter-spacing: 3px;
-    text-align: center; z-index: 20; border-radius: 4px; display: none;
+    text-align: center; z-index: 20; border-radius: 8px; display: none;
     pointer-events: none;
+    backdrop-filter: blur(10px);
   }
   #click-hint.active { display: block; animation: pulse 1.5s infinite; }
   @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.6; } }
@@ -347,7 +510,7 @@
     position: fixed; top: 60px; left: 50%; transform: translateX(-50%);
     background: rgba(15,15,25,0.95);
     border: 2px solid #0f0; border-left: 4px solid #0f0;
-    padding: 12px 16px; border-radius: 4px;
+    padding: 12px 16px; border-radius: 6px;
     color: #fff; font-size: 12px;
     z-index: 50; box-shadow: 0 8px 30px rgba(0,255,0,0.3);
     display: none; min-width: 280px; max-width: 90vw;
@@ -357,8 +520,8 @@
   #invite-popup .inv-text b { color: #0f0; }
   #invite-popup .inv-buttons { display: flex; gap: 6px; }
   #invite-popup button {
-    flex: 1; padding: 6px 10px; font-size: 10px; letter-spacing: 2px;
-    cursor: pointer; border-radius: 3px; font-weight: 700;
+    flex: 1; padding: 7px 10px; font-size: 10px; letter-spacing: 2px;
+    cursor: pointer; border-radius: 4px; font-weight: 700;
     font-family: inherit; text-transform: uppercase;
   }
   #invite-popup .inv-accept { background: rgba(0,255,0,0.15); border: 1px solid #0f0; color: #0f0; }
@@ -377,53 +540,38 @@
   @keyframes spin { to { transform: rotate(360deg); } }
   #loading p { margin-top: 16px; color: #f0a500; letter-spacing: 5px; font-size: 11px; }
 
-  /* ============================================================ */
-  /* ==================== МОБИЛЬНОЕ УПРАВЛЕНИЕ ================== */
-  /* ============================================================ */
-  #mobile-controls {
-    position: fixed; inset: 0; z-index: 12;
-    display: none; pointer-events: none;
-  }
+  /* Мобильное управление */
+  #mobile-controls { position: fixed; inset: 0; z-index: 12; display: none; pointer-events: none; }
   #mobile-controls.active { display: block; }
-
-  /* Джойстик слева */
   #joystick-zone {
     position: absolute; bottom: 20px; left: 20px;
     width: 150px; height: 150px;
     pointer-events: auto; touch-action: none;
   }
   #joystick-base {
-    position: absolute; inset: 0;
-    border-radius: 50%;
+    position: absolute; inset: 0; border-radius: 50%;
     background: radial-gradient(circle, rgba(240,165,0,0.08) 0%, rgba(240,165,0,0.15) 70%, transparent 100%);
     border: 2px solid rgba(240,165,0,0.4);
     box-shadow: 0 0 25px rgba(240,165,0,0.2), inset 0 0 20px rgba(240,165,0,0.1);
   }
   #joystick-stick {
     position: absolute; top: 50%; left: 50%;
-    width: 60px; height: 60px;
-    margin-left: -30px; margin-top: -30px;
+    width: 60px; height: 60px; margin-left: -30px; margin-top: -30px;
     border-radius: 50%;
     background: radial-gradient(circle, #f0a500 0%, #c07800 100%);
     box-shadow: 0 0 20px rgba(240,165,0,0.7);
     transition: transform 0.05s;
   }
-
-  /* Кнопки справа */
   .mob-btn {
-    position: absolute;
-    width: 60px; height: 60px;
-    border-radius: 50%;
+    position: absolute; width: 60px; height: 60px; border-radius: 50%;
     background: radial-gradient(circle, rgba(240,165,0,0.25) 0%, rgba(240,165,0,0.1) 100%);
     border: 2px solid rgba(240,165,0,0.5);
     color: #f0a500; font-size: 11px; font-weight: 800;
     display: flex; align-items: center; justify-content: center;
-    pointer-events: auto; touch-action: none;
-    cursor: pointer;
+    pointer-events: auto; touch-action: none; cursor: pointer;
     user-select: none; -webkit-user-select: none;
     box-shadow: 0 0 15px rgba(240,165,0,0.2);
-    transition: all 0.1s;
-    text-shadow: 0 0 4px #000;
+    transition: all 0.1s; text-shadow: 0 0 4px #000;
   }
   .mob-btn:active, .mob-btn.pressed {
     background: radial-gradient(circle, #f0a500 0%, #c07800 100%);
@@ -436,27 +584,10 @@
   #btn-shop { bottom: 100px; right: 110px; width: 52px; height: 52px; font-size: 10px; }
   #btn-crouch { bottom: 100px; right: 175px; width: 52px; height: 52px; font-size: 10px; }
   #btn-friends { top: 60px; right: 20px; width: 46px; height: 46px; font-size: 16px; }
-
-  /* Свайп-зона для обзора (правая половина) */
   #look-zone {
-    position: absolute; top: 0; right: 0;
-    width: 60%; height: 100%;
+    position: absolute; top: 0; right: 0; width: 60%; height: 100%;
     pointer-events: auto; touch-action: none;
   }
-
-  /* Индикатор прицеливания (кнопка для авто-стрельбы) */
-  #btn-fire.disabled { opacity: 0.4; }
-
-  /* Подсказка для мобильных */
-  #mobile-hint {
-    position: fixed; top: 100px; left: 50%; transform: translateX(-50%);
-    background: rgba(0,0,0,0.8); border: 1px solid #f0a500;
-    padding: 8px 16px; border-radius: 4px;
-    color: #f0a500; font-size: 11px; letter-spacing: 2px;
-    z-index: 25; pointer-events: none;
-    animation: fadeOut 3s 1s forwards;
-  }
-  @keyframes fadeOut { to { opacity: 0; visibility: hidden; } }
 
   @media (max-width: 700px) {
     #shop .weapons-grid { grid-template-columns: repeat(2, 1fr); }
@@ -468,20 +599,27 @@
 </head>
 <body>
 
-<!-- ГЛАВНОЕ МЕНЮ -->
+<!-- ============================================================ -->
+<!-- ==================== ГЛАВНОЕ МЕНЮ =========================== -->
+<!-- ============================================================ -->
 <div id="menu" class="overlay">
-  <div class="logo">Standoff</div>
+  <div class="menu-bg"></div>
+  <div class="logo-wrap">
+    <div class="logo">Standoff<span class="logo-num">3</span></div>
+  </div>
   <div class="tagline">Web 3D Shooter</div>
   <input class="name-input" id="name-input" maxlength="16" placeholder="ВВЕДИ НИК" value="">
-  <button class="btn" data-action="solo">▶ Одиночная игра</button>
-  <button class="btn" data-action="mp">🌐 Мультиплеер</button>
-  <button class="btn" data-action="friends">👥 Мои друзья</button>
-  <button class="btn" data-action="settings">⚙ Настройки</button>
-  <button class="btn" data-action="controls">⌨ Управление</button>
+  <button class="btn-menu" data-action="solo"><span class="icon">🎮</span><span class="label">Одиночная игра</span></button>
+  <button class="btn-menu" data-action="mp"><span class="icon">🌐</span><span class="label">Мультиплеер</span></button>
+  <button class="btn-menu" data-action="friends"><span class="icon">👥</span><span class="label">Мои друзья</span></button>
+  <button class="btn-menu" data-action="settings"><span class="icon">⚙</span><span class="label">Настройки</span></button>
+  <button class="btn-menu" data-action="controls"><span class="icon">⌨</span><span class="label">Управление</span></button>
+  <div class="version">v1.0 <span>●</span> Web Edition</div>
 </div>
 
 <!-- ВЫБОР РЕЖИМА -->
 <div id="mode-select" class="overlay hidden">
+  <div class="menu-bg"></div>
   <div class="screen-title">Режим игры</div>
   <div class="mode-grid">
     <div class="mode-card selected" data-mode="solo">
@@ -500,12 +638,13 @@
       <div class="mc-desc">CT vs T</div>
     </div>
   </div>
-  <button class="btn" data-action="mode-next">▶ ДАЛЕЕ</button>
+  <button class="btn center" data-action="mode-next" style="width: min(340px, 85vw)">▶ ДАЛЕЕ</button>
   <button class="btn small" data-action="mode-back">← НАЗАД</button>
 </div>
 
 <!-- ВЫБОР КАРТЫ -->
 <div id="map-select" class="overlay hidden">
+  <div class="menu-bg"></div>
   <div class="screen-title">Карта</div>
   <div class="map-grid">
     <div class="map-card selected" data-map="dust">
@@ -517,12 +656,13 @@
       <div class="label">STANDOFF_TRAIN</div>
     </div>
   </div>
-  <button class="btn" data-action="map-start">▶ НАЧАТЬ БОЙ</button>
+  <button class="btn center" data-action="map-start" style="width: min(340px, 85vw)">▶ НАЧАТЬ БОЙ</button>
   <button class="btn small" data-action="map-back">← НАЗАД</button>
 </div>
 
 <!-- ВЫБОР КОМАНДЫ -->
 <div id="team-select" class="overlay hidden">
+  <div class="menu-bg"></div>
   <div class="screen-title">Команда</div>
   <div class="mode-grid">
     <div class="mode-card selected" data-team="ct">
@@ -536,18 +676,19 @@
       <div class="mc-desc">Террористы</div>
     </div>
   </div>
-  <button class="btn" data-action="team-start">▶ В БОЙ</button>
+  <button class="btn center" data-action="team-start" style="width: min(340px, 85vw)">▶ В БОЙ</button>
   <button class="btn small" data-action="team-back">← НАЗАД</button>
 </div>
 
 <!-- ЛОББИ -->
 <div id="lobby" class="overlay hidden">
+  <div class="menu-bg"></div>
   <div class="screen-title">Мультиплеер</div>
   <div class="lobby-box" id="lobby-main">
-    <button class="btn" style="width:100%" data-action="create-room">СОЗДАТЬ ИГРУ</button>
+    <button class="btn center" style="width:100%" data-action="create-room">СОЗДАТЬ ИГРУ</button>
     <div class="hint">— или —</div>
     <input class="code-input" id="join-code" placeholder="ВВЕДИ КОД" maxlength="6">
-    <button class="btn" style="width:100%" data-action="join-room">ПОДКЛЮЧИТЬСЯ</button>
+    <button class="btn center" style="width:100%" data-action="join-room">ПОДКЛЮЧИТЬСЯ</button>
     <div class="status" id="mp-status"></div>
   </div>
   <div class="lobby-box" id="lobby-room" style="display:none">
@@ -556,13 +697,14 @@
     <div class="hint">👆 тап чтобы скопировать</div>
     <div class="players-list" id="players-list"><h3>ИГРОКИ</h3></div>
     <div class="status" id="room-status">Ожидание...</div>
-    <button class="btn" style="width:100%; margin-top:10px; display:none" id="btn-host-start" data-action="host-start">▶ НАЧАТЬ БОЙ</button>
+    <button class="btn center" style="width:100%; margin-top:10px; display:none" id="btn-host-start" data-action="host-start">▶ НАЧАТЬ БОЙ</button>
   </div>
   <button class="btn small" data-action="lobby-back">← НАЗАД</button>
 </div>
 
 <!-- ДРУЗЬЯ -->
 <div id="friends" class="overlay hidden">
+  <div class="menu-bg"></div>
   <div class="screen-title">Мои друзья</div>
   <div class="lobby-box" style="min-width: min(520px, 92vw)">
     <div class="hint">Друзья сохраняются локально</div>
@@ -573,15 +715,17 @@
 
 <!-- НАСТРОЙКИ -->
 <div id="settings" class="overlay hidden">
+  <div class="menu-bg"></div>
   <div class="screen-title">Настройки</div>
   <div class="row"><label>Чувствительность</label><input type="range" id="sens" min="1" max="20" value="8"><span class="val" id="sens-val">8</span></div>
   <div class="row"><label>Громкость</label><input type="range" id="vol" min="0" max="100" value="50"><span class="val" id="vol-val">50</span></div>
   <div class="row"><label>Качество</label><input type="range" id="quality" min="0" max="2" value="1"><span class="val" id="quality-val">Среднее</span></div>
-  <button class="btn" data-action="settings-back">← НАЗАД</button>
+  <button class="btn small" data-action="settings-back" style="margin-top:16px">← НАЗАД</button>
 </div>
 
 <!-- УПРАВЛЕНИЕ -->
 <div id="controls" class="overlay hidden">
+  <div class="menu-bg"></div>
   <div class="screen-title">Управление</div>
   <div style="font-size:13px; line-height:2; letter-spacing:1px; text-align:left; max-width: 90vw;">
     <div style="color:#f0a500; font-weight:700; margin-bottom:8px;">🖥 НА ПК:</div>
@@ -596,9 +740,8 @@
     <div><b style="color:#f0a500; display:inline-block; width:100px">ДЖОЙСТИК</b> слева — движение</div>
     <div><b style="color:#f0a500; display:inline-block; width:100px">СВАЙП</b> справа — обзор</div>
     <div><b style="color:#f0a500; display:inline-block; width:100px">🔥</b> кнопка справа — огонь</div>
-    <div><b style="color:#f0a500; display:inline-block; width:100px">⚡ ↻ ⬆</b> — прыжок/перезарядка/магазин</div>
   </div>
-  <button class="btn" data-action="controls-back" style="margin-top:16px">← НАЗАД</button>
+  <button class="btn small" data-action="controls-back" style="margin-top:16px">← НАЗАД</button>
 </div>
 
 <!-- ДРУЗЬЯ В ИГРЕ -->
@@ -681,17 +824,19 @@
 
 <!-- ПАУЗА -->
 <div id="pause" class="overlay hidden">
+  <div class="menu-bg"></div>
   <div class="screen-title">Пауза</div>
-  <button class="btn" data-action="resume">▶ Продолжить</button>
-  <button class="btn" data-action="to-menu">← В меню</button>
+  <button class="btn center" data-action="resume" style="width: min(340px, 85vw)">▶ ПРОДОЛЖИТЬ</button>
+  <button class="btn center" data-action="to-menu" style="width: min(340px, 85vw)">← В МЕНЮ</button>
 </div>
 
 <!-- GAME OVER -->
 <div id="gameover" class="overlay hidden">
+  <div class="menu-bg"></div>
   <div class="screen-title" style="color:#ff3333">Игра окончена</div>
   <p id="go-stats" style="color:#aaa; font-size:14px; letter-spacing:2px; margin-bottom:20px; text-align:center;"></p>
-  <button class="btn" data-action="retry">↻ Заново</button>
-  <button class="btn" data-action="to-menu2">← В меню</button>
+  <button class="btn center" data-action="retry" style="width: min(340px, 85vw)">↻ ЗАНОВО</button>
+  <button class="btn center" data-action="to-menu2" style="width: min(340px, 85vw)">← В МЕНЮ</button>
 </div>
 
 <div id="loading"><div class="spinner"></div><p>ЗАГРУЗКА...</p></div>
@@ -700,16 +845,12 @@
 <script src="https://unpkg.com/peerjs@1.5.2/dist/peerjs.min.js"></script>
 <script>
 // ============================================================
-// STANDOFF3 — Universal (PC + Mobile)
+// STANDOFF3 — Universal (PC + Mobile) — Fixed Shooting
 // ============================================================
 
-// Определение устройства
 const IS_TOUCH = ('ontouchstart' in window) || navigator.maxTouchPoints > 0;
 const IS_MOBILE = IS_TOUCH && /Android|iPhone|iPad|iPod|Mobile/i.test(navigator.userAgent);
-console.log('%c🎯 STANDOFF3', 'color:#f0a500;font-size:20px;font-weight:900');
-console.log('Устройство:', IS_MOBILE ? '📱 Мобильное' : IS_TOUCH ? '💻 Тач' : '🖥 ПК');
 
-// Константы
 const MAP_SIZE = 40;
 const PLAYER_HEIGHT = 1.7;
 const GRAVITY = 25;
@@ -720,7 +861,6 @@ const FRICTION = 12;
 const MAX_DEPTH = 100;
 const SCORE_TO_WIN = 10;
 
-// Настройки (по умолчанию для мобильных — низкое качество)
 const settings = {
   sensitivity: IS_MOBILE ? 12 : 8,
   volume: 50,
@@ -805,6 +945,21 @@ let currentWeaponKey = 'pistol';
 let weaponAmmo = { pistol: { ammo: 13, reserve: 52 } };
 let friends = [];
 let pendingInvite = null;
+let peerServerIndex = 0;
+let peerRetryCount = 0;
+
+const PEER_SERVERS = [
+  { host: '0.peerjs.com', port: 443, path: '/', secure: true },
+  { host: '1.peerjs.com', port: 443, path: '/', secure: true },
+  { host: 'peerjs-server.herokuapp.com', port: 443, path: '/', secure: true }
+];
+
+const ICE_SERVERS = [
+  { urls: 'stun:stun.l.google.com:19302' },
+  { urls: 'stun:stun1.l.google.com:19302' },
+  { urls: 'stun:stun2.l.google.com:19302' },
+  { urls: 'stun:global.stun.twilio.com:3478' }
+];
 
 const player = {
   pos: new THREE.Vector3(0, PLAYER_HEIGHT, 0),
@@ -822,7 +977,6 @@ try { friends = JSON.parse(localStorage.getItem('standoff3_friends') || '[]'); }
 // ============================================================
 const input = { forward: false, back: false, left: false, right: false, jump: false, sprint: false, crouch: false };
 
-// Touch state
 const touchInput = {
   moveX: 0, moveY: 0,
   lookActive: false,
@@ -831,9 +985,6 @@ const touchInput = {
   fireActive: false
 };
 
-// ============================================================
-// КЛАВИАТУРА
-// ============================================================
 window.addEventListener('keydown', e => {
   if (e.code === 'KeyB' && gameState === 'playing' && !shopOpen) { e.preventDefault(); openShop(); return; }
   if (e.code === 'Tab' && gameState === 'playing') { e.preventDefault(); toggleFriendsPanel(); return; }
@@ -875,7 +1026,6 @@ window.addEventListener('keyup', e => {
 });
 window.addEventListener('blur', () => { for (const k in input) input[k] = false; mouseDown = false; });
 
-// Мышь (ПК)
 document.addEventListener('mousemove', e => {
   if (IS_MOBILE) return;
   if (!pointerLocked || gameState !== 'playing' || shopOpen) return;
@@ -899,9 +1049,6 @@ document.addEventListener('mousedown', e => {
 document.addEventListener('mouseup', () => { if (!IS_MOBILE) mouseDown = false; });
 document.addEventListener('contextmenu', e => e.preventDefault());
 
-// ============================================================
-// POINTER LOCK (ПК)
-// ============================================================
 function requestLock() {
   if (IS_MOBILE) return;
   if (renderer && renderer.domElement) {
@@ -917,23 +1064,21 @@ document.addEventListener('pointerlockchange', () => {
 });
 
 // ============================================================
-// ТАЧ-УПРАВЛЕНИЕ (МОБИЛЬНЫЕ)
+// МОБИЛЬНОЕ УПРАВЛЕНИЕ
 // ============================================================
 function setupMobileControls() {
   if (!IS_MOBILE) return;
   $('mobile-controls').classList.add('active');
   $('shop-close-hint').innerHTML = 'Закрыть: <b>🛒</b>';
 
-  // ============ ДЖОЙСТИК ============
   const joyZone = $('joystick-zone');
   const joyStick = $('joystick-stick');
-  let joyActive = false, joyId = null, joyBaseX = 0, joyBaseY = 0;
+  let joyId = null, joyBaseX = 0, joyBaseY = 0;
 
   joyZone.addEventListener('touchstart', e => {
     e.preventDefault();
     const t = e.changedTouches[0];
     joyId = t.identifier;
-    joyActive = true;
     const rect = joyZone.getBoundingClientRect();
     joyBaseX = rect.left + rect.width / 2;
     joyBaseY = rect.top + rect.height / 2;
@@ -950,7 +1095,7 @@ function setupMobileControls() {
   joyZone.addEventListener('touchend', e => {
     for (const t of e.changedTouches) {
       if (t.identifier === joyId) {
-        joyActive = false; joyId = null;
+        joyId = null;
         touchInput.moveX = 0; touchInput.moveY = 0;
         joyStick.style.transform = 'translate(0,0)';
       }
@@ -968,7 +1113,6 @@ function setupMobileControls() {
     touchInput.moveY = dy / maxDist;
   }
 
-  // ============ СВАЙП ОБЗОРА ============
   const lookZone = $('look-zone');
   let lookId = null, lookLastX = 0, lookLastY = 0;
 
@@ -979,7 +1123,6 @@ function setupMobileControls() {
     lookId = t.identifier;
     lookLastX = t.clientX;
     lookLastY = t.clientY;
-    touchInput.lookActive = true;
   }, { passive: false });
 
   lookZone.addEventListener('touchmove', e => {
@@ -1000,11 +1143,10 @@ function setupMobileControls() {
 
   lookZone.addEventListener('touchend', e => {
     for (const t of e.changedTouches) {
-      if (t.identifier === lookId) { lookId = null; touchInput.lookActive = false; }
+      if (t.identifier === lookId) { lookId = null; }
     }
   });
 
-  // ============ КНОПКИ ============
   function bindBtn(id, onPress, onRelease) {
     const el = $(id);
     el.addEventListener('touchstart', e => {
@@ -1023,109 +1165,71 @@ function setupMobileControls() {
     });
   }
 
-  bindBtn('btn-fire',
-    () => { touchInput.fireActive = true; shoot(); },
-    () => { touchInput.fireActive = false; }
-  );
-
-  bindBtn('btn-jump',
-    () => { input.jump = true; setTimeout(() => input.jump = false, 150); },
-    null
-  );
-
+  bindBtn('btn-fire', () => { touchInput.fireActive = true; shoot(); }, () => { touchInput.fireActive = false; });
+  bindBtn('btn-jump', () => { input.jump = true; setTimeout(() => input.jump = false, 150); }, null);
   bindBtn('btn-reload', () => reload(), null);
-
-  bindBtn('btn-shop',
-    () => { if (!shopOpen) openShop(); else closeShop(); },
-    null
-  );
-
-  bindBtn('btn-crouch',
-    () => { input.crouch = true; },
-    () => { input.crouch = false; }
-  );
-
+  bindBtn('btn-shop', () => { if (!shopOpen) openShop(); else closeShop(); }, null);
+  bindBtn('btn-crouch', () => { input.crouch = true; }, () => { input.crouch = false; });
   bindBtn('btn-friends', () => toggleFriendsPanel(), null);
 
-  // Кнопка закрытия магазина
   $('shop-close-btn').addEventListener('click', () => closeShop());
   $('shop-close-btn').addEventListener('touchend', e => { e.preventDefault(); closeShop(); });
-
-  console.log('📱 Мобильное управление настроено');
 }
 
 // ============================================================
-// ДЕЛЕГИРОВАНИЕ КЛИКОВ
+// ДЕЙСТВИЯ КНОПОК
 // ============================================================
 const actions = {
-  'solo': () => {
-    playerName = ($('name-input').value.trim() || 'Player').slice(0, 16);
-    initAudio();
-    hide($('menu')); show($('mode-select'));
-  },
-  'mp': () => {
-    playerName = ($('name-input').value.trim() || 'Player').slice(0, 16);
-    initAudio();
-    hide($('menu')); show($('lobby'));
-    $('lobby-main').style.display = 'block';
-    $('lobby-room').style.display = 'none';
-  },
-  'friends': () => {
-    playerName = ($('name-input').value.trim() || 'Player').slice(0, 16);
-    renderFriends();
-    hide($('menu')); show($('friends'));
-  },
+  'solo': () => { playerName = ($('name-input').value.trim() || 'Player').slice(0, 16); initAudio(); hide($('menu')); show($('mode-select')); },
+  'mp': () => { playerName = ($('name-input').value.trim() || 'Player').slice(0, 16); initAudio(); hide($('menu')); show($('lobby')); $('lobby-main').style.display = 'block'; $('lobby-room').style.display = 'none'; },
+  'friends': () => { playerName = ($('name-input').value.trim() || 'Player').slice(0, 16); renderFriends(); hide($('menu')); show($('friends')); },
   'settings': () => { hide($('menu')); show($('settings')); },
   'controls': () => { hide($('menu')); show($('controls')); },
   'settings-back': () => { hide($('settings')); show($('menu')); },
   'controls-back': () => { hide($('controls')); show($('menu')); },
   'friends-back': () => { hide($('friends')); show($('menu')); },
-
   'mode-next': () => { hide($('mode-select')); show($('map-select')); },
   'mode-back': () => { hide($('mode-select')); show($('menu')); },
   'map-back': () => { hide($('map-select')); show($('mode-select')); },
   'team-back': () => { hide($('team-select')); show($('map-select')); },
-  'map-start': () => {
-    hide($('map-select'));
-    if (selectedMode === 'team') { show($('team-select')); }
-    else { startGame(); }
-  },
+  'map-start': () => { hide($('map-select')); if (selectedMode === 'team') { show($('team-select')); } else { startGame(); } },
   'team-start': () => { hide($('team-select')); startGame(); },
-
   'create-room': () => {
+    if (peerRetryCount > 5) { $('mp-status').textContent = '❌ Не удаётся подключиться'; $('mp-status').style.color = '#f55'; return; }
+    $('mp-status').textContent = '⏳ Подключение...'; $('mp-status').style.color = '#f0a500';
     const code = generateRoomCode();
     isHost = true;
-    initPeer('s3-' + code, () => {
+    createPeerWithFallback('s3-' + code, () => {
       $('lobby-main').style.display = 'none';
       $('lobby-room').style.display = 'block';
       $('room-code-display').textContent = code;
       $('btn-host-start').style.display = 'block';
+      $('room-status').textContent = 'Ожидание игроков...';
       updatePlayersList();
+      peerRetryCount = 0;
     });
   },
   'join-room': () => {
     const code = $('join-code').value.trim().toUpperCase();
-    if (code.length !== 6) return;
+    if (code.length !== 6) { $('mp-status').textContent = '❌ Код должен быть 6 символов'; $('mp-status').style.color = '#f55'; return; }
+    if (peerRetryCount > 5) { $('mp-status').textContent = '❌ Не удаётся подключиться'; $('mp-status').style.color = '#f55'; return; }
     isHost = false;
+    $('mp-status').textContent = '⏳ Подключение...'; $('mp-status').style.color = '#f0a500';
     const myId = 's3-c-' + Math.random().toString(36).slice(2, 10);
-    initPeer(myId, () => {
-      const conn = peer.connect('s3-' + code, { metadata: { name: playerName } });
+    createPeerWithFallback(myId, () => {
+      const conn = peer.connect('s3-' + code, { metadata: { name: playerName }, reliable: true });
       setupConnection(conn);
       $('lobby-main').style.display = 'none';
       $('lobby-room').style.display = 'block';
       $('room-code-display').textContent = code;
       $('btn-host-start').style.display = 'none';
+      $('room-status').textContent = 'Подключение...';
       updatePlayersList();
+      peerRetryCount = 0;
     });
   },
-  'host-start': () => {
-    broadcast({ type: 'start-game', map: selectedMap });
-    isMultiplayer = true;
-    hide($('lobby'));
-    startGame();
-  },
+  'host-start': () => { broadcast({ type: 'start-game', map: selectedMap }); isMultiplayer = true; hide($('lobby')); startGame(); },
   'lobby-back': () => { cleanupNetwork(); hide($('lobby')); show($('menu')); },
-
   'resume': () => resumeGame(),
   'to-menu': () => { cleanupNetwork(); backToMenu(); },
   'to-menu2': () => { cleanupNetwork(); backToMenu(); },
@@ -1146,10 +1250,7 @@ document.addEventListener('touchend', e => {
   const btn = e.target.closest('[data-action]');
   if (!btn) return;
   const action = btn.dataset.action;
-  if (actions[action]) {
-    e.preventDefault();
-    try { actions[action](); } catch(err) { console.error('Action error:', action, err); }
-  }
+  if (actions[action]) { e.preventDefault(); try { actions[action](); } catch(err) {} }
 }, { passive: false });
 
 document.addEventListener('click', e => {
@@ -1199,20 +1300,11 @@ document.addEventListener('click', e => {
     updatePlayersList();
   }
   const removeBtn = e.target.closest('.fremove');
-  if (removeBtn && removeBtn.dataset.name) {
-    removeFriend(removeBtn.dataset.name);
-    renderFriends();
-    renderFriendsPanel();
-  }
+  if (removeBtn && removeBtn.dataset.name) { removeFriend(removeBtn.dataset.name); renderFriends(); renderFriendsPanel(); }
   const inviteBtn = e.target.closest('.finvite');
-  if (inviteBtn && inviteBtn.dataset.name) {
-    inviteToGame(inviteBtn.dataset.name);
-  }
+  if (inviteBtn && inviteBtn.dataset.name) { inviteToGame(inviteBtn.dataset.name); }
 });
 
-// ============================================================
-// СЛАЙДЕРЫ
-// ============================================================
 $('sens').addEventListener('input', e => { settings.sensitivity = +e.target.value; $('sens-val').textContent = e.target.value; });
 $('vol').addEventListener('input', e => { settings.volume = +e.target.value; $('vol-val').textContent = e.target.value; });
 $('quality').addEventListener('input', e => {
@@ -1262,14 +1354,14 @@ function renderShop() {
       </div>
       <div class="wc-price">${owned ? (equipped ? 'В РУКАХ' : 'ВЗЯТЬ') : '$' + w.price}</div>
     `;
-    const clickHandler = (ev) => {
+    const handler = (ev) => {
       ev.preventDefault();
       if (owned) equipWeapon(key);
       else if (canAfford) buyWeapon(key);
       else { sfxDeny(); card.style.animation = 'none'; void card.offsetHeight; card.style.animation = 'shake 0.3s'; }
     };
-    card.addEventListener('click', clickHandler);
-    card.addEventListener('touchend', clickHandler, { passive: false });
+    card.addEventListener('click', handler);
+    card.addEventListener('touchend', handler, { passive: false });
     grid.appendChild(card);
   }
   $('money-display').textContent = '$' + money;
@@ -1333,42 +1425,24 @@ function renderFriends() {
   if (friends.length === 0) {
     html += '<div style="color:#666; padding:15px; text-align:center; font-size:12px; letter-spacing:2px;">Пока нет друзей.</div>';
   } else {
-    for (const f of friends) {
-      html += `<div class="friend-item">
-        <span class="fname">👤 ${f.name}</span>
-        <span class="fremove" data-name="${f.name}">✕</span>
-      </div>`;
-    }
+    for (const f of friends) html += `<div class="friend-item"><span class="fname">👤 ${f.name}</span><span class="fremove" data-name="${f.name}">✕</span></div>`;
   }
   list.innerHTML = html;
 }
 function renderFriendsPanel() {
   const list = $('friends-panel-list');
   if (!list) return;
-  if (friends.length === 0) {
-    list.innerHTML = '<div style="color:#666; padding:10px; text-align:center; font-size:11px;">Нет друзей</div>';
-    return;
-  }
+  if (friends.length === 0) { list.innerHTML = '<div style="color:#666; padding:10px; text-align:center; font-size:11px;">Нет друзей</div>'; return; }
   let html = '';
   for (const f of friends) {
-    html += `<div class="friend-item">
-      <span class="fname">${f.name}</span>
-      <span style="display:flex; gap:4px;">
-        <span class="finvite" data-name="${f.name}">+</span>
-        <span class="fremove" data-name="${f.name}">✕</span>
-      </span>
-    </div>`;
+    html += `<div class="friend-item"><span class="fname">${f.name}</span><span style="display:flex; gap:4px;"><span class="finvite" data-name="${f.name}">+</span><span class="fremove" data-name="${f.name}">✕</span></span></div>`;
   }
   list.innerHTML = html;
 }
 function inviteToGame(name) {
   const conn = connections.find(c => remotePlayers[c.peer] && remotePlayers[c.peer].name === name);
-  if (conn) {
-    conn.send({ type: 'invite', from: playerName });
-    addKillfeed('ДРУЗЬЯ', '📨', `→ ${name}`, 'kill-self');
-  } else {
-    addKillfeed('ДРУЗЬЯ', '⚠', `${name} не в сети`, 'kill-self');
-  }
+  if (conn) { conn.send({ type: 'invite', from: playerName }); addKillfeed('ДРУЗЬЯ', '📨', `→ ${name}`, 'kill-self'); }
+  else addKillfeed('ДРУЗЬЯ', '⚠', `${name} не в сети`, 'kill-self');
 }
 function toggleFriendsPanel() {
   friendsPanelOpen = !friendsPanelOpen;
@@ -1404,17 +1478,54 @@ function generateRoomCode() {
   for (let i = 0; i < 6; i++) code += chars[Math.floor(Math.random() * chars.length)];
   return code;
 }
-function initPeer(peerId, onOpen) {
-  peer = new Peer(peerId, { debug: 0 });
-  peer.on('open', id => { myPeerId = id; onOpen(id); });
-  peer.on('error', err => {
-    const st = $('mp-status');
-    if (st) { st.textContent = '❌ Ошибка: ' + err.type; st.style.color = '#f55'; }
-  });
-  peer.on('connection', conn => {
-    if (!isHost) { try { conn.close(); } catch(e) {} return; }
-    setupConnection(conn);
-  });
+function createPeerWithFallback(peerId, onOpen) {
+  peerServerIndex = 0;
+  peerRetryCount = 0;
+  tryCreatePeer(peerId, onOpen);
+}
+function tryCreatePeer(peerId, onOpen) {
+  if (peerRetryCount >= 5) {
+    $('mp-status').textContent = '❌ Не удаётся подключиться к серверу.';
+    $('mp-status').style.color = '#f55';
+    return;
+  }
+  if (peer) { try { peer.destroy(); } catch(e) {} peer = null; }
+  const serverCfg = PEER_SERVERS[peerServerIndex % PEER_SERVERS.length];
+  try {
+    peer = new Peer(peerId, {
+      host: serverCfg.host, port: serverCfg.port, path: serverCfg.path, secure: serverCfg.secure,
+      config: { iceServers: ICE_SERVERS }, debug: 0
+    });
+    peer.on('open', id => {
+      myPeerId = id;
+      peerRetryCount = 0;
+      onOpen(id);
+    });
+    peer.on('error', err => {
+      if (err.type === 'network' || err.type === 'server-error' || err.type === 'socket-error') {
+        $('mp-status').textContent = `⏳ Сервер ${serverCfg.host} недоступен, пробуем другой...`;
+        $('mp-status').style.color = '#ffaa00';
+        peerRetryCount++;
+        peerServerIndex++;
+        setTimeout(() => tryCreatePeer(peerId, onOpen), 500);
+      } else if (err.type === 'unavailable-id') {
+        $('mp-status').textContent = '❌ Этот ID уже занят.';
+        $('mp-status').style.color = '#f55';
+      } else {
+        $('mp-status').textContent = '❌ Ошибка: ' + err.type;
+        $('mp-status').style.color = '#f55';
+      }
+    });
+    peer.on('disconnected', () => { try { peer.reconnect(); } catch(e) {} });
+    peer.on('connection', conn => {
+      if (!isHost) { try { conn.close(); } catch(e) {} return; }
+      setupConnection(conn);
+    });
+  } catch(err) {
+    peerRetryCount++;
+    peerServerIndex++;
+    setTimeout(() => tryCreatePeer(peerId, onOpen), 500);
+  }
 }
 function setupConnection(conn) {
   conn.on('open', () => {
@@ -1425,10 +1536,7 @@ function setupConnection(conn) {
   conn.on('data', data => handleNetworkData(data, conn));
   conn.on('close', () => {
     connections = connections.filter(c => c !== conn);
-    if (remotePlayers[conn.peer]) {
-      scene && scene.remove(remotePlayers[conn.peer].mesh);
-      delete remotePlayers[conn.peer];
-    }
+    if (remotePlayers[conn.peer]) { scene && scene.remove(remotePlayers[conn.peer].mesh); delete remotePlayers[conn.peer]; }
     updatePlayersList();
   });
 }
@@ -1440,9 +1548,7 @@ function handleNetworkData(data, conn) {
       updatePlayersList();
       addKillfeed(data.name, '→', 'вошёл', 'kill-self');
       break;
-    case 'state':
-      updateRemotePlayer(conn.peer, data);
-      break;
+    case 'state': updateRemotePlayer(conn.peer, data); break;
     case 'shoot':
       sfxShoot('rifle');
       if (data.target === myPeerId && data.damage) {
@@ -1459,9 +1565,7 @@ function handleNetworkData(data, conn) {
     case 'invite': addKillfeed(data.from, '📨', 'приглашает', 'kill-self'); break;
     case 'friend-request': showInvitePopup(data.name, conn.peer); break;
     case 'friend-accept': addFriend(data.name, conn.peer); break;
-    case 'start-game':
-      if (!isMultiplayer) { isMultiplayer = true; hide($('lobby')); startGame(); }
-      break;
+    case 'start-game': if (!isMultiplayer) { isMultiplayer = true; hide($('lobby')); startGame(); } break;
   }
 }
 function createRemotePlayer(peerId, name) {
@@ -1508,9 +1612,7 @@ function updateRemotePlayer(peerId, data) {
   rp.mesh.rotation.y = data.yaw;
   rp.lastUpdate = performance.now();
 }
-function broadcast(data) {
-  for (const c of connections) if (c.open) try { c.send(data); } catch(e) {}
-}
+function broadcast(data) { for (const c of connections) if (c.open) try { c.send(data); } catch(e) {} }
 function updatePlayersList() {
   const list = $('players-list');
   if (!list) return;
@@ -1519,13 +1621,7 @@ function updatePlayersList() {
   for (const id in remotePlayers) {
     const rp = remotePlayers[id];
     const isFr = isFriend(rp.name);
-    html += `<div class="player-row">
-      <span>👤 ${rp.name}</span>
-      ${!isFr ? `<button class="friend-btn" data-name="${rp.name}" data-peer="${id}">+ ДРУГ</button>` : `<span style="color:#0f0; font-size:10px;">✓ ДРУГ</span>`}
-    </div>`;
-  }
-  for (const c of connections) {
-    if (!remotePlayers[c.peer]) html += `<div class="player-row">⏳ подключение...</div>`;
+    html += `<div class="player-row"><span>👤 ${rp.name}</span>${!isFr ? `<button class="friend-btn" data-name="${rp.name}" data-peer="${id}">+ ДРУГ</button>` : `<span style="color:#0f0; font-size:10px;">✓ ДРУГ</span>`}</div>`;
   }
   list.innerHTML = html;
 }
@@ -1593,11 +1689,14 @@ function initScene(mapType) {
   scene.add(new THREE.HemisphereLight(cfg.hemi[0], cfg.hemi[1], cfg.hemi[2]));
   worldGroup = new THREE.Group();
   scene.add(worldGroup);
+
+  // ⚡ ВАЖНО: weaponGroup добавляем НА СЦЕНУ, не на камеру
+  // Это гарантирует что камера не сдвигается от оружия
   weaponGroup = createWeapon(currentWeaponKey);
-  camera.add(weaponGroup);
   weaponGroup.position.set(0.25, -0.22, -0.5);
   weaponGroup.rotation.y = -0.05;
-  scene.add(camera);
+  scene.add(weaponGroup);
+
   clock = new THREE.Clock();
   window.addEventListener('resize', () => {
     if (!camera) return;
@@ -1605,12 +1704,6 @@ function initScene(mapType) {
     camera.updateProjectionMatrix();
     renderer.setSize(innerWidth, innerHeight);
   });
-  window.addEventListener('orientationchange', () => setTimeout(() => {
-    if (!camera) return;
-    camera.aspect = innerWidth / innerHeight;
-    camera.updateProjectionMatrix();
-    renderer.setSize(innerWidth, innerHeight);
-  }, 200));
 }
 
 // ============================================================
@@ -1652,7 +1745,6 @@ function generateMap(mapType) {
     mesh.receiveShadow = settings.quality === 2;
     worldGroup.add(mesh);
     walls.push(new THREE.Box3().setFromObject(mesh));
-    return mesh;
   }
   addWall(0, 0, -half, MAP_SIZE, 7, 1);
   addWall(0, 0, half, MAP_SIZE, 7, 1);
@@ -1821,7 +1913,7 @@ function spawnTeamBot(team, x, z, name) {
 }
 
 // ============================================================
-// СТРЕЛЬБА ИГРОКА
+// ⚡ СТРЕЛЬБА — ИСПРАВЛЕНО (луч из центра экрана)
 // ============================================================
 function shoot() {
   const w = WEAPONS[currentWeaponKey];
@@ -1842,20 +1934,28 @@ function shoot() {
     weaponGroup.userData.flash.scale.setScalar(1 + Math.random() * 0.5);
   }
 
-  const dir = new THREE.Vector3();
-  camera.getWorldDirection(dir);
+  // ⚡ КЛЮЧЕВОЙ ФИКС: стреляем СТРОГО из центра экрана через setFromCamera({x:0, y:0})
+  // Это гарантирует, что луч летит точно туда, куда смотрит crosshair
+  raycaster.setFromCamera({ x: 0, y: 0 }, camera);
+  raycaster.far = MAX_DEPTH;
+
+  // Добавляем разброс (spread) через поворот направления
   const spread = (zoomed ? w.spread * 0.2 : w.spread) + player.recoil * 0.02;
+  const dir = raycaster.ray.direction.clone();
   dir.x += (Math.random() - 0.5) * spread;
   dir.y += (Math.random() - 0.5) * spread;
   dir.z += (Math.random() - 0.5) * spread;
   dir.normalize();
-  const origin = camera.position.clone();
 
+  const origin = raycaster.ray.origin.clone();
+  // Применяем новое направление к raycaster
   raycaster.set(origin, dir);
-  raycaster.far = MAX_DEPTH;
+
+  // Проверка стен
   const wallHits = raycaster.intersectObjects(worldGroup.children, true);
   const wallDist = wallHits.length > 0 ? wallHits[0].distance : MAX_DEPTH;
 
+  // Цели
   const targets = [];
   if (selectedMode === 'team') {
     if (playerTeam === 'ct') targets.push(...teamT);
@@ -1948,10 +2048,7 @@ function killUnit(e) {
       }
     }, 1500);
   } else if (e.isAlly) {
-    setTimeout(() => {
-      scene.remove(e.mesh);
-      const i = allies.indexOf(e); if (i >= 0) allies.splice(i, 1);
-    }, 1500);
+    setTimeout(() => { scene.remove(e.mesh); const i = allies.indexOf(e); if (i >= 0) allies.splice(i, 1); }, 1500);
   }
 }
 function respawnTeamBot(team) {
@@ -1982,9 +2079,6 @@ function reload() {
   updateHUD();
 }
 
-// ============================================================
-// ЧАСТИЦЫ
-// ============================================================
 function spawnBlood(pos) {
   for (let i = 0; i < 6; i++) {
     const p = new THREE.Mesh(new THREE.SphereGeometry(0.04, 4, 4), new THREE.MeshBasicMaterial({ color: 0xaa0000 }));
@@ -2011,9 +2105,6 @@ function spawnBulletHole(pos, normal) {
   if (bulletHoles.length > 30) scene.remove(bulletHoles.shift());
 }
 
-// ============================================================
-// HUD
-// ============================================================
 function updateHUD() {
   const hp = Math.max(0, Math.round(player.hp));
   const el = $('hp-value');
@@ -2033,15 +2124,8 @@ function showHitmarker(head) {
   hm.classList.add('show');
   if (head) hm.classList.add('head');
 }
-function showKillNotify() {
-  const n = $('kill-notify');
-  n.classList.remove('show'); void n.offsetWidth; n.classList.add('show');
-}
-function showDamage() {
-  const ov = $('damage-overlay');
-  ov.style.opacity = '1';
-  setTimeout(() => ov.style.opacity = '0', 200);
-}
+function showKillNotify() { const n = $('kill-notify'); n.classList.remove('show'); void n.offsetWidth; n.classList.add('show'); }
+function showDamage() { const ov = $('damage-overlay'); ov.style.opacity = '1'; setTimeout(() => ov.style.opacity = '0', 200); }
 function addKillfeed(attacker, icon, victim, cls) {
   const kf = $('killfeed');
   if (!kf) return;
@@ -2052,9 +2136,6 @@ function addKillfeed(attacker, icon, victim, cls) {
   setTimeout(() => div.remove(), 5000);
 }
 
-// ============================================================
-// СТАРТ / КОНЕЦ
-// ============================================================
 function startGame() {
   if (renderer && renderer.domElement && renderer.domElement.parentNode) {
     renderer.domElement.parentNode.removeChild(renderer.domElement);
@@ -2125,12 +2206,8 @@ function startGame() {
   gameState = 'playing';
   clock.start();
 
-  if (IS_MOBILE) {
-    $('click-hint').classList.remove('active');
-  } else {
-    requestLock();
-    $('click-hint').classList.add('active');
-  }
+  if (IS_MOBILE) { $('click-hint').classList.remove('active'); }
+  else { requestLock(); $('click-hint').classList.add('active'); }
 
   requestAnimationFrame(gameLoop);
 }
@@ -2176,9 +2253,6 @@ function backToMenu() {
   if (!IS_MOBILE && document.exitPointerLock) document.exitPointerLock();
 }
 
-// ============================================================
-// ИГРОВОЙ ЦИКЛ
-// ============================================================
 function gameLoop() {
   if (gameState !== 'playing') return;
   requestAnimationFrame(gameLoop);
@@ -2194,15 +2268,8 @@ function gameLoop() {
     } else if (selectedMode === 'team') {
       updateTeamBots(dt);
     }
-    if (mouseDown && pointerLocked) {
-      const w = WEAPONS[currentWeaponKey];
-      if (w.auto) shoot();
-    }
-    // Мобильная авто-стрельба
-    if (IS_MOBILE && touchInput.fireActive) {
-      const w = WEAPONS[currentWeaponKey];
-      if (w.auto) shoot();
-    }
+    if (mouseDown && pointerLocked) { const w = WEAPONS[currentWeaponKey]; if (w.auto) shoot(); }
+    if (IS_MOBILE && touchInput.fireActive) { const w = WEAPONS[currentWeaponKey]; if (w.auto) shoot(); }
   }
   updateParticles(dt);
   updateRemoteTimeout();
@@ -2220,7 +2287,6 @@ function updatePlayer(dt) {
   const wish = new THREE.Vector3();
 
   if (IS_MOBILE) {
-    // Джойстик
     if (Math.abs(touchInput.moveX) > 0.15 || Math.abs(touchInput.moveY) > 0.15) {
       wish.add(forward.clone().multiplyScalar(-touchInput.moveY));
       wish.add(right.clone().multiplyScalar(touchInput.moveX));
@@ -2334,7 +2400,6 @@ function updateEnemies(dt) {
         sfxEnemyShoot();
         const accByDist = Math.max(0.15, 1 - dist / 25);
         const accByWave = Math.max(0.35, 0.75 - wave * 0.03);
-        // Для мобильных - легче
         const mobileMult = IS_MOBILE ? 0.6 : 1;
         if (Math.random() < accByDist * accByWave * mobileMult) {
           if (target === player) {
@@ -2493,28 +2558,45 @@ function updateRemoteTimeout() {
     }
   }
 }
+
+// ⚡ ИСПРАВЛЕНО: модель оружия теперь следует за камерой, но НЕ смещает её
 function updateWeapon(dt) {
   if (!weaponGroup) return;
   const w = WEAPONS[currentWeaponKey];
   if (w.zoom && zoomed) { weaponGroup.visible = false; return; }
   weaponGroup.visible = true;
-  const bobX = Math.sin(player.bobPhase) * 0.012;
+
+  // Позиция оружия относительно камеры (в мировых координатах)
+  const right = new THREE.Vector3(1, 0, 0).applyQuaternion(camera.quaternion);
+  const up = new THREE.Vector3(0, 1, 0).applyQuaternion(camera.quaternion);
+  const forward = new THREE.Vector3(0, 0, -1).applyQuaternion(camera.quaternion);
+
   const bobY = Math.abs(Math.cos(player.bobPhase)) * 0.008;
   player.weaponKick = Math.max(0, player.weaponKick - dt * 8);
-  const tx = 0.25 + bobX;
-  const ty = -0.22 - bobY - player.weaponKick * 0.05;
-  const tz = -0.5 + player.weaponKick * 0.08;
-  weaponGroup.position.x += (tx - weaponGroup.position.x) * 0.2;
-  weaponGroup.position.y += (ty - weaponGroup.position.y) * 0.2;
-  weaponGroup.position.z += (tz - weaponGroup.position.z) * 0.2;
-  weaponGroup.rotation.x = player.weaponKick * 0.15;
+
+  const offsetRight = 0.25;
+  const offsetUp = -0.22 - bobY - player.weaponKick * 0.05;
+  const offsetForward = 0.5 - player.weaponKick * 0.08;
+
+  const targetPos = camera.position.clone()
+    .add(right.multiplyScalar(offsetRight))
+    .add(up.multiplyScalar(offsetUp))
+    .add(forward.multiplyScalar(-offsetForward));
+
+  weaponGroup.position.lerp(targetPos, 0.4);
+  weaponGroup.quaternion.copy(camera.quaternion);
+  weaponGroup.rotateY(-0.05);
+  weaponGroup.rotateX(player.weaponKick * 0.15);
+
   if (weaponGroup.userData.flash) weaponGroup.userData.flash.material.opacity *= 0.7;
+
   if (player.reloading) {
     const t = 1 - (player.reloadTimer / w.reloadTime);
-    weaponGroup.rotation.z = Math.sin(t * Math.PI) * 0.3;
-    weaponGroup.position.y += Math.sin(t * Math.PI) * 0.1;
-  } else weaponGroup.rotation.z *= 0.9;
+    weaponGroup.rotateZ(Math.sin(t * Math.PI) * 0.3);
+  }
 }
+
+// Камера — строго по игроку, без сдвигов вбок
 function updateCamera() {
   camera.position.copy(player.pos);
   camera.position.y += Math.sin(player.bobPhase * 2) * 0.02;
@@ -2528,8 +2610,6 @@ function updateCamera() {
 // ============================================================
 window.addEventListener('DOMContentLoaded', () => {
   $('name-input').value = 'Player_' + Math.floor(Math.random() * 1000);
-
-  // Настройки по умолчанию для мобильных
   $('sens').value = settings.sensitivity;
   $('sens-val').textContent = settings.sensitivity;
   $('quality').value = settings.quality;
@@ -2539,17 +2619,16 @@ window.addEventListener('DOMContentLoaded', () => {
   style.textContent = `@keyframes shake { 0%,100%{transform:translateX(0);} 20%{transform:translateX(-6px);} 40%{transform:translateX(6px);} 60%{transform:translateX(-4px);} 80%{transform:translateX(4px);} }`;
   document.head.appendChild(style);
 
-  // Инициализация мобильного управления
   setupMobileControls();
 
-  // Запрещаем контекстное меню и выделение на мобильных
   if (IS_MOBILE) {
     document.body.addEventListener('contextmenu', e => e.preventDefault());
     document.body.addEventListener('touchstart', () => { if (audioCtx && audioCtx.state === 'suspended') audioCtx.resume(); }, { passive: true });
   }
 
-  console.log('%c🎯 STANDOFF3 загружен', 'color:#f0a500;font-size:16px;font-weight:900');
-  console.log(IS_MOBILE ? '📱 Мобильное управление активно' : '🖥 ПК управление активно');
+  console.log('%c🎯 STANDOFF3', 'color:#f0a500;font-size:20px;font-weight:900;text-shadow:0 0 20px #f0a500');
+  console.log(IS_MOBILE ? '📱 Мобильное управление' : '🖥 ПК управление');
+  console.log('🌐 Серверы PeerJS:', PEER_SERVERS.map(s => s.host).join(', '));
 });
 </script>
 </body>
