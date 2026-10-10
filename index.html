@@ -2092,4 +2092,21 @@ function endGame(msg, win) {
 
 console.log('%c🎯 STANDOFF 3 — Часть 3 загружена!', 'color:#4ade80;font-size:14px;font-weight:900');
 console.log('🎮 Всё готово. Открывай меню и играй!');
+
+// ⚡ Скрыть загрузку после инициализации
+setTimeout(() => {
+  const ld = document.getElementById('ld');
+  if (ld) ld.classList.add('hid');
+  console.log('✅ Загрузка скрыта');
+}, 400);
+
+// На всякий случай — если через 3 секунды всё ещё видна
+setTimeout(() => {
+  const ld = document.getElementById('ld');
+  if (ld && !ld.classList.contains('hid')) {
+    ld.style.display = 'none';
+    console.warn('⚠️ Загрузка скрыта принудительно');
+  }
+}, 3000);
+
 </script>
