@@ -13,12 +13,7 @@
   .overlay { position: fixed; inset: 0; z-index: 100; display: flex; flex-direction: column; align-items: center; justify-content: center; background: #060812; padding: 20px; overflow-y: auto; }
   .overlay.hidden { display: none !important; }
   .menu-bg { position: absolute; inset: 0; overflow: hidden; z-index: -1; background: radial-gradient(ellipse at top, #141832 0%, #0a0e1f 60%, #04060f 100%); }
-  .menu-bg::before {
-    content: ''; position: absolute; inset: -50%;
-    background: radial-gradient(circle at 20% 30%, rgba(100,120,255,0.15) 0%, transparent 40%),
-                radial-gradient(circle at 80% 70%, rgba(240,165,0,0.08) 0%, transparent 40%);
-    animation: bgFloat 18s ease-in-out infinite;
-  }
+  .menu-bg::before { content: ''; position: absolute; inset: -50%; background: radial-gradient(circle at 20% 30%, rgba(100,120,255,0.15) 0%, transparent 40%), radial-gradient(circle at 80% 70%, rgba(240,165,0,0.08) 0%, transparent 40%); animation: bgFloat 18s ease-in-out infinite; }
   @keyframes bgFloat { 0%,100%{transform:translate(0,0) scale(1);} 50%{transform:translate(-2%,-2%) scale(1.05);} }
 
   /* AUTH */
@@ -26,21 +21,19 @@
   #auth-screen .auth-logo { font-size: clamp(38px,9vw,74px); font-weight: 900; letter-spacing: clamp(4px,1.4vw,10px); background: linear-gradient(180deg,#fff,#5b7aff 60%,#2a4acc); -webkit-background-clip: text; -webkit-text-fill-color: transparent; filter: drop-shadow(0 0 40px rgba(90,120,255,0.6)); margin-bottom: 6px; text-align: center; text-transform: uppercase; position: relative; }
   #auth-screen .auth-logo .num { position: absolute; top: -8px; right: -20px; font-size: 0.42em; background: linear-gradient(180deg,#fff,#ff3333); -webkit-background-clip: text; -webkit-text-fill-color: transparent; transform: rotate(15deg); }
   #auth-screen .auth-tagline { color: #7d8db3; letter-spacing: 8px; font-size: 11px; margin-bottom: 28px; text-transform: uppercase; text-align: center; }
-  .auth-box { background: rgba(18,22,40,0.9); border: 1px solid rgba(90,120,255,0.3); border-top: 3px solid #5b7aff; padding: 28px; width: min(400px,92vw); border-radius: 12px; box-shadow: 0 30px 80px rgba(0,0,0,0.8), 0 0 60px rgba(90,120,255,0.1); backdrop-filter: blur(20px); }
+  .auth-box { background: rgba(18,22,40,0.9); border: 1px solid rgba(90,120,255,0.3); border-top: 3px solid #5b7aff; padding: 28px; width: min(400px,92vw); border-radius: 12px; box-shadow: 0 30px 80px rgba(0,0,0,0.8); backdrop-filter: blur(20px); }
   .auth-tabs { display: flex; gap: 6px; margin-bottom: 20px; background: rgba(0,0,0,0.4); padding: 4px; border-radius: 8px; }
   .auth-tab { flex: 1; padding: 11px; font-size: 12px; letter-spacing: 2px; font-weight: 700; text-align: center; cursor: pointer; color: #7d8db3; border-radius: 6px; transition: all 0.25s; text-transform: uppercase; background: transparent; border: none; font-family: inherit; }
   .auth-tab.active { background: linear-gradient(90deg,#5b7aff,#8ba3ff); color: #fff; box-shadow: 0 4px 20px rgba(90,120,255,0.5); }
   .auth-field { margin-bottom: 14px; }
   .auth-field label { display: block; color: #7d8db3; font-size: 10px; letter-spacing: 2px; margin-bottom: 6px; text-transform: uppercase; font-weight: 700; }
   .auth-input { width: 100%; padding: 13px 16px; background: rgba(0,0,0,0.5); border: 2px solid rgba(90,120,255,0.25); color: #fff; font-size: 15px; letter-spacing: 2px; outline: none; font-weight: 600; border-radius: 8px; transition: all 0.25s; font-family: inherit; }
-  .auth-input:focus { border-color: #5b7aff; box-shadow: 0 0 25px rgba(90,120,255,0.3); background: rgba(90,120,255,0.05); }
-  .auth-input::placeholder { color: rgba(125,141,179,0.4); letter-spacing: 3px; }
-  .auth-btn { width: 100%; padding: 15px; background: linear-gradient(90deg,#5b7aff,#8ba3ff); border: none; color: #fff; font-size: 14px; letter-spacing: 4px; font-weight: 900; cursor: pointer; border-radius: 8px; margin-top: 8px; text-transform: uppercase; font-family: inherit; box-shadow: 0 6px 25px rgba(90,120,255,0.4); transition: all 0.2s; }
-  .auth-btn:hover { transform: translateY(-2px); box-shadow: 0 10px 35px rgba(90,120,255,0.6); }
-  .auth-error { color: #ff5555; font-size: 12px; letter-spacing: 1px; text-align: center; margin-top: 10px; min-height: 16px; }
+  .auth-input:focus { border-color: #5b7aff; box-shadow: 0 0 25px rgba(90,120,255,0.3); }
+  .auth-btn { width: 100%; padding: 15px; background: linear-gradient(90deg,#5b7aff,#8ba3ff); border: none; color: #fff; font-size: 14px; letter-spacing: 4px; font-weight: 900; cursor: pointer; border-radius: 8px; margin-top: 8px; text-transform: uppercase; font-family: inherit; box-shadow: 0 6px 25px rgba(90,120,255,0.4); }
+  .auth-error { color: #ff5555; font-size: 12px; text-align: center; margin-top: 10px; min-height: 16px; }
 
-  /* MENU - Standoff2 style */
-  #menu { padding: 0; display: grid; grid-template-columns: 60px 300px 1fr 360px; width: 100%; height: 100%; gap: 0; }
+  /* MENU */
+  #menu { padding: 0; display: grid; grid-template-columns: 60px 300px 1fr 340px; width: 100%; height: 100%; gap: 0; }
   @media (max-width: 1100px) { #menu { grid-template-columns: 60px 280px 1fr; } #menu .right-panel { display: none !important; } }
   @media (max-width: 800px) { #menu { grid-template-columns: 60px 1fr; } #menu .profile-panel { display: none !important; } }
 
@@ -49,90 +42,74 @@
   #menu .nav-rail .nav-icon { width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; font-size: 20px; cursor: pointer; border-radius: 10px; color: #7d8db3; transition: all 0.25s; position: relative; }
   #menu .nav-rail .nav-icon:hover { color: #fff; background: rgba(90,120,255,0.15); }
   #menu .nav-rail .nav-icon.active { color: #5b7aff; background: rgba(90,120,255,0.2); }
-  #menu .nav-rail .nav-icon.active::before { content: ''; position: absolute; left: -12px; top: 50%; transform: translateY(-50%); width: 3px; height: 22px; background: #5b7aff; border-radius: 2px; box-shadow: 0 0 12px #5b7aff; }
 
   #menu .profile-panel { background: linear-gradient(180deg, rgba(12,16,32,0.95), rgba(8,10,20,0.9)); border-right: 1px solid rgba(90,120,255,0.15); padding: 18px; overflow-y: auto; display: flex; flex-direction: column; gap: 12px; }
   .profile-top { display: flex; gap: 12px; align-items: center; padding: 12px; background: rgba(30,35,60,0.5); border: 1px solid rgba(90,120,255,0.2); border-radius: 10px; }
   .profile-top .avatar { width: 56px; height: 56px; border-radius: 8px; border: 2px solid #5b7aff; background-size: cover; background-position: center; background-color: #1a1f33; display: flex; align-items: center; justify-content: center; font-size: 26px; flex-shrink: 0; }
   .profile-top .info { flex: 1; min-width: 0; }
-  .profile-top .id-label { color: #7d8db3; font-size: 9px; letter-spacing: 1px; font-weight: 700; margin-bottom: 2px; }
-  .profile-top .id-value { color: #b8c4dc; font-size: 11px; font-weight: 700; letter-spacing: 1px; margin-bottom: 4px; }
-  .profile-top .nickname { color: #fff; font-size: 15px; font-weight: 800; letter-spacing: 1px; margin-bottom: 4px; }
-  .profile-top .level-row { display: flex; justify-content: space-between; align-items: center; font-size: 10px; color: #7d8db3; margin-bottom: 3px; }
+  .profile-top .id-label { color: #7d8db3; font-size: 9px; letter-spacing: 1px; font-weight: 700; }
+  .profile-top .id-value { color: #b8c4dc; font-size: 11px; font-weight: 700; margin-bottom: 4px; }
+  .profile-top .nickname { color: #fff; font-size: 15px; font-weight: 800; margin-bottom: 4px; }
+  .profile-top .level-row { display: flex; justify-content: space-between; font-size: 10px; color: #7d8db3; margin-bottom: 3px; }
   .profile-top .level-row .lvl { color: #5b7aff; font-weight: 800; }
   .profile-top .xp-bar { width: 100%; height: 5px; background: rgba(0,0,0,0.5); border-radius: 3px; overflow: hidden; }
-  .profile-top .xp-fill { height: 100%; background: linear-gradient(90deg,#5b7aff,#8ba3ff); border-radius: 3px; transition: width 0.5s; }
-  .lock-row { display: flex; align-items: center; gap: 10px; padding: 10px 12px; background: rgba(30,35,60,0.4); border: 1px solid rgba(90,120,255,0.15); border-radius: 8px; }
-  .lock-row .lock-icon { font-size: 20px; opacity: 0.7; }
-  .lock-row .lock-text { color: #7d8db3; font-size: 10px; letter-spacing: 1px; line-height: 1.4; }
+  .profile-top .xp-fill { height: 100%; background: linear-gradient(90deg,#5b7aff,#8ba3ff); border-radius: 3px; }
 
-  /* Friends block */
-  .friends-title { color: #7d8db3; font-size: 10px; letter-spacing: 3px; font-weight: 800; text-transform: uppercase; margin-top: 6px; padding-bottom: 6px; border-bottom: 1px solid rgba(90,120,255,0.15); }
-  .friend-row { display: flex; align-items: center; gap: 10px; padding: 8px; border-radius: 8px; transition: background 0.2s; cursor: pointer; }
+  .friends-header { display: flex; justify-content: space-between; align-items: center; margin-top: 6px; padding-bottom: 6px; border-bottom: 1px solid rgba(90,120,255,0.15); }
+  .friends-header .title { color: #7d8db3; font-size: 10px; letter-spacing: 3px; font-weight: 800; text-transform: uppercase; }
+  .friends-header .add-btn { background: rgba(90,120,255,0.2); border: 1px solid rgba(90,120,255,0.4); color: #5b7aff; padding: 3px 10px; border-radius: 12px; font-size: 10px; cursor: pointer; font-weight: 700; letter-spacing: 1px; }
+
+  .friend-row { display: flex; align-items: center; gap: 10px; padding: 8px; border-radius: 8px; cursor: pointer; transition: background 0.2s; }
   .friend-row:hover { background: rgba(90,120,255,0.08); }
   .friend-row .f-avatar { width: 36px; height: 36px; border-radius: 6px; background-size: cover; background-position: center; display: flex; align-items: center; justify-content: center; font-size: 18px; flex-shrink: 0; border: 1px solid rgba(90,120,255,0.3); }
   .friend-row .f-info { flex: 1; min-width: 0; }
   .friend-row .f-id { color: #5a6580; font-size: 9px; letter-spacing: 1px; }
-  .friend-row .f-name { color: #b8c4dc; font-size: 12px; font-weight: 700; letter-spacing: 0.5px; }
+  .friend-row .f-name { color: #b8c4dc; font-size: 12px; font-weight: 700; }
   .friend-row .f-status { font-size: 10px; letter-spacing: 1px; font-weight: 600; }
   .friend-row .f-status.online { color: #4ade80; }
   .friend-row .f-status.offline { color: #5a6580; }
   .friend-row .f-status.playing { color: #5b7aff; }
+  .empty-friends { color: #5a6580; font-size: 11px; text-align: center; padding: 20px 10px; letter-spacing: 1px; }
 
-  /* Center - cards */
-  #menu .center-zone { padding: 20px; display: flex; flex-direction: column; gap: 14px; overflow-y: auto; position: relative; }
+  #menu .center-zone { padding: 20px; display: flex; flex-direction: column; gap: 14px; overflow-y: auto; }
   .cards-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 14px; }
   .game-card { position: relative; padding: 18px; background: linear-gradient(180deg, rgba(30,35,60,0.85), rgba(15,18,35,0.9)); border: 1px solid rgba(90,120,255,0.2); border-radius: 14px; min-height: 190px; display: flex; flex-direction: column; overflow: hidden; cursor: pointer; transition: all 0.3s; }
-  .game-card:hover { border-color: #5b7aff; transform: translateY(-4px); box-shadow: 0 12px 40px rgba(90,120,255,0.25); }
-  .game-card::before { content: ''; position: absolute; inset: 0; background: radial-gradient(circle at 80% 20%, rgba(90,120,255,0.15) 0%, transparent 50%); pointer-events: none; }
+  .game-card:hover { border-color: #5b7aff; transform: translateY(-4px); }
   .game-card .card-tag { color: #5b7aff; font-size: 10px; letter-spacing: 4px; font-weight: 800; text-transform: uppercase; margin-bottom: 6px; }
-  .game-card .card-title { color: #fff; font-size: 18px; font-weight: 900; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 8px; }
+  .game-card .card-title { color: #fff; font-size: 18px; font-weight: 900; letter-spacing: 2px; margin-bottom: 8px; }
   .game-card .card-desc { color: #7d8db3; font-size: 11px; line-height: 1.5; flex: 1; }
-  .game-card .card-action { margin-top: 12px; color: #5b7aff; font-size: 11px; font-weight: 800; letter-spacing: 2px; text-transform: uppercase; }
+  .game-card .card-action { margin-top: 12px; color: #5b7aff; font-size: 11px; font-weight: 800; letter-spacing: 2px; }
   .game-card.ranked { border-color: rgba(240,165,0,0.3); }
-  .game-card.ranked::before { background: radial-gradient(circle at 50% 50%, rgba(240,165,0,0.15) 0%, transparent 60%); }
-  .game-card.ranked .card-tag { color: #f0a500; }
-  .game-card.ranked .card-action { color: #f0a500; }
+  .game-card.ranked .card-tag, .game-card.ranked .card-action { color: #f0a500; }
   .game-card.ranked .rank-icon { position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%) rotate(-15deg); font-size: 80px; opacity: 0.15; }
-  .game-card.featured { background: linear-gradient(135deg, rgba(90,120,255,0.15), rgba(30,35,60,0.9)); }
 
-  /* Big PLAY button */
-  .play-area { margin-top: auto; display: flex; justify-content: flex-end; align-items: flex-end; padding: 10px 0; }
-  .big-play-btn { padding: 18px 60px; background: linear-gradient(90deg,#5b7aff,#8ba3ff); border: none; color: #fff; font-size: 18px; letter-spacing: 8px; font-weight: 900; cursor: pointer; border-radius: 10px; text-transform: uppercase; font-family: inherit; box-shadow: 0 8px 30px rgba(90,120,255,0.5), inset 0 1px 0 rgba(255,255,255,0.2); transition: all 0.25s; position: relative; overflow: hidden; }
-  .big-play-btn:hover { transform: translateY(-3px); box-shadow: 0 14px 40px rgba(90,120,255,0.7); }
-  .big-play-btn:active { transform: translateY(0); }
-  .big-play-btn::before { content: ''; position: absolute; inset: 0; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent); transform: translateX(-100%); animation: shine 3s infinite; }
-  @keyframes shine { 0%{transform:translateX(-100%);} 60%{transform:translateX(100%);} 100%{transform:translateX(100%);} }
+  .play-area { margin-top: auto; display: flex; justify-content: flex-end; padding: 10px 0; }
+  .big-play-btn { padding: 18px 60px; background: linear-gradient(90deg,#5b7aff,#8ba3ff); border: none; color: #fff; font-size: 18px; letter-spacing: 8px; font-weight: 900; cursor: pointer; border-radius: 10px; text-transform: uppercase; box-shadow: 0 8px 30px rgba(90,120,255,0.5); }
+  .big-play-btn:hover { transform: translateY(-3px); }
 
-  /* Right panel */
   #menu .right-panel { background: linear-gradient(180deg, rgba(12,16,32,0.95), rgba(8,10,20,0.9)); border-left: 1px solid rgba(90,120,255,0.15); padding: 18px; overflow-y: auto; display: flex; flex-direction: column; gap: 12px; }
   .right-panel-title { color: #7d8db3; font-size: 10px; letter-spacing: 3px; font-weight: 800; text-transform: uppercase; padding-bottom: 6px; border-bottom: 1px solid rgba(90,120,255,0.15); }
-  .collection-card { padding: 14px; background: linear-gradient(135deg, rgba(90,120,255,0.1), rgba(30,35,60,0.5)); border: 1px solid rgba(90,120,255,0.25); border-radius: 12px; position: relative; overflow: hidden; cursor: pointer; transition: all 0.25s; }
-  .collection-card:hover { border-color: #5b7aff; transform: translateY(-2px); }
+  .collection-card { padding: 14px; background: linear-gradient(135deg, rgba(90,120,255,0.1), rgba(30,35,60,0.5)); border: 1px solid rgba(90,120,255,0.25); border-radius: 12px; position: relative; overflow: hidden; cursor: pointer; }
+  .collection-card:hover { border-color: #5b7aff; }
   .collection-card .cc-title { color: #5b7aff; font-size: 11px; letter-spacing: 3px; font-weight: 800; margin-bottom: 4px; }
   .collection-card .cc-name { color: #fff; font-size: 14px; font-weight: 800; margin-bottom: 6px; }
   .collection-card .cc-desc { color: #7d8db3; font-size: 10px; line-height: 1.4; }
   .collection-card .cc-icon { position: absolute; right: 10px; bottom: 10px; font-size: 50px; opacity: 0.25; }
 
-  .weapon-preview { padding: 12px; background: rgba(30,35,60,0.4); border: 1px solid rgba(90,120,255,0.15); border-radius: 10px; text-align: center; }
-  .weapon-preview .wp-name { color: #fff; font-size: 13px; font-weight: 800; letter-spacing: 1px; margin-bottom: 4px; }
-  .weapon-preview .wp-skin { color: #5b7aff; font-size: 10px; letter-spacing: 2px; font-weight: 700; text-transform: uppercase; }
-
-  /* Other screens - сохраняем стиль как раньше */
+  /* Общие */
   .screen-title { font-size: clamp(18px,4vw,26px); font-weight: 900; letter-spacing: 5px; color: #5b7aff; margin-bottom: 18px; text-transform: uppercase; text-align: center; }
-  .btn { display: block; width: min(340px,85vw); padding: 13px 20px; background: linear-gradient(90deg, rgba(90,120,255,0.1), rgba(90,120,255,0.03)); border: 1px solid rgba(90,120,255,0.35); border-left: 4px solid #5b7aff; color: #5b7aff; font-size: 12px; letter-spacing: 2px; cursor: pointer; text-transform: uppercase; font-weight: 700; transition: all 0.25s; text-align: center; border-radius: 8px; font-family: inherit; }
-  .btn:hover { background: linear-gradient(90deg, rgba(90,120,255,0.25), rgba(90,120,255,0.05)); color: #fff; border-color: #5b7aff; }
+  .btn { display: block; width: min(340px,85vw); padding: 13px 20px; background: linear-gradient(90deg, rgba(90,120,255,0.1), rgba(90,120,255,0.03)); border: 1px solid rgba(90,120,255,0.35); border-left: 4px solid #5b7aff; color: #5b7aff; font-size: 12px; letter-spacing: 2px; cursor: pointer; text-transform: uppercase; font-weight: 700; text-align: center; border-radius: 8px; font-family: inherit; }
+  .btn:hover { background: linear-gradient(90deg, rgba(90,120,255,0.25), rgba(90,120,255,0.05)); color: #fff; }
   .btn.small { width: auto; padding: 9px 18px; font-size: 11px; }
-  .btn.danger { border-left-color: #ff5555; color: #ff5555; }
 
-  /* Inventory / shop */
-  #inventory .inv-card, #shop .inv-card, #profile .profile-card, #avatar .avatar-card, #mode-select .mode-card-wrap, #map-select .map-wrap, #team-select .team-wrap { width: min(1100px,96vw); max-height: 92vh; overflow-y: auto; background: rgba(18,22,40,0.95); border: 1px solid rgba(90,120,255,0.3); border-top: 4px solid #5b7aff; border-radius: 12px; padding: 22px; backdrop-filter: blur(20px); }
+  /* INV/SHOP */
+  .inv-card { width: min(1100px,96vw); max-height: 92vh; overflow-y: auto; background: rgba(18,22,40,0.95); border: 1px solid rgba(90,120,255,0.3); border-top: 4px solid #5b7aff; border-radius: 12px; padding: 22px; }
   .inv-tabs { display: flex; gap: 6px; margin-bottom: 18px; overflow-x: auto; padding-bottom: 4px; }
-  .inv-tab { padding: 9px 18px; background: rgba(90,120,255,0.06); border: 1px solid rgba(90,120,255,0.25); color: #7d8db3; font-size: 11px; letter-spacing: 2px; font-weight: 700; cursor: pointer; border-radius: 18px; white-space: nowrap; text-transform: uppercase; transition: all 0.25s; font-family: inherit; }
-  .inv-tab.active { background: linear-gradient(90deg,#5b7aff,#8ba3ff); color: #fff; box-shadow: 0 4px 20px rgba(90,120,255,0.4); }
+  .inv-tab { padding: 9px 18px; background: rgba(90,120,255,0.06); border: 1px solid rgba(90,120,255,0.25); color: #7d8db3; font-size: 11px; letter-spacing: 2px; font-weight: 700; cursor: pointer; border-radius: 18px; white-space: nowrap; text-transform: uppercase; font-family: inherit; }
+  .inv-tab.active { background: linear-gradient(90deg,#5b7aff,#8ba3ff); color: #fff; }
   .inv-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 12px; }
-  .inv-item { position: relative; padding: 14px; background: linear-gradient(180deg, rgba(30,35,60,0.9), rgba(15,18,35,0.9)); border: 2px solid rgba(90,120,255,0.15); border-radius: 10px; cursor: pointer; transition: all 0.25s; text-align: center; }
-  .inv-item:hover { border-color: #5b7aff; transform: translateY(-3px); box-shadow: 0 10px 30px rgba(90,120,255,0.3); }
+  .inv-item { position: relative; padding: 14px; background: linear-gradient(180deg, rgba(30,35,60,0.9), rgba(15,18,35,0.9)); border: 2px solid rgba(90,120,255,0.15); border-radius: 10px; cursor: pointer; text-align: center; }
+  .inv-item:hover { border-color: #5b7aff; transform: translateY(-3px); }
   .inv-item.equipped { border-color: #4ade80; box-shadow: 0 0 0 2px rgba(74,222,128,0.4); }
   .inv-item.equipped::before { content: '✓ НАДЕТО'; position: absolute; top: 6px; left: 6px; background: #4ade80; color: #000; font-size: 8px; font-weight: 800; padding: 2px 6px; border-radius: 3px; }
   .inv-item .item-visual { width: 100%; height: 70px; display: flex; align-items: center; justify-content: center; font-size: 38px; margin-bottom: 8px; border-radius: 8px; }
@@ -140,26 +117,31 @@
   .inv-item .item-sub { font-size: 9px; color: #7d8db3; letter-spacing: 1px; }
   .inv-item .item-price { margin-top: 6px; padding: 5px; background: rgba(0,0,0,0.4); border-radius: 4px; font-size: 11px; font-weight: 800; color: #4ade80; }
   .inv-item .item-price.locked { color: #ff5555; }
+  .inv-item .item-rarity { font-size: 9px; letter-spacing: 2px; font-weight: 800; margin-bottom: 4px; }
+  .rarity-common { color: #7d8db3; }
+  .rarity-rare { color: #5b7aff; }
+  .rarity-epic { color: #a855f7; }
+  .rarity-legendary { color: #f0a500; }
 
-  /* Mode / map select cards */
-  .mode-grid, .map-grid { display: flex; gap: 12px; margin-bottom: 20px; flex-wrap: wrap; justify-content: center; }
-  .mode-item, .map-item { width: min(180px,38vw); padding: 16px 12px; cursor: pointer; border: 2px solid rgba(90,120,255,0.2); border-radius: 10px; background: linear-gradient(180deg, rgba(30,35,60,0.6), rgba(15,18,35,0.8)); text-align: center; transition: all 0.25s; }
-  .mode-item:hover, .map-item:hover { border-color: #5b7aff; transform: translateY(-4px); }
-  .mode-item.selected, .map-item.selected { border-color: #5b7aff; box-shadow: 0 0 0 3px rgba(90,120,255,0.3); background: linear-gradient(180deg, rgba(90,120,255,0.15), rgba(90,120,255,0.03)); }
+  /* Mode / map select */
+  .mode-item, .map-item { width: min(180px,38vw); padding: 16px 12px; cursor: pointer; border: 2px solid rgba(90,120,255,0.2); border-radius: 10px; background: linear-gradient(180deg, rgba(30,35,60,0.6), rgba(15,18,35,0.8)); text-align: center; }
+  .mode-item:hover, .map-item:hover { border-color: #5b7aff; }
+  .mode-item.selected, .map-item.selected { border-color: #5b7aff; box-shadow: 0 0 0 3px rgba(90,120,255,0.3); }
   .mode-item .mc-icon, .map-item .mc-icon { font-size: 30px; margin-bottom: 6px; }
   .mode-item .mc-name, .map-item .mc-name { color: #5b7aff; font-size: 12px; font-weight: 800; letter-spacing: 2px; margin-bottom: 4px; }
-  .mode-item .mc-desc, .map-item .mc-desc { color: #7d8db3; font-size: 9px; line-height: 1.4; }
+  .mode-item .mc-desc, .map-item .mc-desc { color: #7d8db3; font-size: 9px; }
+  .mode-grid, .map-grid { display: flex; gap: 12px; margin-bottom: 20px; flex-wrap: wrap; justify-content: center; }
 
   /* HUD */
   #hud { position: fixed; inset: 0; pointer-events: none; display: none; z-index: 10; }
   #hud.active { display: block; }
   #crosshair { position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); width: 22px; height: 22px; }
-  #crosshair span { position: absolute; background: #0f0; box-shadow: 0 0 4px #000; }
+  #crosshair span { position: absolute; background: #0f0; }
   #crosshair .t { left: 50%; top: 0; width: 2px; height: 8px; transform: translateX(-50%); }
   #crosshair .b { left: 50%; bottom: 0; width: 2px; height: 8px; transform: translateX(-50%); }
   #crosshair .l { top: 50%; left: 0; height: 2px; width: 8px; transform: translateY(-50%); }
   #crosshair .r { top: 50%; right: 0; height: 2px; width: 8px; transform: translateY(-50%); }
-  #crosshair .dot { top: 50%; left: 50%; width: 2px; height: 2px; transform: translate(-50%,-50%); background: #0f0; }
+  #crosshair .dot { top: 50%; left: 50%; width: 2px; height: 2px; transform: translate(-50%,-50%); }
   #hitmarker { position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); width: 28px; height: 28px; opacity: 0; }
   #hitmarker::before, #hitmarker::after { content: ''; position: absolute; background: #fff; width: 2px; height: 100%; top: 0; left: 50%; }
   #hitmarker::before { transform: translateX(-50%) rotate(45deg); }
@@ -168,7 +150,7 @@
   #hitmarker.head::before, #hitmarker.head::after { background: #ff3333; }
   @keyframes hitAnim { 0% { opacity: 1; } 100% { opacity: 0; } }
   #killfeed { position: absolute; top: 14px; right: 14px; display: flex; flex-direction: column; align-items: flex-end; gap: 4px; max-width: 55vw; }
-  .kf-entry { display: flex; align-items: center; gap: 6px; background: rgba(12,16,32,0.9); border-left: 3px solid #5b7aff; padding: 5px 10px; font-size: 11px; border-radius: 0 4px 4px 0; animation: kfIn 0.3s, kfOut 0.5s 4.5s forwards; }
+  .kf-entry { display: flex; gap: 6px; background: rgba(12,16,32,0.9); border-left: 3px solid #5b7aff; padding: 5px 10px; font-size: 11px; border-radius: 0 4px 4px 0; animation: kfIn 0.3s, kfOut 0.5s 4.5s forwards; }
   .kf-entry .attacker { color: #5b7aff; font-weight: 700; }
   .kf-entry .victim { color: #ff5555; font-weight: 700; }
   @keyframes kfIn { from { opacity: 0; transform: translateX(30px); } to { opacity: 1; transform: translateX(0); } }
@@ -179,11 +161,24 @@
   .hp-value { font-size: 28px; font-weight: 900; text-shadow: 2px 2px 6px #000; }
   .hp-value.low { color: #ff3333; } .hp-value.mid { color: #ffaa00; } .hp-value.ok { color: #fff; }
   .ammo-block { text-align: right; }
-  .ammo-value { font-size: 28px; font-weight: 900; color: #fff; text-shadow: 2px 2px 6px #000; }
-  .ammo-value .reserve { font-size: 16px; color: #7d8db3; margin-left: 3px; }
+  .ammo-value { font-size: 28px; font-weight: 900; color: #fff; }
+  .ammo-value .reserve { font-size: 16px; color: #7d8db3; }
   .weapon-name { font-size: 10px; color: #5b7aff; letter-spacing: 2px; margin-bottom: 2px; font-weight: 700; }
   #wave-info { position: absolute; top: 12px; left: 50%; transform: translateX(-50%); font-size: 12px; color: #5b7aff; letter-spacing: 3px; font-weight: 700; background: rgba(12,16,32,0.8); padding: 6px 16px; border: 1px solid rgba(90,120,255,0.3); border-radius: 4px; }
+  #money-hud { position: absolute; top: 12px; left: 14px; font-size: 14px; color: #4ade80; letter-spacing: 2px; font-weight: 900; background: rgba(12,16,32,0.8); padding: 6px 14px; border: 1px solid rgba(74,222,128,0.3); border-radius: 4px; }
   #damage-overlay { position: absolute; inset: 0; background: radial-gradient(ellipse at center, transparent 30%, rgba(200,0,0,0.75) 100%); opacity: 0; transition: opacity 0.15s; }
+  #buy-menu { position: absolute; inset: 0; display: none; align-items: center; justify-content: center; background: rgba(0,0,0,0.85); pointer-events: auto; padding: 10px; }
+  #buy-menu.active { display: flex; }
+  #buy-menu .buy-window { width: min(900px,95vw); max-height: 90vh; overflow-y: auto; background: linear-gradient(180deg, rgba(18,22,40,0.98), rgba(10,14,28,0.98)); border: 2px solid rgba(90,120,255,0.4); border-top: 4px solid #5b7aff; border-radius: 12px; padding: 20px; }
+  #buy-menu h2 { color: #5b7aff; font-size: 20px; letter-spacing: 5px; text-align: center; margin-bottom: 16px; }
+  #buy-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 10px; }
+  .buy-item { padding: 12px; background: rgba(30,35,60,0.8); border: 2px solid rgba(90,120,255,0.15); border-radius: 8px; cursor: pointer; text-align: center; }
+  .buy-item:hover { border-color: #5b7aff; }
+  .buy-item.owned { border-color: #4ade80; }
+  .buy-item .bi-icon { font-size: 26px; margin-bottom: 4px; }
+  .buy-item .bi-name { font-size: 12px; font-weight: 700; color: #5b7aff; margin-bottom: 3px; }
+  .buy-item .bi-price { font-size: 12px; font-weight: 800; color: #4ade80; }
+  .buy-item .bi-price.locked { color: #ff5555; }
 
   /* Mobile controls */
   #mobile-controls { position: fixed; inset: 0; z-index: 12; display: none; pointer-events: none; }
@@ -191,31 +186,48 @@
   #joystick-zone { position: absolute; bottom: 20px; left: 20px; width: 140px; height: 140px; pointer-events: auto; touch-action: none; }
   #joystick-base { position: absolute; inset: 0; border-radius: 50%; background: radial-gradient(circle, rgba(90,120,255,0.08) 0%, rgba(90,120,255,0.15) 70%, transparent 100%); border: 2px solid rgba(90,120,255,0.4); }
   #joystick-stick { position: absolute; top: 50%; left: 50%; width: 56px; height: 56px; margin-left: -28px; margin-top: -28px; border-radius: 50%; background: radial-gradient(circle, #5b7aff 0%, #2a4acc 100%); box-shadow: 0 0 20px rgba(90,120,255,0.7); transition: transform 0.05s; }
-  .mob-btn { position: absolute; width: 56px; height: 56px; border-radius: 50%; background: radial-gradient(circle, rgba(90,120,255,0.25) 0%, rgba(90,120,255,0.1) 100%); border: 2px solid rgba(90,120,255,0.5); color: #5b7aff; font-size: 11px; font-weight: 800; display: flex; align-items: center; justify-content: center; pointer-events: auto; touch-action: none; text-shadow: 0 0 4px #000; }
-  .mob-btn:active, .mob-btn.pressed { background: radial-gradient(circle, #5b7aff 0%, #2a4acc 100%); color: #fff; transform: scale(0.92); }
+  .mob-btn { position: absolute; width: 56px; height: 56px; border-radius: 50%; background: radial-gradient(circle, rgba(90,120,255,0.25) 0%, rgba(90,120,255,0.1) 100%); border: 2px solid rgba(90,120,255,0.5); color: #5b7aff; font-size: 11px; font-weight: 800; display: flex; align-items: center; justify-content: center; pointer-events: auto; touch-action: none; }
+  .mob-btn.pressed { background: radial-gradient(circle, #5b7aff 0%, #2a4acc 100%); color: #fff; transform: scale(0.92); }
   #btn-fire { bottom: 90px; right: 20px; width: 76px; height: 76px; }
   #btn-jump { bottom: 20px; right: 100px; }
   #btn-reload { bottom: 20px; right: 20px; }
   #btn-shop-mob { bottom: 90px; right: 100px; width: 48px; height: 48px; font-size: 10px; }
   #look-zone { position: absolute; top: 0; right: 0; width: 60%; height: 100%; pointer-events: auto; touch-action: none; }
 
-  #click-hint { position: fixed; top: 50%; left: 50%; transform: translate(-50%,-50%); background: rgba(0,0,0,0.85); border: 2px solid #5b7aff; padding: 14px 28px; color: #5b7aff; font-size: 14px; letter-spacing: 3px; text-align: center; z-index: 20; border-radius: 8px; display: none; pointer-events: none; }
-  #click-hint.active { display: block; animation: pulse 1.5s infinite; }
-  @keyframes pulse { 0%,100%{opacity:1;} 50%{opacity:0.6;} }
+  #click-hint { position: fixed; top: 50%; left: 50%; transform: translate(-50%,-50%); background: rgba(0,0,0,0.85); border: 2px solid #5b7aff; padding: 14px 28px; color: #5b7aff; font-size: 14px; letter-spacing: 3px; text-align: center; z-index: 20; border-radius: 8px; display: none; }
+  #click-hint.active { display: block; }
   #click-hint small { display: block; color: #7d8db3; font-size: 10px; margin-top: 6px; }
 
-  #toast { position: fixed; top: 24px; left: 50%; transform: translateX(-50%) translateY(-30px); padding: 12px 22px; background: rgba(18,22,40,0.95); border: 2px solid #4ade80; border-left: 5px solid #4ade80; color: #fff; font-size: 13px; letter-spacing: 1px; font-weight: 700; border-radius: 8px; z-index: 9999; opacity: 0; transition: all 0.3s; pointer-events: none; }
+  #toast { position: fixed; top: 24px; left: 50%; transform: translateX(-50%) translateY(-30px); padding: 12px 22px; background: rgba(18,22,40,0.95); border: 2px solid #4ade80; border-left: 5px solid #4ade80; color: #fff; font-size: 13px; font-weight: 700; border-radius: 8px; z-index: 9999; opacity: 0; transition: all 0.3s; pointer-events: none; }
   #toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
   #toast.error { border-color: #ff5555; border-left-color: #ff5555; }
 
-  ::-webkit-scrollbar { width: 6px; height: 6px; }
+  /* Lobby */
+  .lobby-box { background: rgba(18,22,40,0.9); border: 1px solid rgba(90,120,255,0.3); border-top: 3px solid #5b7aff; padding: 22px; min-width: min(480px,92vw); border-radius: 12px; margin-bottom: 14px; }
+  .room-code { font-size: 28px; color: #5b7aff; letter-spacing: 8px; font-weight: 900; text-align: center; margin: 12px 0; padding: 14px; background: rgba(0,0,0,0.5); border: 2px dashed rgba(90,120,255,0.5); cursor: pointer; border-radius: 6px; font-family: 'Courier New', monospace; }
+  .players-list { margin-top: 12px; padding: 12px; background: rgba(0,0,0,0.4); border: 1px solid rgba(90,120,255,0.15); border-radius: 6px; min-height: 60px; }
+  .player-row { padding: 8px 10px; margin: 3px 0; background: rgba(90,120,255,0.08); border-left: 3px solid #5b7aff; font-size: 12px; border-radius: 0 4px 4px 0; display: flex; justify-content: space-between; align-items: center; }
+  .player-row.me { border-left-color: #4ade80; }
+  .friend-add-btn { padding: 4px 10px; font-size: 10px; background: rgba(90,120,255,0.2); border: 1px solid rgba(90,120,255,0.4); color: #5b7aff; cursor: pointer; border-radius: 4px; font-weight: 700; }
+  .friend-add-btn:hover { background: #5b7aff; color: #fff; }
+  .code-input { width: 100%; padding: 14px; margin: 6px 0; background: rgba(0,0,0,0.5); border: 2px solid rgba(90,120,255,0.35); color: #5b7aff; font-size: 18px; letter-spacing: 5px; text-align: center; outline: none; font-weight: 900; border-radius: 6px; text-transform: uppercase; font-family: 'Courier New', monospace; }
+
+  #invite-popup { position: fixed; top: 60px; left: 50%; transform: translateX(-50%); background: rgba(18,22,40,0.98); border: 2px solid #4ade80; border-left: 4px solid #4ade80; padding: 14px 18px; border-radius: 8px; color: #fff; font-size: 13px; z-index: 9999; display: none; min-width: 300px; }
+  #invite-popup.active { display: block; }
+  #invite-popup .inv-text { margin-bottom: 10px; }
+  #invite-popup .inv-text b { color: #4ade80; }
+  #invite-popup .inv-buttons { display: flex; gap: 6px; }
+  #invite-popup button { flex: 1; padding: 8px; font-size: 11px; cursor: pointer; border-radius: 4px; font-weight: 700; font-family: inherit; text-transform: uppercase; }
+  #invite-popup .inv-accept { background: rgba(74,222,128,0.15); border: 1px solid #4ade80; color: #4ade80; }
+  #invite-popup .inv-decline { background: rgba(255,80,80,0.15); border: 1px solid #ff5555; color: #ff5555; }
+
+  ::-webkit-scrollbar { width: 6px; }
   ::-webkit-scrollbar-track { background: rgba(0,0,0,0.3); }
   ::-webkit-scrollbar-thumb { background: rgba(90,120,255,0.4); border-radius: 3px; }
 </style>
 </head>
 <body>
 
-<!-- AUTH -->
 <div id="auth-screen" class="overlay">
   <div class="menu-bg"></div>
   <div class="auth-logo">Standoff<span class="num">3</span></div>
@@ -232,10 +244,8 @@
   </div>
 </div>
 
-<!-- MENU (Standoff2 style) -->
 <div id="menu" class="overlay hidden">
   <div class="menu-bg"></div>
-  <!-- Left rail -->
   <div class="nav-rail">
     <div class="nav-logo">S3</div>
     <div class="nav-icon active" data-action="play">▶</div>
@@ -247,24 +257,24 @@
     <div class="nav-icon" data-action="logout">🚪</div>
   </div>
 
-  <!-- Profile panel -->
   <div class="profile-panel">
     <div class="profile-top">
       <div class="avatar" id="menu-avatar">🎯</div>
       <div class="info">
         <div class="id-label">ID</div>
-        <div class="id-value" id="menu-id">65443997</div>
+        <div class="id-value" id="menu-id">0</div>
         <div class="nickname" id="menu-name">Player</div>
         <div class="level-row"><span>Уровень <span class="lvl" id="menu-level">1</span></span><span id="menu-xp-text">0 / 100</span></div>
         <div class="xp-bar"><div class="xp-fill" id="menu-xp" style="width:0%"></div></div>
       </div>
     </div>
-    <div class="lock-row"><div class="lock-icon">🔒</div><div class="lock-text">Соревновательные игры не доступны. Достигните 5 уровня</div></div>
-    <div class="friends-title">Друзья</div>
+    <div class="friends-header">
+      <div class="title">Друзья</div>
+      <div class="add-btn" data-action="friends">+ Добавить</div>
+    </div>
     <div id="friends-list-menu"></div>
   </div>
 
-  <!-- Center cards -->
   <div class="center-zone">
     <div class="cards-grid">
       <div class="game-card ranked" data-action="ranked">
@@ -274,16 +284,16 @@
         <div class="card-desc">Представляем Вам новые наборы и части зарядки. Рейтинговая игра</div>
         <div class="card-action">Получить →</div>
       </div>
-      <div class="game-card featured" data-action="collection">
+      <div class="game-card" data-action="collection">
         <div class="card-tag">Collection</div>
         <div class="card-title">FA Fab</div>
-        <div class="card-desc">Коллекция скинов. Собери все редкие предметы и получи эксклюзив</div>
+        <div class="card-desc">Коллекция скинов. Собери все редкие предметы</div>
         <div class="card-action">Получить →</div>
       </div>
       <div class="game-card" data-action="shop">
         <div class="card-tag">Store</div>
         <div class="card-title">Магазин</div>
-        <div class="card-desc">Купить оружие, ножи и скины за игровую валюту</div>
+        <div class="card-desc">Купить скины, ножи и перчатки</div>
         <div class="card-action">Открыть →</div>
       </div>
     </div>
@@ -292,14 +302,13 @@
     </div>
   </div>
 
-  <!-- Right panel -->
   <div class="right-panel">
     <div class="right-panel-title">Моя коллекция</div>
     <div class="collection-card" data-action="inventory">
-      <div class="cc-title">WEAPONS</div>
-      <div class="cc-name">Оружие</div>
-      <div class="cc-desc">Все купленные стволы в твоём арсенале</div>
-      <div class="cc-icon">🔫</div>
+      <div class="cc-title">SKINS</div>
+      <div class="cc-name">Скины</div>
+      <div class="cc-desc">Раскраски для оружия</div>
+      <div class="cc-icon">🎨</div>
     </div>
     <div class="collection-card" data-action="inventory">
       <div class="cc-title">KNIVES</div>
@@ -307,56 +316,42 @@
       <div class="cc-desc">Редкие ножи для ближнего боя</div>
       <div class="cc-icon">🗡</div>
     </div>
-    <div class="collection-card" data-action="shop">
-      <div class="cc-title">SKINS</div>
-      <div class="cc-name">Скины</div>
-      <div class="cc-desc">Раскраски для оружия</div>
-      <div class="cc-icon">🎨</div>
+    <div class="collection-card" data-action="inventory">
+      <div class="cc-title">GLOVES</div>
+      <div class="cc-name">Перчатки</div>
+      <div class="cc-desc">Стильные перчатки для рук</div>
+      <div class="cc-icon">🧤</div>
     </div>
-    <div class="right-panel-title" style="margin-top:8px">Сейчас в руках</div>
-    <div class="weapon-preview">
-      <div class="wp-name" id="rp-weapon">P250</div>
-      <div class="wp-skin" id="rp-skin">Обычный</div>
+    <div class="right-panel-title" style="margin-top:8px">Сейчас надето</div>
+    <div style="padding:12px;background:rgba(30,35,60,0.4);border:1px solid rgba(90,120,255,0.15);border-radius:10px;text-align:center">
+      <div style="color:#fff;font-size:13px;font-weight:800;margin-bottom:4px" id="rp-skin">Обычный скин</div>
+      <div style="color:#5b7aff;font-size:10px;letter-spacing:2px;font-weight:700">СКИН ОРУЖИЯ</div>
+    </div>
+    <div style="padding:12px;background:rgba(30,35,60,0.4);border:1px solid rgba(90,120,255,0.15);border-radius:10px;text-align:center">
+      <div style="color:#fff;font-size:13px;font-weight:800;margin-bottom:4px" id="rp-knife">Стандартный</div>
+      <div style="color:#5b7aff;font-size:10px;letter-spacing:2px;font-weight:700">НОЖ</div>
     </div>
   </div>
 </div>
 
-<!-- MODE SELECT -->
 <div id="mode-select" class="overlay hidden">
   <div class="menu-bg"></div>
-  <div class="mode-card-wrap">
+  <div style="width:min(900px,96vw);max-height:92vh;overflow-y:auto;background:rgba(18,22,40,0.95);border:1px solid rgba(90,120,255,0.3);border-top:4px solid #5b7aff;border-radius:12px;padding:22px">
     <div class="screen-title">Режим игры</div>
     <div class="mode-grid">
-      <div class="mode-item selected" data-mode="solo">
-        <div class="mc-icon">👤</div>
-        <div class="mc-name">ОДИНОЧНЫЙ</div>
-        <div class="mc-desc">Волны врагов</div>
-      </div>
-      <div class="mode-item" data-mode="allies">
-        <div class="mc-icon">🤝</div>
-        <div class="mc-name">СОЮЗНИКИ</div>
-        <div class="mc-desc">Боты помогают</div>
-      </div>
-      <div class="mode-item" data-mode="team">
-        <div class="mc-icon">⚔</div>
-        <div class="mc-name">КОМАНДНЫЙ</div>
-        <div class="mc-desc">CT vs T</div>
-      </div>
-      <div class="mode-item" data-mode="zombie">
-        <div class="mc-icon">🧟</div>
-        <div class="mc-name">ЗОМБИ</div>
-        <div class="mc-desc">Много слабых</div>
-      </div>
+      <div class="mode-item selected" data-mode="solo"><div class="mc-icon">👤</div><div class="mc-name">ОДИНОЧНЫЙ</div><div class="mc-desc">Волны врагов</div></div>
+      <div class="mode-item" data-mode="allies"><div class="mc-icon">🤝</div><div class="mc-name">СОЮЗНИКИ</div><div class="mc-desc">Боты помогают</div></div>
+      <div class="mode-item" data-mode="team"><div class="mc-icon">⚔</div><div class="mc-name">КОМАНДНЫЙ</div><div class="mc-desc">CT vs T</div></div>
+      <div class="mode-item" data-mode="zombie"><div class="mc-icon">🧟</div><div class="mc-name">ЗОМБИ</div><div class="mc-desc">Много слабых</div></div>
     </div>
     <button class="btn" data-action="mode-next" style="width:100%;margin-bottom:8px">▶ ДАЛЕЕ</button>
     <button class="btn small" data-action="back-menu" style="display:block;margin:0 auto">← НАЗАД</button>
   </div>
 </div>
 
-<!-- MAP SELECT -->
 <div id="map-select" class="overlay hidden">
   <div class="menu-bg"></div>
-  <div class="map-wrap">
+  <div style="width:min(900px,96vw);max-height:92vh;overflow-y:auto;background:rgba(18,22,40,0.95);border:1px solid rgba(90,120,255,0.3);border-top:4px solid #5b7aff;border-radius:12px;padding:22px">
     <div class="screen-title">Карта</div>
     <div class="map-grid">
       <div class="map-item selected" data-map="dust"><div class="mc-icon">🏜</div><div class="mc-name">DUST</div><div class="mc-desc">Классика</div></div>
@@ -369,10 +364,9 @@
   </div>
 </div>
 
-<!-- TEAM SELECT -->
 <div id="team-select" class="overlay hidden">
   <div class="menu-bg"></div>
-  <div class="team-wrap">
+  <div style="width:min(700px,96vw);max-height:92vh;overflow-y:auto;background:rgba(18,22,40,0.95);border:1px solid rgba(90,120,255,0.3);border-top:4px solid #5b7aff;border-radius:12px;padding:22px">
     <div class="screen-title">Команда</div>
     <div class="mode-grid">
       <div class="mode-item selected" data-team="ct"><div class="mc-icon">🛡</div><div class="mc-name" style="color:#5b7aff">CT</div><div class="mc-desc">Контр-террористы</div></div>
@@ -383,10 +377,9 @@
   </div>
 </div>
 
-<!-- PROFILE -->
 <div id="profile" class="overlay hidden">
   <div class="menu-bg"></div>
-  <div class="profile-card">
+  <div class="inv-card" style="width:min(700px,95vw)">
     <div class="screen-title">Профиль</div>
     <div style="display:flex;gap:18px;align-items:center;margin-bottom:20px;padding-bottom:20px;border-bottom:1px solid rgba(90,120,255,0.2)">
       <div style="position:relative">
@@ -394,11 +387,11 @@
         <div data-action="change-avatar" style="position:absolute;bottom:-6px;right:-6px;width:34px;height:34px;border-radius:50%;background:linear-gradient(135deg,#5b7aff,#8ba3ff);display:flex;align-items:center;justify-content:center;cursor:pointer;border:3px solid #0a0e1f">✎</div>
       </div>
       <div style="flex:1">
-        <div style="font-size:26px;font-weight:900;color:#5b7aff;letter-spacing:2px;margin-bottom:6px" id="profile-name">Player</div>
-        <div style="display:inline-block;background:rgba(90,120,255,0.15);border:1px solid rgba(90,120,255,0.4);color:#5b7aff;padding:3px 12px;border-radius:12px;font-size:10px;letter-spacing:2px;font-weight:700">Уровень <span id="profile-level">1</span></div>
+        <div style="font-size:26px;font-weight:900;color:#5b7aff;margin-bottom:6px" id="profile-name">Player</div>
+        <div style="display:inline-block;background:rgba(90,120,255,0.15);border:1px solid rgba(90,120,255,0.4);color:#5b7aff;padding:3px 12px;border-radius:12px;font-size:10px;font-weight:700">Уровень <span id="profile-level">1</span></div>
       </div>
     </div>
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(110px,1fr));gap:10px;margin-bottom:18px">
+    <div class="inv-grid" style="grid-template-columns:repeat(4,1fr);margin-bottom:18px">
       <div class="inv-item" style="cursor:default"><div style="font-size:22px;font-weight:900;color:#5b7aff" id="p-stat-kills">0</div><div style="font-size:9px;color:#7d8db3;letter-spacing:2px;margin-top:2px">УБИЙСТВ</div></div>
       <div class="inv-item" style="cursor:default"><div style="font-size:22px;font-weight:900;color:#5b7aff" id="p-stat-headshots">0</div><div style="font-size:9px;color:#7d8db3;letter-spacing:2px;margin-top:2px">ХЕДШОТОВ</div></div>
       <div class="inv-item" style="cursor:default"><div style="font-size:22px;font-weight:900;color:#5b7aff" id="p-stat-accuracy">0%</div><div style="font-size:9px;color:#7d8db3;letter-spacing:2px;margin-top:2px">ТОЧНОСТЬ</div></div>
@@ -408,32 +401,30 @@
   </div>
 </div>
 
-<!-- AVATAR -->
 <div id="avatar" class="overlay hidden">
   <div class="menu-bg"></div>
-  <div class="avatar-card">
+  <div class="inv-card" style="width:min(700px,95vw)">
     <div class="screen-title">Аватарка</div>
     <input type="file" id="avatar-file" accept="image/*" style="display:none">
-    <div data-action="upload-avatar" style="padding:22px;border:2px dashed rgba(90,120,255,0.4);border-radius:12px;text-align:center;margin-bottom:16px;cursor:pointer;background:rgba(90,120,255,0.03)">
+    <div data-action="upload-avatar" style="padding:22px;border:2px dashed rgba(90,120,255,0.4);border-radius:12px;text-align:center;margin-bottom:16px;cursor:pointer">
       <div style="font-size:38px;margin-bottom:6px">📤</div>
-      <div style="color:#5b7aff;font-size:14px;font-weight:800;letter-spacing:2px">ЗАГРУЗИТЬ ФОТО</div>
+      <div style="color:#5b7aff;font-size:14px;font-weight:800">ЗАГРУЗИТЬ ФОТО</div>
       <div style="color:#7d8db3;font-size:10px;margin-top:4px">PNG, JPG · до 2 МБ</div>
     </div>
-    <div class="right-panel-title" style="margin-bottom:10px">Готовые</div>
+    <div style="color:#7d8db3;font-size:10px;letter-spacing:3px;font-weight:800;margin-bottom:10px">ГОТОВЫЕ</div>
     <div id="avatar-grid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(64px,1fr));gap:10px"></div>
     <button class="btn" data-action="back-profile" style="width:100%;margin-top:16px">← Назад</button>
   </div>
 </div>
 
-<!-- INVENTORY -->
 <div id="inventory" class="overlay hidden">
   <div class="menu-bg"></div>
   <div class="inv-card">
     <div class="screen-title">Инвентарь</div>
     <div class="inv-tabs" id="inv-tabs">
-      <button class="inv-tab active" data-cat="weapons">🔫 Оружие</button>
-      <button class="inv-tab" data-cat="skins">🎨 Скины</button>
+      <button class="inv-tab active" data-cat="skins">🎨 Скины</button>
       <button class="inv-tab" data-cat="knives">🗡 Ножи</button>
+      <button class="inv-tab" data-cat="gloves">🧤 Перчатки</button>
       <button class="inv-tab" data-cat="avatars">👤 Аватарки</button>
     </div>
     <div class="inv-grid" id="inv-grid"></div>
@@ -441,7 +432,6 @@
   </div>
 </div>
 
-<!-- SHOP -->
 <div id="shop" class="overlay hidden">
   <div class="menu-bg"></div>
   <div class="inv-card">
@@ -450,27 +440,60 @@
     <div class="inv-tabs" id="shop-tabs">
       <button class="inv-tab active" data-cat="skins">🎨 Скины</button>
       <button class="inv-tab" data-cat="knives">🗡 Ножи</button>
-      <button class="inv-tab" data-cat="weapons">🔫 Оружие</button>
+      <button class="inv-tab" data-cat="gloves">🧤 Перчатки</button>
     </div>
     <div class="inv-grid" id="shop-grid"></div>
     <button class="btn" data-action="back-menu" style="width:100%;margin-top:16px">← Назад</button>
   </div>
 </div>
 
-<!-- HUD -->
+<div id="friends" class="overlay hidden">
+  <div class="menu-bg"></div>
+  <div class="inv-card" style="width:min(700px,95vw)">
+    <div class="screen-title">Друзья</div>
+    <div class="lobby-box" id="lobby-main">
+      <button class="btn" style="width:100%" data-action="create-room">СОЗДАТЬ ИГРУ</button>
+      <div style="text-align:center;color:#7d8db3;font-size:10px;margin:10px 0;letter-spacing:2px">— или —</div>
+      <input class="code-input" id="join-code" placeholder="КОД КОМНАТЫ" maxlength="6">
+      <button class="btn" style="width:100%" data-action="join-room">ПОДКЛЮЧИТЬСЯ</button>
+      <div style="text-align:center;color:#7d8db3;font-size:11px;margin-top:12px;min-height:16px" id="mp-status"></div>
+    </div>
+    <div class="lobby-box" id="lobby-room" style="display:none">
+      <div style="text-align:center;color:#7d8db3;font-size:10px;letter-spacing:2px;margin-bottom:8px">КОД КОМНАТЫ</div>
+      <div class="room-code" id="room-code-display">------</div>
+      <div style="text-align:center;color:#7d8db3;font-size:10px;margin-bottom:10px">👆 тап чтобы скопировать</div>
+      <div class="players-list" id="players-list"></div>
+      <div style="text-align:center;color:#7d8db3;font-size:11px;margin-top:12px" id="room-status">Ожидание...</div>
+    </div>
+    <div class="lobby-box">
+      <div style="color:#7d8db3;font-size:10px;letter-spacing:3px;font-weight:800;margin-bottom:10px">МОИ ДРУЗЬЯ</div>
+      <div id="friends-full-list"></div>
+    </div>
+    <button class="btn" data-action="back-menu" style="width:100%;margin-top:14px">← Назад</button>
+  </div>
+</div>
+
 <div id="hud">
   <div id="crosshair"><span class="t"></span><span class="b"></span><span class="l"></span><span class="r"></span><span class="dot"></span></div>
   <div id="hitmarker"></div>
   <div id="killfeed"></div>
   <div id="wave-info">ВОЛНА 1</div>
+  <div id="money-hud">💰 $<span id="hud-money">0</span></div>
   <div id="damage-overlay"></div>
   <div class="hud-bottom">
     <div class="hp-block"><div class="hp-icon">❤</div><div class="hp-value ok" id="hp-value">100</div></div>
     <div class="ammo-block"><div class="weapon-name" id="weapon-name">P250</div><div class="ammo-value"><span id="ammo-current">13</span><span class="reserve">/ <span id="ammo-reserve">52</span></span></div></div>
   </div>
+  <div id="buy-menu">
+    <div class="buy-window">
+      <h2>🛒 БОЕВОЙ МАГАЗИН</h2>
+      <div style="text-align:center;color:#4ade80;font-size:16px;font-weight:900;margin-bottom:14px">💰 $<span id="buy-money">0</span></div>
+      <div id="buy-grid"></div>
+      <button class="btn small" style="display:block;margin:14px auto 0" onclick="closeBuyMenu()">✕ ЗАКРЫТЬ (B)</button>
+    </div>
+  </div>
 </div>
 
-<!-- Mobile -->
 <div id="mobile-controls">
   <div id="joystick-zone"><div id="joystick-base"></div><div id="joystick-stick"></div></div>
   <div id="look-zone"></div>
@@ -480,9 +503,8 @@
   <div class="mob-btn" id="btn-shop-mob">🛒</div>
 </div>
 
-<div id="click-hint">🖱 КЛИКНИ ЧТОБЫ ИГРАТЬ<small>ESC — пауза</small></div>
+<div id="click-hint">🖱 КЛИКНИ ЧТОБЫ ИГРАТЬ<small>ESC — пауза | B — магазин</small></div>
 
-<!-- PAUSE -->
 <div id="pause" class="overlay hidden">
   <div class="menu-bg"></div>
   <div class="screen-title">Пауза</div>
@@ -493,17 +515,26 @@
 <div id="gameover" class="overlay hidden">
   <div class="menu-bg"></div>
   <div class="screen-title" style="color:#ff5555">Игра окончена</div>
-  <p id="go-stats" style="color:#7d8db3;font-size:13px;letter-spacing:2px;margin-bottom:20px;text-align:center;line-height:1.8"></p>
+  <p id="go-stats" style="color:#7d8db3;font-size:13px;margin-bottom:20px;text-align:center;line-height:1.8"></p>
   <button class="btn" data-action="retry" style="width:min(320px,85vw);margin-bottom:8px">↻ ЗАНОВО</button>
   <button class="btn" data-action="to-menu" style="width:min(320px,85vw)">← В МЕНЮ</button>
+</div>
+
+<div id="invite-popup">
+  <div class="inv-text"><b id="inv-from">Player</b> приглашает в друзья!</div>
+  <div class="inv-buttons">
+    <button class="inv-accept" id="inv-accept">✓ ПРИНЯТЬ</button>
+    <button class="inv-decline" id="inv-decline">✕ ОТКЛОНИТЬ</button>
+  </div>
 </div>
 
 <div id="toast"></div>
 
 <script src="https://cdn.jsdelivr.net/npm/three@0.155.0/build/three.min.js"></script>
+<script src="https://unpkg.com/peerjs@1.5.2/dist/peerjs.min.js"></script>
 <script>
 // ============================================================
-// STANDOFF3 v4.0 — Standoff2-style UI + Full Gameplay
+// STANDOFF3 v5.0 — Skins/Knives/Gloves only + Real Friends + Buy in-game
 // ============================================================
 
 const IS_TOUCH = ('ontouchstart' in window) || navigator.maxTouchPoints > 0;
@@ -515,7 +546,7 @@ const MOVE_SPEED = 6, RUN_SPEED = 9, ACCEL = 60, FRICTION = 12, MAX_DEPTH = 100;
 const settings = { sensitivity: IS_MOBILE ? 12 : 8, volume: 50, quality: IS_MOBILE ? 0 : 1 };
 
 // ============================================================
-// ОРУЖИЕ
+// ОРУЖИЕ — только для БОЕВОГО магазина (не для меню!)
 // ============================================================
 const WEAPONS = {
   p250: { name: 'P250', cat: 'pistol', icon: '🔫', damage: 25, headMult: 3, fireRate: 350, magSize: 13, reserve: 52, spread: 0.008, recoilKick: 0.35, reloadTime: 1.8, auto: false, price: 0, bodyColor: 0x333333, barrelColor: 0x1a1a1a, gripColor: 0x222222 },
@@ -534,29 +565,47 @@ const WEAPONS = {
   m249: { name: 'M249', cat: 'lmg', icon: '🔫', damage: 32, headMult: 3, fireRate: 80, magSize: 100, reserve: 200, spread: 0.025, recoilKick: 0.55, reloadTime: 5.0, auto: true, price: 5200, bodyColor: 0x2a2a2a, barrelColor: 0x1a1a1a, gripColor: 0x222222 }
 };
 
+// ============================================================
+// СКИНЫ (для меню)
+// ============================================================
 const SKINS = {
-  default: { name: 'Обычный', price: 0, color: null, accent: null, icon: '⚪' },
-  red: { name: 'Красный', price: 500, color: 0xff3333, accent: 0xaa0000, icon: '🔴' },
-  blue: { name: 'Синий', price: 500, color: 0x3366ff, accent: 0x1a3388, icon: '🔵' },
-  green: { name: 'Зелёный', price: 500, color: 0x33aa33, accent: 0x1a6a1a, icon: '🟢' },
-  gold: { name: 'Золото', price: 1500, color: 0xffcc00, accent: 0xc09000, icon: '🟡' },
-  silver: { name: 'Серебро', price: 1200, color: 0xcccccc, accent: 0x888888, icon: '⚪' },
-  purple: { name: 'Фиолет', price: 1500, color: 0x8a2be2, accent: 0x5a1a9a, icon: '🟣' },
-  fire: { name: 'Огонь', price: 2500, color: 0xff6600, accent: 0xaa2200, icon: '🔥' },
-  ice: { name: 'Лёд', price: 2500, color: 0xaae8ff, accent: 0x4488cc, icon: '❄️' },
-  jungle: { name: 'Джунгли', price: 2200, color: 0x2a5a2a, accent: 0x1a3a1a, icon: '🌿' },
-  neon: { name: 'Неон', price: 3500, color: 0x00ff88, accent: 0x00aa55, icon: '💚' },
-  blood: { name: 'Кровь', price: 3500, color: 0x8a0000, accent: 0x4a0000, icon: '🩸' },
-  galaxy: { name: 'Галактика', price: 5000, color: 0x8a2be2, accent: 0xff88dd, icon: '🌌' }
+  default:     { name: 'Обычный',    price: 0,    color: null,      icon: '⚪', rarity: 'common' },
+  red_camo:    { name: 'Красный камуфляж',   price: 500,  color: 0xff3333, icon: '🔴', rarity: 'common' },
+  blue_steel:  { name: 'Синяя сталь',        price: 500,  color: 0x3366ff, icon: '🔵', rarity: 'common' },
+  green_army:  { name: 'Зелёная армия',      price: 500,  color: 0x33aa33, icon: '🟢', rarity: 'common' },
+  gold:        { name: 'Золото',             price: 1500, color: 0xffcc00, icon: '🟡', rarity: 'rare' },
+  silver:      { name: 'Серебро',            price: 1200, color: 0xcccccc, icon: '⚪', rarity: 'rare' },
+  purple:      { name: 'Королевский фиолет', price: 1500, color: 0x8a2be2, icon: '🟣', rarity: 'rare' },
+  fire:        { name: 'Огонь',              price: 2500, color: 0xff6600, icon: '🔥', rarity: 'epic' },
+  ice:         { name: 'Ледяной дракон',     price: 2500, color: 0xaae8ff, icon: '❄️', rarity: 'epic' },
+  jungle:      { name: 'Джунгли',            price: 2200, color: 0x2a5a2a, icon: '🌿', rarity: 'epic' },
+  neon:        { name: 'Неон',               price: 3500, color: 0x00ff88, icon: '💚', rarity: 'legendary' },
+  blood:       { name: 'Кровавая месть',     price: 3500, color: 0x8a0000, icon: '🩸', rarity: 'legendary' },
+  galaxy:      { name: 'Галактика',          price: 5000, color: 0x8a2be2, icon: '🌌', rarity: 'legendary' }
 };
 
+// ============================================================
+// НОЖИ
+// ============================================================
 const KNIVES = {
-  default_knife: { name: 'Стандартный', price: 0, icon: '🗡', color: 0x777777, damage: 55 },
-  karambit: { name: 'Керамбит', price: 3000, icon: '🔪', color: 0x333333, damage: 65 },
-  butterfly: { name: 'Бабочка', price: 4500, icon: '🦋', color: 0x2a2a2a, damage: 60 },
-  bayonet: { name: 'Штык-нож', price: 2500, icon: '⚔️', color: 0x444444, damage: 70 },
-  m9: { name: 'M9 Bayonet', price: 5500, icon: '⚔️', color: 0x1a1a1a, damage: 75 },
-  talon: { name: 'Талон', price: 6500, icon: '🔪', color: 0x2a1a0a, damage: 80 }
+  default_knife: { name: 'Стандартный', price: 0, icon: '🗡', color: 0x777777, damage: 55, rarity: 'common' },
+  karambit:      { name: 'Керамбит',    price: 3000, icon: '🔪', color: 0x333333, damage: 65, rarity: 'epic' },
+  butterfly:     { name: 'Бабочка',     price: 4500, icon: '🦋', color: 0x2a2a2a, damage: 60, rarity: 'legendary' },
+  bayonet:       { name: 'Штык-нож',    price: 2500, icon: '⚔️', color: 0x444444, damage: 70, rarity: 'rare' },
+  m9:            { name: 'M9 Bayonet',  price: 5500, icon: '⚔️', color: 0x1a1a1a, damage: 75, rarity: 'legendary' },
+  talon:         { name: 'Талон',       price: 6500, icon: '🔪', color: 0x2a1a0a, damage: 80, rarity: 'legendary' }
+};
+
+// ============================================================
+// ПЕРЧАТКИ
+// ============================================================
+const GLOVES = {
+  default_gloves: { name: 'Стандартные', price: 0, icon: '🧤', color: 0xd4a373, rarity: 'common' },
+  bloodhound:     { name: 'Bloodhound',  price: 2500, icon: '🧤', color: 0x8a0000, rarity: 'rare' },
+  sport:          { name: 'Спортивные',  price: 3500, icon: '🧤', color: 0x2a5a2a, rarity: 'epic' },
+  specialist:     { name: 'Specialist',  price: 4500, icon: '🧤', color: 0x1a1a3a, rarity: 'epic' },
+  moto:           { name: 'Moto',        price: 5500, icon: '🧤', color: 0x3a1a0a, rarity: 'legendary' },
+  driver:         { name: 'Driver',      price: 6500, icon: '🧤', color: 0x0a0a2a, rarity: 'legendary' }
 };
 
 const DEFAULT_AVATARS = [
@@ -595,6 +644,7 @@ const sfxHurt = () => playTone(120, 0.2, 'sawtooth', 0.25);
 const sfxReload = () => { playTone(400, 0.05, 'square', 0.1); setTimeout(() => playTone(600, 0.05, 'square', 0.1), 120); };
 const sfxEnemyShoot = () => playTone(150, 0.06, 'sawtooth', 0.1);
 const sfxBuy = () => { playTone(800, 0.08, 'sine', 0.2); setTimeout(() => playTone(1200, 0.08, 'sine', 0.2), 80); };
+const sfxFriend = () => { playTone(1000, 0.06, 'sine', 0.15); setTimeout(() => playTone(1400, 0.08, 'sine', 0.15), 60); };
 
 // ============================================================
 // ХЕЛПЕРЫ
@@ -623,15 +673,16 @@ function saveUsers(u) { localStorage.setItem('standoff3_users', JSON.stringify(u
 function registerUser(name, pass) {
   const users = getUsers();
   if (users[name]) return { error: 'Ник занят' };
-  if (name.length < 3) return { error: 'Ник мин. 3 символа' };
-  if (pass.length < 4) return { error: 'Пароль мин. 4 символа' };
+  if (name.length < 3) return { error: 'Ник мин. 3' };
+  if (pass.length < 4) return { error: 'Пароль мин. 4' };
   const user = {
     name, pass: hashPass(pass), id: Math.floor(Math.random() * 99999999),
     money: 5000, level: 1, xp: 0,
     stats: { kills: 0, deaths: 0, headshots: 0, shots: 0, hits: 0 },
-    ownedWeapons: { p250: true }, ownedKnives: { default_knife: true }, ownedSkins: { default: true },
-    equippedWeapon: 'p250', equippedKnife: 'default_knife', equippedSkin: 'default',
+    ownedSkins: { default: true }, ownedKnives: { default_knife: true }, ownedGloves: { default_gloves: true },
+    equippedSkin: 'default', equippedKnife: 'default_knife', equippedGloves: 'default_gloves',
     avatar: { type: 'default', index: 0, custom: null },
+    friends: [],
     createdAt: Date.now()
   };
   users[name] = user; saveUsers(users);
@@ -642,6 +693,9 @@ function loginUser(name, pass) {
   const u = users[name];
   if (!u) return { error: 'Пользователь не найден' };
   if (u.pass !== hashPass(pass)) return { error: 'Неверный пароль' };
+  if (!u.friends) u.friends = [];
+  if (!u.ownedGloves) u.ownedGloves = { default_gloves: true };
+  if (!u.equippedGloves) u.equippedGloves = 'default_gloves';
   return { user: u };
 }
 function saveCurrentUser() {
@@ -654,7 +708,11 @@ function autoLogin() {
   const saved = localStorage.getItem('standoff3_current');
   if (saved) {
     const users = getUsers();
-    if (users[saved]) { currentUser = users[saved]; return true; }
+    if (users[saved]) { currentUser = users[saved]; 
+      if (!currentUser.friends) currentUser.friends = [];
+      if (!currentUser.ownedGloves) currentUser.ownedGloves = { default_gloves: true };
+      if (!currentUser.equippedGloves) currentUser.equippedGloves = 'default_gloves';
+      return true; }
   }
   return false;
 }
@@ -686,17 +744,14 @@ document.querySelectorAll('.auth-tab').forEach(tab => {
 $('auth-submit').addEventListener('click', () => {
   const name = $('auth-name').value.trim();
   const pass = $('auth-pass').value;
-  if (!name || !pass) { $('auth-error').textContent = 'Заполни все поля'; return; }
+  if (!name || !pass) { $('auth-error').textContent = 'Заполни поля'; return; }
   const res = authMode === 'login' ? loginUser(name, pass) : registerUser(name, pass);
   if (res.error) { $('auth-error').textContent = res.error; return; }
   currentUser = res.user;
   saveCurrentUser();
   localStorage.setItem('standoff3_current', currentUser.name);
   toast(authMode === 'login' ? `👋 С возвращением!` : `🎉 Аккаунт создан!`);
-  setTimeout(() => {
-    hide($('auth-screen')); show($('menu'));
-    refreshMenu();
-  }, 400);
+  setTimeout(() => { hide($('auth-screen')); show($('menu')); refreshMenu(); }, 400);
 });
 $('auth-pass').addEventListener('keydown', e => { if (e.key === 'Enter') $('auth-submit').click(); });
 
@@ -708,13 +763,12 @@ function refreshMenu() {
   $('menu-id').textContent = currentUser.id;
   $('menu-name').textContent = currentUser.name;
   $('menu-level').textContent = currentUser.level;
-  const xpNeeded = getXPForLevel(currentUser.level);
-  $('menu-xp').style.width = (currentUser.xp / xpNeeded * 100) + '%';
-  $('menu-xp-text').textContent = `${currentUser.xp} / ${xpNeeded}`;
+  const xpN = getXPForLevel(currentUser.level);
+  $('menu-xp').style.width = (currentUser.xp / xpN * 100) + '%';
+  $('menu-xp-text').textContent = `${currentUser.xp} / ${xpN}`;
   updateAvatarVisual();
-  const w = WEAPONS[currentUser.equippedWeapon];
-  $('rp-weapon').textContent = w?.name || 'P250';
   $('rp-skin').textContent = SKINS[currentUser.equippedSkin]?.name || 'Обычный';
+  $('rp-knife').textContent = KNIVES[currentUser.equippedKnife]?.name || 'Стандартный';
   renderFriendsMenu();
 }
 function updateAvatarVisual() {
@@ -723,26 +777,42 @@ function updateAvatarVisual() {
   let bg = '', content = '';
   if (av.type === 'custom' && av.custom) bg = `url(${av.custom}) center/cover`;
   else { const d = DEFAULT_AVATARS[av.index || 0]; bg = `linear-gradient(135deg, ${d.color}44, ${d.color}22)`; content = d.icon; }
-  const mini = $('menu-avatar');
-  const big = $('profile-avatar-big');
-  if (mini) { mini.style.background = bg; mini.textContent = content; mini.style.display = 'flex'; mini.style.alignItems = 'center'; mini.style.justifyContent = 'center'; }
+  const mini = $('menu-avatar'), big = $('profile-avatar-big');
+  if (mini) { mini.style.background = bg; mini.textContent = content; }
   if (big) { big.style.background = bg; big.textContent = content; }
 }
 function renderFriendsMenu() {
   const list = $('friends-list-menu');
   if (!list) return;
-  const fake = [
-    { id: '50329349', name: 'wattep777', status: 'online' },
-    { id: '80567802', name: 'wattep_000', status: 'offline' },
-    { id: '80006251', name: 'wattep_111', status: 'online' }
-  ];
-  list.innerHTML = fake.map(f => `
+  if (!currentUser.friends || currentUser.friends.length === 0) {
+    list.innerHTML = '<div class="empty-friends">Нет друзей.<br>Подключись к другу по коду в разделе Друзья</div>';
+    return;
+  }
+  list.innerHTML = currentUser.friends.map(f => `
     <div class="friend-row">
-      <div class="f-avatar" style="background: linear-gradient(135deg, #5b7aff, #2a4acc)">👤</div>
+      <div class="f-avatar" style="background: linear-gradient(135deg, #5b7aff, #2a4acc)">${f.avatar || '👤'}</div>
       <div class="f-info">
-        <div class="f-id">ID: ${f.id}</div>
+        <div class="f-id">ID: ${f.id || '—'}</div>
         <div class="f-name">${f.name}</div>
-        <div class="f-status ${f.status === 'online' ? 'online' : 'offline'}">${f.status === 'online' ? 'В игре' : 'Не в сети'}</div>
+        <div class="f-status ${f.online ? 'online' : 'offline'}">${f.online ? 'В сети' : 'Не в сети'}</div>
+      </div>
+    </div>
+  `).join('');
+}
+function renderFriendsFull() {
+  const list = $('friends-full-list');
+  if (!list) return;
+  if (!currentUser.friends || currentUser.friends.length === 0) {
+    list.innerHTML = '<div class="empty-friends">Нет друзей. Подключись к другу по коду</div>';
+    return;
+  }
+  list.innerHTML = currentUser.friends.map(f => `
+    <div class="friend-row">
+      <div class="f-avatar" style="background: linear-gradient(135deg, #5b7aff, #2a4acc)">${f.avatar || '👤'}</div>
+      <div class="f-info">
+        <div class="f-id">ID: ${f.id || '—'}</div>
+        <div class="f-name">${f.name}</div>
+        <div class="f-status ${f.online ? 'online' : 'offline'}">${f.online ? 'В сети' : 'Не в сети'}</div>
       </div>
     </div>
   `).join('');
@@ -751,7 +821,7 @@ function renderFriendsMenu() {
 // ============================================================
 // ИНВЕНТАРЬ / МАГАЗИН
 // ============================================================
-let invCategory = 'weapons';
+let invCategory = 'skins';
 let shopCategory = 'skins';
 
 function openInventory() { if (!currentUser) return; renderInventory(); showOnly('inventory'); }
@@ -769,6 +839,7 @@ function openProfile() {
   showOnly('profile');
 }
 function openAvatar() { if (!currentUser) return; renderAvatarGrid(); showOnly('avatar'); }
+function openFriends() { if (!currentUser) return; renderFriendsFull(); showOnly('friends'); }
 
 document.querySelectorAll('#inv-tabs .inv-tab').forEach(t => t.addEventListener('click', () => {
   document.querySelectorAll('#inv-tabs .inv-tab').forEach(x => x.classList.remove('active'));
@@ -779,109 +850,95 @@ document.querySelectorAll('#shop-tabs .inv-tab').forEach(t => t.addEventListener
   t.classList.add('active'); shopCategory = t.dataset.cat; renderShop();
 }));
 
+function rarityClass(r) { return 'rarity-' + (r || 'common'); }
+
 function renderInventory() {
   const g = $('inv-grid'); g.innerHTML = '';
-  if (invCategory === 'weapons') {
-    for (const k in WEAPONS) {
-      if (!currentUser.ownedWeapons[k]) continue;
-      const w = WEAPONS[k];
-      const eq = currentUser.equippedWeapon === k;
-      const div = document.createElement('div');
-      div.className = 'inv-item' + (eq ? ' equipped' : '');
-      div.innerHTML = `<div class="item-visual">${w.icon}</div><div class="item-name">${w.name}</div><div class="item-sub">${w.cat.toUpperCase()}</div><div class="item-price">${eq ? 'В РУКАХ' : 'ВЗЯТЬ'}</div>`;
-      div.onclick = () => { currentUser.equippedWeapon = k; saveCurrentUser(); renderInventory(); refreshMenu(); toast(`✅ ${w.name}`); };
-      g.appendChild(div);
-    }
-  } else if (invCategory === 'skins') {
-    for (const k in SKINS) {
-      if (!currentUser.ownedSkins[k]) continue;
-      const s = SKINS[k];
-      const eq = currentUser.equippedSkin === k;
-      const div = document.createElement('div');
-      div.className = 'inv-item' + (eq ? ' equipped' : '');
-      const bg = s.color ? `background: linear-gradient(135deg, #${s.color.toString(16).padStart(6,'0')}, #${s.color.toString(16).padStart(6,'0')}aa); border-radius: 8px;` : '';
-      div.innerHTML = `<div class="item-visual" style="${bg}">${s.icon}</div><div class="item-name">${s.name}</div><div class="item-sub">СКИН</div><div class="item-price">${eq ? 'НАДЕТО' : 'НАДЕТЬ'}</div>`;
-      div.onclick = () => { currentUser.equippedSkin = k; saveCurrentUser(); renderInventory(); refreshMenu(); toast(`✅ ${s.name}`); };
-      g.appendChild(div);
-    }
-  } else if (invCategory === 'knives') {
-    for (const k in KNIVES) {
-      if (!currentUser.ownedKnives[k]) continue;
-      const kn = KNIVES[k];
-      const eq = currentUser.equippedKnife === k;
-      const div = document.createElement('div');
-      div.className = 'inv-item' + (eq ? ' equipped' : '');
-      div.innerHTML = `<div class="item-visual">${kn.icon}</div><div class="item-name">${kn.name}</div><div class="item-sub">НОЖ · ${kn.damage} DMG</div><div class="item-price">${eq ? 'В РУКАХ' : 'ВЗЯТЬ'}</div>`;
-      div.onclick = () => { currentUser.equippedKnife = k; saveCurrentUser(); renderInventory(); refreshMenu(); toast(`✅ ${kn.name}`); };
-      g.appendChild(div);
-    }
-  } else if (invCategory === 'avatars') {
-    DEFAULT_AVATARS.forEach((av, i) => {
-      const div = document.createElement('div');
-      const eq = currentUser.avatar.type === 'default' && currentUser.avatar.index === i;
-      div.className = 'inv-item' + (eq ? ' equipped' : '');
-      div.innerHTML = `<div class="item-visual" style="background: linear-gradient(135deg, ${av.color}44, ${av.color}22); border-radius: 50%; width: 60px; height: 60px; margin: 5px auto; display: flex; align-items: center; justify-content: center; font-size: 28px;">${av.icon}</div><div class="item-name">Аватар ${i+1}</div><div class="item-price">${eq ? 'ВЫБРАНА' : 'ВЫБРАТЬ'}</div>`;
-      div.onclick = () => { currentUser.avatar.type = 'default'; currentUser.avatar.index = i; saveCurrentUser(); renderInventory(); updateAvatarVisual(); toast('✅'); };
-      g.appendChild(div);
-    });
-    if (currentUser.avatar.custom) {
-      const div = document.createElement('div');
-      const eq = currentUser.avatar.type === 'custom';
-      div.className = 'inv-item' + (eq ? ' equipped' : '');
-      div.innerHTML = `<div class="item-visual" style="background: url(${currentUser.avatar.custom}) center/cover; border-radius: 50%; width: 60px; height: 60px; margin: 5px auto"></div><div class="item-name">Моё фото</div><div class="item-price">${eq ? 'ВЫБРАНА' : 'ВЫБРАТЬ'}</div>`;
-      div.onclick = () => { currentUser.avatar.type = 'custom'; saveCurrentUser(); renderInventory(); updateAvatarVisual(); toast('✅'); };
-      g.appendChild(div);
-    }
+  let items = {}, owned = {}, equipped = '';
+  if (invCategory === 'skins') { items = SKINS; owned = currentUser.ownedSkins; equipped = currentUser.equippedSkin; }
+  else if (invCategory === 'knives') { items = KNIVES; owned = currentUser.ownedKnives; equipped = currentUser.equippedKnife; }
+  else if (invCategory === 'gloves') { items = GLOVES; owned = currentUser.ownedGloves; equipped = currentUser.equippedGloves; }
+
+  for (const k in items) {
+    if (!owned[k]) continue;
+    const it = items[k];
+    const eq = equipped === k;
+    const div = document.createElement('div');
+    div.className = 'inv-item' + (eq ? ' equipped' : '');
+    const bg = it.color && invCategory === 'skins' ? `background: linear-gradient(135deg, #${it.color.toString(16).padStart(6,'0')}, #${it.color.toString(16).padStart(6,'0')}aa); border-radius: 8px;` : '';
+    div.innerHTML = `<div class="item-visual" style="${bg}">${it.icon}</div><div class="item-rarity ${rarityClass(it.rarity)}">${(it.rarity || 'common').toUpperCase()}</div><div class="item-name">${it.name}</div><div class="item-sub">${invCategory.toUpperCase()}</div><div class="item-price">${eq ? 'НАДЕТО' : 'НАДЕТЬ'}</div>`;
+    div.onclick = () => {
+      if (invCategory === 'skins') currentUser.equippedSkin = k;
+      else if (invCategory === 'knives') currentUser.equippedKnife = k;
+      else if (invCategory === 'gloves') currentUser.equippedGloves = k;
+      saveCurrentUser(); renderInventory(); refreshMenu(); toast(`✅ ${it.name}`);
+    };
+    g.appendChild(div);
+  }
+  if (invCategory === 'avatars') renderAvatarsInInventory();
+}
+
+function renderAvatarsInInventory() {
+  const g = $('inv-grid'); g.innerHTML = '';
+  DEFAULT_AVATARS.forEach((av, i) => {
+    const div = document.createElement('div');
+    const eq = currentUser.avatar.type === 'default' && currentUser.avatar.index === i;
+    div.className = 'inv-item' + (eq ? ' equipped' : '');
+    div.innerHTML = `<div class="item-visual" style="background: linear-gradient(135deg, ${av.color}44, ${av.color}22); border-radius: 50%; width: 60px; height: 60px; margin: 5px auto; display: flex; align-items: center; justify-content: center; font-size: 28px;">${av.icon}</div><div class="item-name">Аватар ${i+1}</div><div class="item-price">${eq ? 'ВЫБРАНА' : 'ВЫБРАТЬ'}</div>`;
+    div.onclick = () => { currentUser.avatar.type = 'default'; currentUser.avatar.index = i; saveCurrentUser(); renderInventory(); updateAvatarVisual(); toast('✅'); };
+    g.appendChild(div);
+  });
+  if (currentUser.avatar.custom) {
+    const div = document.createElement('div');
+    const eq = currentUser.avatar.type === 'custom';
+    div.className = 'inv-item' + (eq ? ' equipped' : '');
+    div.innerHTML = `<div class="item-visual" style="background: url(${currentUser.avatar.custom}) center/cover; border-radius: 50%; width: 60px; height: 60px; margin: 5px auto"></div><div class="item-name">Моё фото</div><div class="item-price">${eq ? 'ВЫБРАНА' : 'ВЫБРАТЬ'}</div>`;
+    div.onclick = () => { currentUser.avatar.type = 'custom'; saveCurrentUser(); renderInventory(); updateAvatarVisual(); toast('✅'); };
+    g.appendChild(div);
   }
 }
 
 function renderShop() {
   const g = $('shop-grid'); g.innerHTML = '';
   $('shop-money').textContent = currentUser.money;
-  let items = {};
-  if (shopCategory === 'skins') items = SKINS;
-  else if (shopCategory === 'knives') items = KNIVES;
-  else if (shopCategory === 'weapons') items = WEAPONS;
+  let items = {}, owned = {};
+  if (shopCategory === 'skins') { items = SKINS; owned = currentUser.ownedSkins; }
+  else if (shopCategory === 'knives') { items = KNIVES; owned = currentUser.ownedKnives; }
+  else if (shopCategory === 'gloves') { items = GLOVES; owned = currentUser.ownedGloves; }
 
   for (const k in items) {
-    if (k === 'default' || k === 'default_knife' || k === 'p250') continue;
+    if (k === 'default' || k === 'default_knife' || k === 'default_gloves') continue;
     const it = items[k];
-    let owned = false;
-    if (shopCategory === 'skins') owned = currentUser.ownedSkins[k];
-    else if (shopCategory === 'knives') owned = currentUser.ownedKnives[k];
-    else owned = currentUser.ownedWeapons[k];
     const can = currentUser.money >= it.price;
     const div = document.createElement('div');
     div.className = 'inv-item';
     const bg = it.color && shopCategory === 'skins' ? `background: linear-gradient(135deg, #${it.color.toString(16).padStart(6,'0')}, #${it.color.toString(16).padStart(6,'0')}aa); border-radius: 8px;` : '';
-    div.innerHTML = `<div class="item-visual" style="${bg}">${it.icon}</div><div class="item-name">${it.name}</div><div class="item-sub">${shopCategory.toUpperCase()}</div><div class="item-price ${owned ? '' : can ? '' : 'locked'}">${owned ? '✓ КУПЛЕНО' : '$' + it.price}</div>`;
+    div.innerHTML = `<div class="item-visual" style="${bg}">${it.icon}</div><div class="item-rarity ${rarityClass(it.rarity)}">${(it.rarity || 'common').toUpperCase()}</div><div class="item-name">${it.name}</div><div class="item-sub">${shopCategory.toUpperCase()}</div><div class="item-price ${owned[k] ? '' : can ? '' : 'locked'}">${owned[k] ? '✓ КУПЛЕНО' : '$' + it.price}</div>`;
     div.onclick = () => buyItem(shopCategory, k);
     g.appendChild(div);
   }
 }
-
 function buyItem(cat, key) {
-  let price = 0, owned = false;
-  if (cat === 'skins') { price = SKINS[key].price; owned = currentUser.ownedSkins[key]; }
-  else if (cat === 'knives') { price = KNIVES[key].price; owned = currentUser.ownedKnives[key]; }
-  else if (cat === 'weapons') { price = WEAPONS[key].price; owned = currentUser.ownedWeapons[key]; }
+  let price = 0, owned = false, items = {}, ownedSet = {};
+  if (cat === 'skins') { items = SKINS; ownedSet = currentUser.ownedSkins; }
+  else if (cat === 'knives') { items = KNIVES; ownedSet = currentUser.ownedKnives; }
+  else if (cat === 'gloves') { items = GLOVES; ownedSet = currentUser.ownedGloves; }
+  price = items[key].price;
+  owned = ownedSet[key];
   if (owned) { toast('Уже куплено'); return; }
   if (currentUser.money < price) { toast('❌ Мало денег', true); return; }
   currentUser.money -= price;
-  if (cat === 'skins') currentUser.ownedSkins[key] = true;
-  else if (cat === 'knives') currentUser.ownedKnives[key] = true;
-  else if (cat === 'weapons') currentUser.ownedWeapons[key] = true;
+  ownedSet[key] = true;
   saveCurrentUser(); sfxBuy();
   toast('✅ Куплено!');
   renderShop(); refreshMenu();
 }
-
 function renderAvatarGrid() {
   const g = $('avatar-grid'); g.innerHTML = '';
   DEFAULT_AVATARS.forEach((av, i) => {
     const div = document.createElement('div');
     const eq = currentUser.avatar.type === 'default' && currentUser.avatar.index === i;
-    div.style.cssText = `aspect-ratio:1;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:28px;border:3px solid ${eq ? '#4ade80' : 'rgba(90,120,255,0.3)'};background: linear-gradient(135deg, ${av.color}44, ${av.color}22);transition:all 0.2s`;
+    div.style.cssText = `aspect-ratio:1;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:28px;border:3px solid ${eq ? '#4ade80' : 'rgba(90,120,255,0.3)'};background: linear-gradient(135deg, ${av.color}44, ${av.color}22)`;
     div.textContent = av.icon;
     div.onclick = () => { currentUser.avatar.type = 'default'; currentUser.avatar.index = i; saveCurrentUser(); renderAvatarGrid(); updateAvatarVisual(); toast('✅'); };
     g.appendChild(div);
@@ -894,11 +951,10 @@ function renderAvatarGrid() {
     g.appendChild(div);
   }
 }
-
 $('avatar-file').addEventListener('change', e => {
   const file = e.target.files[0];
   if (!file) return;
-  if (file.size > 2 * 1024 * 1024) { toast('❌ Файл > 2 МБ', true); return; }
+  if (file.size > 2 * 1024 * 1024) { toast('❌ > 2 МБ', true); return; }
   const reader = new FileReader();
   reader.onload = ev => {
     const img = new Image();
@@ -906,12 +962,11 @@ $('avatar-file').addEventListener('change', e => {
       const c = document.createElement('canvas'); c.width = 256; c.height = 256;
       const ctx = c.getContext('2d');
       const min = Math.min(img.width, img.height);
-      const sx = (img.width - min) / 2, sy = (img.height - min) / 2;
-      ctx.drawImage(img, sx, sy, min, min, 0, 0, 256, 256);
+      ctx.drawImage(img, (img.width - min) / 2, (img.height - min) / 2, min, min, 0, 0, 256, 256);
       currentUser.avatar.custom = c.toDataURL('image/jpeg', 0.8);
       currentUser.avatar.type = 'custom';
       saveCurrentUser(); renderAvatarGrid(); updateAvatarVisual();
-      toast('✅ Фото загружено!');
+      toast('✅ Загружено!');
     };
     img.src = ev.target.result;
   };
@@ -922,37 +977,24 @@ $('avatar-file').addEventListener('change', e => {
 // ЭКРАНЫ
 // ============================================================
 function showOnly(id) {
-  ['menu','profile','avatar','inventory','shop','mode-select','map-select','team-select'].forEach(s => {
+  ['menu','profile','avatar','inventory','shop','mode-select','map-select','team-select','friends'].forEach(s => {
     const el = $(s);
     if (el) { if (s === id) el.classList.remove('hidden'); else el.classList.add('hidden'); }
   });
 }
 
 // ============================================================
-// ВЫБОР РЕЖИМА / КАРТЫ / КОМАНДЫ
+// ВЫБОР РЕЖИМА
 // ============================================================
 let selectedMode = 'solo', selectedMap = 'dust', playerTeam = 'ct';
 let selectedModeTemp = 'solo', selectedMapTemp = 'dust', playerTeamTemp = 'ct';
-
 document.addEventListener('click', e => {
-  const modeItem = e.target.closest('.mode-item[data-mode]');
-  if (modeItem) {
-    document.querySelectorAll('.mode-item[data-mode]').forEach(x => x.classList.remove('selected'));
-    modeItem.classList.add('selected');
-    selectedModeTemp = modeItem.dataset.mode;
-  }
-  const mapItem = e.target.closest('.map-item[data-map]');
-  if (mapItem) {
-    document.querySelectorAll('.map-item[data-map]').forEach(x => x.classList.remove('selected'));
-    mapItem.classList.add('selected');
-    selectedMapTemp = mapItem.dataset.map;
-  }
-  const teamItem = e.target.closest('.mode-item[data-team]');
-  if (teamItem) {
-    document.querySelectorAll('.mode-item[data-team]').forEach(x => x.classList.remove('selected'));
-    teamItem.classList.add('selected');
-    playerTeamTemp = teamItem.dataset.team;
-  }
+  const mi = e.target.closest('.mode-item[data-mode]');
+  if (mi) { document.querySelectorAll('.mode-item[data-mode]').forEach(x => x.classList.remove('selected')); mi.classList.add('selected'); selectedModeTemp = mi.dataset.mode; }
+  const mp = e.target.closest('.map-item[data-map]');
+  if (mp) { document.querySelectorAll('.map-item[data-map]').forEach(x => x.classList.remove('selected')); mp.classList.add('selected'); selectedMapTemp = mp.dataset.map; }
+  const ti = e.target.closest('.mode-item[data-team]');
+  if (ti) { document.querySelectorAll('.mode-item[data-team]').forEach(x => x.classList.remove('selected')); ti.classList.add('selected'); playerTeamTemp = ti.dataset.team; }
 });
 
 // ============================================================
@@ -962,14 +1004,14 @@ const actions = {
   'profile': () => openProfile(),
   'inventory': () => openInventory(),
   'shop': () => openShop(),
-  'friends': () => toast('👥 Друзья — в разработке'),
+  'friends': () => openFriends(),
   'settings': () => toast('⚙ Настройки — в разработке'),
   'logout': () => { if (confirm('Выйти?')) { saveCurrentUser(); localStorage.removeItem('standoff3_current'); location.reload(); } },
   'back-menu': () => { refreshMenu(); showOnly('menu'); },
   'change-avatar': () => openAvatar(),
   'upload-avatar': () => $('avatar-file').click(),
   'back-profile': () => openProfile(),
-  'play': () => { showOnly('mode-select'); },
+  'play': () => showOnly('mode-select'),
   'mode-next': () => { selectedMode = selectedModeTemp; showOnly('map-select'); },
   'map-start': () => {
     selectedMap = selectedMapTemp;
@@ -982,16 +1024,172 @@ const actions = {
   'resume': () => resumeGame(),
   'to-menu': () => { if (gameState === 'playing' || gameState === 'paused') cleanupGame(); backToMenu(); },
   'retry': () => { hide($('gameover')); startGame(); },
-  'ranked': () => toast('🏆 Ранги — в разработке'),
-  'collection': () => openShop()
+  'ranked': () => toast('🏆 Ранги — в следующем обновлении'),
+  'collection': () => openShop(),
+  'create-room': () => createRoom(),
+  'join-room': () => joinRoom()
 };
-
 document.addEventListener('click', e => {
   const btn = e.target.closest('[data-action]');
   if (!btn) return;
   const a = btn.dataset.action;
   if (actions[a]) { e.preventDefault(); e.stopPropagation(); try { actions[a](); } catch(err) { console.error(err); } }
 });
+
+// ============================================================
+// МУЛЬТИПЛЕЕР (Настоящие друзья)
+// ============================================================
+let peer = null, connections = [], isHost = false, myPeerId = null;
+let peerServerIndex = 0, peerRetryCount = 0;
+const PEER_SERVERS = [
+  { host: '0.peerjs.com', port: 443, path: '/', secure: true },
+  { host: '1.peerjs.com', port: 443, path: '/', secure: true }
+];
+const ICE_SERVERS = [
+  { urls: 'stun:stun.l.google.com:19302' },
+  { urls: 'stun:stun1.l.google.com:19302' }
+];
+
+function generateRoomCode() {
+  const chars = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
+  let c = '';
+  for (let i = 0; i < 6; i++) c += chars[Math.floor(Math.random() * chars.length)];
+  return c;
+}
+function createRoom() {
+  if (peerRetryCount > 5) { $('mp-status').textContent = '❌ Ошибка подключения'; $('mp-status').style.color = '#ff5555'; return; }
+  $('mp-status').textContent = '⏳ Создание...';
+  $('mp-status').style.color = '#5b7aff';
+  const code = generateRoomCode();
+  isHost = true;
+  createPeerWithFallback('s3-' + code, () => {
+    $('lobby-main').style.display = 'none';
+    $('lobby-room').style.display = 'block';
+    $('room-code-display').textContent = code;
+    $('room-status').textContent = 'Ожидание друзей...';
+    updatePlayersList();
+    peerRetryCount = 0;
+  });
+}
+function joinRoom() {
+  const code = $('join-code').value.trim().toUpperCase();
+  if (code.length !== 6) { $('mp-status').textContent = '❌ Код: 6 символов'; $('mp-status').style.color = '#ff5555'; return; }
+  if (peerRetryCount > 5) { $('mp-status').textContent = '❌ Ошибка'; $('mp-status').style.color = '#ff5555'; return; }
+  isHost = false;
+  $('mp-status').textContent = '⏳ Подключение...';
+  $('mp-status').style.color = '#5b7aff';
+  const myId = 's3-c-' + Math.random().toString(36).slice(2, 10);
+  createPeerWithFallback(myId, () => {
+    const conn = peer.connect('s3-' + code, { metadata: { name: currentUser.name, id: currentUser.id }, reliable: true });
+    setupConnection(conn);
+    $('lobby-main').style.display = 'none';
+    $('lobby-room').style.display = 'block';
+    $('room-code-display').textContent = code;
+    $('room-status').textContent = 'Подключение...';
+    updatePlayersList();
+    peerRetryCount = 0;
+  });
+}
+function createPeerWithFallback(peerId, onOpen) { peerServerIndex = 0; peerRetryCount = 0; tryCreatePeer(peerId, onOpen); }
+function tryCreatePeer(peerId, onOpen) {
+  if (peerRetryCount >= 5) { $('mp-status').textContent = '❌ Не удалось'; $('mp-status').style.color = '#ff5555'; return; }
+  if (peer) { try { peer.destroy(); } catch(e) {} peer = null; }
+  const srv = PEER_SERVERS[peerServerIndex % PEER_SERVERS.length];
+  try {
+    peer = new Peer(peerId, { host: srv.host, port: srv.port, path: srv.path, secure: srv.secure, config: { iceServers: ICE_SERVERS }, debug: 0 });
+    peer.on('open', id => { myPeerId = id; peerRetryCount = 0; onOpen(id); });
+    peer.on('error', err => {
+      if (err.type === 'network' || err.type === 'server-error' || err.type === 'socket-error') {
+        $('mp-status').textContent = `⏳ Сервер недоступен, пробуем другой...`;
+        $('mp-status').style.color = '#f0a500';
+        peerRetryCount++; peerServerIndex++;
+        setTimeout(() => tryCreatePeer(peerId, onOpen), 500);
+      } else { $('mp-status').textContent = '❌ ' + err.type; $('mp-status').style.color = '#ff5555'; }
+    });
+    peer.on('connection', conn => { if (!isHost) { try { conn.close(); } catch(e) {} return; } setupConnection(conn); });
+  } catch(err) { peerRetryCount++; peerServerIndex++; setTimeout(() => tryCreatePeer(peerId, onOpen), 500); }
+}
+function setupConnection(conn) {
+  conn.on('open', () => {
+    connections.push(conn);
+    try { conn.send({ type: 'player-info', name: currentUser.name, id: currentUser.id }); } catch(e) {}
+    updatePlayersList();
+  });
+  conn.on('data', data => handleNetworkData(data, conn));
+  conn.on('close', () => { connections = connections.filter(c => c !== conn); updatePlayersList(); });
+}
+function handleNetworkData(data, conn) {
+  switch (data.type) {
+    case 'player-info':
+      conn.metadata = conn.metadata || {};
+      conn.metadata.name = data.name;
+      conn.metadata.id = data.id;
+      updatePlayersList();
+      addKillfeed(data.name, '→', 'подключился');
+      break;
+    case 'friend-request':
+      // Показать попап
+      $('inv-from').textContent = data.name;
+      $('invite-popup').classList.add('active');
+      window._pendingFriend = { name: data.name, id: data.id, peerId: conn.peer };
+      break;
+    case 'friend-accept':
+      addFriend(data.name, data.id);
+      toast(`✅ ${data.name} теперь друг`);
+      break;
+  }
+}
+function updatePlayersList() {
+  const list = $('players-list');
+  if (!list) return;
+  let html = `<div class="player-row me"><span>👤 ${currentUser.name} (ВЫ)${isHost ? ' 👑' : ''}</span></div>`;
+  for (const c of connections) {
+    const name = c.metadata?.name || 'Игрок';
+    const id = c.metadata?.id || '—';
+    const isFr = currentUser.friends.some(f => f.name === name);
+    html += `<div class="player-row">
+      <span>👤 ${name} <span style="color:#5a6580;font-size:10px">ID:${id}</span></span>
+      ${!isFr ? `<button class="friend-add-btn" data-peer="${c.peer}" data-name="${name}" data-id="${id}">+ ДРУГ</button>` : `<span style="color:#4ade80;font-size:10px">✓ ДРУГ</span>`}
+    </div>`;
+  }
+  list.innerHTML = html;
+  // Навесить обработчики на кнопки
+  list.querySelectorAll('.friend-add-btn').forEach(btn => {
+    btn.onclick = () => {
+      const name = btn.dataset.name, id = btn.dataset.id, peerId = btn.dataset.peer;
+      const conn = connections.find(c => c.peer === peerId);
+      if (conn) try { conn.send({ type: 'friend-request', name: currentUser.name, id: currentUser.id }); } catch(e) {}
+      toast('📨 Запрос отправлен');
+    };
+  });
+}
+function addFriend(name, id) {
+  if (currentUser.friends.find(f => f.name === name)) return;
+  currentUser.friends.push({ name, id, online: true, avatar: '👤' });
+  saveCurrentUser(); sfxFriend(); renderFriendsMenu(); renderFriendsFull();
+}
+function copyRoomCode() {
+  const code = $('room-code-display').textContent;
+  if (code === '------' || code.length !== 6) return;
+  if (navigator.clipboard) navigator.clipboard.writeText(code).then(() => {
+    $('room-code-display').textContent = 'СКОПИРОВАНО!';
+    setTimeout(() => { $('room-code-display').textContent = code; }, 900);
+  });
+}
+$('room-code-display').addEventListener('click', copyRoomCode);
+
+// Попап приглашения
+$('inv-accept').onclick = () => {
+  if (window._pendingFriend) {
+    addFriend(window._pendingFriend.name, window._pendingFriend.id);
+    const conn = connections.find(c => c.peer === window._pendingFriend.peerId);
+    if (conn) try { conn.send({ type: 'friend-accept', name: currentUser.name, id: currentUser.id }); } catch(e) {}
+  }
+  window._pendingFriend = null;
+  $('invite-popup').classList.remove('active');
+  toast('✅ Друг добавлен');
+};
+$('inv-decline').onclick = () => { window._pendingFriend = null; $('invite-popup').classList.remove('active'); };
 
 // ============================================================
 // 3D ИГРА
@@ -1003,7 +1201,9 @@ let particles = [], bulletHoles = [], walls = [];
 let gameState = 'menu', pointerLocked = false, mouseDown = false;
 let kills = 0, deaths = 0, wave = 1, scoreCT = 0, scoreT = 0;
 let currentWeaponKey = 'p250', weaponAmmo = {}, reloading = false, reloadTimer = 0, zoomed = false;
-let input = { forward: false, back: false, left: false, right: false, jump: false, sprint: false, crouch: false };
+let playerMoney = 800; // боевые деньги
+let buyOpen = false;
+let input = { forward: false, back: false, left: false, right: false, jump: false, sprint: false };
 let touchInput = { moveX: 0, moveY: 0, fireActive: false };
 const player = {
   pos: new THREE.Vector3(0, PLAYER_HEIGHT, 0), vel: new THREE.Vector3(),
@@ -1021,20 +1221,20 @@ function resizeRenderer() {
 
 function initScene() {
   const cfg = {
-    dust: { sky: 0x87b8e8, fog: 0xa8c8e8, fogNear: 35, fogFar: 95, ambient: 0xffffff, ai: 0.75, sun: 0xfff5e0, si: 1.1, hemi: [0xb8d8ff, 0x8a7a60, 0.55], floor: ['#e8e4d8','#d8d2c0'], wall: ['#f0ece0','#e0dccc'], box: ['#4a6fa5','#3a5f95'], crate: ['#c9a961','#a88941'] },
-    train: { sky: 0x1a1a2e, fog: 0x2a2a3e, fogNear: 30, fogFar: 90, ambient: 0x445566, ai: 0.55, sun: 0xaabbcc, si: 0.7, hemi: [0x334455, 0x222222, 0.4], floor: ['#3a3a3a','#2a2a2a'], wall: ['#4a4a4a','#3a3a3a'], box: ['#8a2020','#6a1515'], crate: ['#2a6a2a','#1a4a1a'] },
-    mirage: { sky: 0xf0b060, fog: 0xe0a050, fogNear: 35, fogFar: 95, ambient: 0xffe0b0, ai: 0.85, sun: 0xffcc80, si: 1.0, hemi: [0xffcc90, 0xa08050, 0.5], floor: ['#e0c090','#d0b080'], wall: ['#f0d0a0','#e0c090'], box: ['#c09060','#a07040'], crate: ['#a08050','#806030'] },
-    inferno: { sky: 0xc06040, fog: 0xa05030, fogNear: 30, fogFar: 85, ambient: 0xffb090, ai: 0.7, sun: 0xff8060, si: 1.0, hemi: [0xff9060, 0x602020, 0.4], floor: ['#8a4030','#7a3020'], wall: ['#a05040','#904030'], box: ['#c06050','#a04030'], crate: ['#804030','#603020'] }
-  }[selectedMap] || {};
+    dust: { sky: 0x87b8e8, fog: 0xa8c8e8, fn: 35, ff: 95, amb: 0xffffff, ai: 0.75, sun: 0xfff5e0, si: 1.1, hemi: [0xb8d8ff, 0x8a7a60, 0.55], floor: ['#e8e4d8','#d8d2c0'], wall: ['#f0ece0','#e0dccc'], box: ['#4a6fa5','#3a5f95'], crate: ['#c9a961','#a88941'] },
+    train: { sky: 0x1a1a2e, fog: 0x2a2a3e, fn: 30, ff: 90, amb: 0x445566, ai: 0.55, sun: 0xaabbcc, si: 0.7, hemi: [0x334455, 0x222222, 0.4], floor: ['#3a3a3a','#2a2a2a'], wall: ['#4a4a4a','#3a3a3a'], box: ['#8a2020','#6a1515'], crate: ['#2a6a2a','#1a4a1a'] },
+    mirage: { sky: 0xf0b060, fog: 0xe0a050, fn: 35, ff: 95, amb: 0xffe0b0, ai: 0.85, sun: 0xffcc80, si: 1.0, hemi: [0xffcc90, 0xa08050, 0.5], floor: ['#e0c090','#d0b080'], wall: ['#f0d0a0','#e0c090'], box: ['#c09060','#a07040'], crate: ['#a08050','#806030'] },
+    inferno: { sky: 0xc06040, fog: 0xa05030, fn: 30, ff: 85, amb: 0xffb090, ai: 0.7, sun: 0xff8060, si: 1.0, hemi: [0xff9060, 0x602020, 0.4], floor: ['#8a4030','#7a3020'], wall: ['#a05040','#904030'], box: ['#c06050','#a04030'], crate: ['#804030','#603020'] }
+  }[selectedMap];
   scene = new THREE.Scene();
   scene.background = new THREE.Color(cfg.sky);
-  scene.fog = new THREE.Fog(cfg.fog, cfg.fogNear, cfg.fogFar);
+  scene.fog = new THREE.Fog(cfg.fog, cfg.fn, cfg.ff);
   camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 500);
   renderer = new THREE.WebGLRenderer({ antialias: settings.quality > 0, powerPreference: 'high-performance' });
   renderer.setPixelRatio(settings.quality === 0 ? 0.7 : 1);
   renderer.domElement.style.cssText = 'position:fixed;inset:0;width:100%;height:100%;z-index:1;display:block;';
   document.body.appendChild(renderer.domElement);
-  scene.add(new THREE.AmbientLight(cfg.ambient, cfg.ai));
+  scene.add(new THREE.AmbientLight(cfg.amb, cfg.ai));
   const sun = new THREE.DirectionalLight(cfg.sun, cfg.si);
   sun.position.set(30, 60, 20);
   scene.add(sun);
@@ -1111,11 +1311,13 @@ function createWeapon(key) {
   const w = WEAPONS[key];
   const skin = SKINS[currentUser.equippedSkin];
   const skinColor = skin?.color;
+  const glove = GLOVES[currentUser.equippedGloves];
+  const gloveColor = glove?.color || 0xd4a373;
   const g = new THREE.Group();
   const bodyMat = new THREE.MeshLambertMaterial({ color: skinColor || w.bodyColor });
   const barrelMat = new THREE.MeshLambertMaterial({ color: w.barrelColor });
   const gripMat = new THREE.MeshLambertMaterial({ color: skinColor || w.gripColor });
-  const skinMat = new THREE.MeshLambertMaterial({ color: 0xd4a373 });
+  const gloveMat = new THREE.MeshLambertMaterial({ color: gloveColor });
   const isPistol = w.cat === 'pistol';
   const isSniper = w.cat === 'sniper';
   const bodyLen = isPistol ? 0.28 : isSniper ? 0.9 : 0.6;
@@ -1138,9 +1340,9 @@ function createWeapon(key) {
   }
   const grip = new THREE.Mesh(new THREE.BoxGeometry(0.06, 0.18, 0.08), gripMat);
   grip.position.set(0, -0.13, bodyZ + 0.05); grip.rotation.x = -0.2; g.add(grip);
-  const handR = new THREE.Mesh(new THREE.BoxGeometry(0.09, 0.09, 0.12), skinMat);
+  const handR = new THREE.Mesh(new THREE.BoxGeometry(0.09, 0.09, 0.12), gloveMat);
   handR.position.set(0, -0.11, bodyZ + 0.05); g.add(handR);
-  const handL = new THREE.Mesh(new THREE.BoxGeometry(0.09, 0.09, 0.12), skinMat);
+  const handL = new THREE.Mesh(new THREE.BoxGeometry(0.09, 0.09, 0.12), gloveMat);
   handL.position.set(0.02, -0.11, bodyZ - bodyLen / 2 + 0.05); g.add(handL);
   const sight = new THREE.Mesh(new THREE.BoxGeometry(0.02, 0.05, 0.02), barrelMat);
   sight.position.set(0, 0.08, bodyZ - 0.05); g.add(sight);
@@ -1210,6 +1412,7 @@ function spawnTeamBot(team, x, z) {
 // СТРЕЛЬБА
 // ============================================================
 function shoot() {
+  if (buyOpen || gameState !== 'playing') return;
   const w = WEAPONS[currentWeaponKey];
   const now = performance.now();
   if (now - player.lastShot < w.fireRate) return;
@@ -1223,7 +1426,6 @@ function shoot() {
   player.weaponKick = 1;
   sfxShoot(currentWeaponKey);
   if (weaponGroup.userData.flash) { weaponGroup.userData.flash.material.opacity = 1; weaponGroup.userData.flash.scale.setScalar(1 + Math.random() * 0.5); }
-
   const pellets = w.pellets || 1;
   for (let p = 0; p < pellets; p++) {
     raycaster.setFromCamera({ x: 0, y: 0 }, camera);
@@ -1260,8 +1462,9 @@ function shoot() {
     if (closest) {
       currentUser.stats.hits++;
       let dmg = w.damage;
-      if (part === 'head') { dmg = Math.round(w.damage * w.headMult); currentUser.stats.headshots++; sfxHit(); showHitmarker(true); }
-      else { sfxHit(); showHitmarker(false); }
+      if (part === 'head') { dmg = Math.round(w.damage * w.headMult); currentUser.stats.headshots++; showHitmarker(true); }
+      else showHitmarker(false);
+      sfxHit();
       closest.hp -= dmg;
       closest.hitFlash = 1;
       spawnBlood(hitPoint);
@@ -1279,11 +1482,11 @@ function killUnit(e) {
   e.dead = true;
   e.mesh.userData.deadTime = 0;
   if (e.isBot) {
-    kills++; currentUser.money += 50;
+    kills++; playerMoney += 50;
     if (e.team === 'ct') scoreT++; else scoreCT++;
     currentUser.stats.kills++;
     addXP(15); saveCurrentUser(); sfxKill();
-    addKillfeed(currentUser.name, '🔫', `${e.team.toUpperCase()} БОТ`);
+    addKillfeed(currentUser.name, '🔫', `${e.team.toUpperCase()} БОТ +$50`);
     setTimeout(() => {
       scene.remove(e.mesh);
       const arr = e.team === 'ct' ? teamCT : teamT;
@@ -1291,7 +1494,7 @@ function killUnit(e) {
       setTimeout(() => spawnTeamBot(e.team, (Math.random() - 0.5) * 20, (Math.random() - 0.5) * 20), 3000);
     }, 1200);
   } else if (e.isEnemy) {
-    kills++; currentUser.money += 50;
+    kills++; playerMoney += 50;
     currentUser.stats.kills++;
     addXP(10); saveCurrentUser(); sfxKill();
     addKillfeed(currentUser.name, '🔫', 'ВРАГ +$50');
@@ -1299,8 +1502,7 @@ function killUnit(e) {
       scene.remove(e.mesh);
       const i = enemies.indexOf(e); if (i >= 0) enemies.splice(i, 1);
       if (enemies.length === 0 && selectedMode !== 'team') {
-        wave++; currentUser.money += 100;
-        saveCurrentUser();
+        wave++; playerMoney += 100;
         addKillfeed('СИСТЕМА', '💰', `+$100 (волна ${wave})`);
         setTimeout(startWave, 2000);
       }
@@ -1308,6 +1510,7 @@ function killUnit(e) {
   } else if (e.isAlly) {
     setTimeout(() => { scene.remove(e.mesh); const i = allies.indexOf(e); if (i >= 0) allies.splice(i, 1); }, 1200);
   }
+  updateHUD();
 }
 
 function reload() {
@@ -1338,6 +1541,63 @@ function spawnBulletHole(pos, normal) {
 }
 
 // ============================================================
+// БОЕВОЙ МАГАЗИН
+// ============================================================
+function openBuyMenu() {
+  if (gameState !== 'playing') return;
+  buyOpen = true;
+  $('buy-menu').classList.add('active');
+  renderBuyMenu();
+  if (!IS_MOBILE && document.exitPointerLock) document.exitPointerLock();
+}
+function closeBuyMenu() {
+  buyOpen = false;
+  $('buy-menu').classList.remove('active');
+  if (!IS_MOBILE) requestPointerLock();
+}
+function renderBuyMenu() {
+  const g = $('buy-grid'); g.innerHTML = '';
+  $('buy-money').textContent = playerMoney;
+  for (const k in WEAPONS) {
+    if (k === 'p250') continue;
+    const w = WEAPONS[k];
+    const owned = !!weaponAmmo[k];
+    const can = playerMoney >= w.price;
+    const div = document.createElement('div');
+    div.className = 'buy-item' + (owned ? ' owned' : '');
+    div.innerHTML = `<div class="bi-icon">${w.icon}</div><div class="bi-name">${w.name}</div><div class="bi-sub" style="font-size:9px;color:#7d8db3;margin-bottom:3px">${w.cat.toUpperCase()}</div><div class="bi-price ${owned ? '' : can ? '' : 'locked'}">${owned ? '✓ КУПЛЕНО' : '$' + w.price}</div>`;
+    div.onclick = () => buyWeaponInGame(k);
+    g.appendChild(div);
+  }
+}
+function buyWeaponInGame(key) {
+  const w = WEAPONS[key];
+  if (weaponAmmo[key]) { // Уже куплено — экипировать
+    equipWeaponInGame(key);
+    closeBuyMenu();
+    return;
+  }
+  if (playerMoney < w.price) { toast('❌ Мало денег', true); return; }
+  playerMoney -= w.price;
+  weaponAmmo[key] = { ammo: w.magSize, reserve: w.reserve };
+  sfxBuy();
+  toast(`✅ ${w.name} куплен`);
+  equipWeaponInGame(key);
+  renderBuyMenu();
+  closeBuyMenu();
+  updateHUD();
+}
+function equipWeaponInGame(key) {
+  if (!weaponAmmo[key]) return;
+  currentWeaponKey = key;
+  if (weaponGroup && scene) scene.remove(weaponGroup);
+  weaponGroup = createWeapon(key);
+  scene.add(weaponGroup);
+  zoomed = false;
+  updateHUD();
+}
+
+// ============================================================
 // HUD
 // ============================================================
 function updateHUD() {
@@ -1351,6 +1611,8 @@ function updateHUD() {
   $('ammo-current').textContent = ammo.ammo;
   $('ammo-reserve').textContent = ammo.reserve;
   $('weapon-name').textContent = reloading ? 'ПЕРЕЗАРЯДКА' : w.name;
+  const mh = $('hud-money');
+  if (mh) mh.textContent = playerMoney;
 }
 function showHitmarker(head) {
   const hm = $('hitmarker');
@@ -1380,10 +1642,11 @@ function startGame() {
   enemies = []; allies = []; teamCT = []; teamT = [];
   particles = []; bulletHoles = []; walls = [];
   kills = 0; deaths = 0; wave = 1; scoreCT = 0; scoreT = 0;
-  currentWeaponKey = currentUser.equippedWeapon;
-  weaponAmmo = {};
-  for (const k in WEAPONS) if (currentUser.ownedWeapons[k]) weaponAmmo[k] = { ammo: WEAPONS[k].magSize, reserve: WEAPONS[k].reserve };
-  reloading = false; reloadTimer = 0; zoomed = false;
+  playerMoney = 800;
+  currentWeaponKey = 'p250';
+  weaponAmmo = { p250: { ammo: 13, reserve: 52 } }; // Только пистолет — остальное покупается в бою
+  reloading = false; reloadTimer = 0; zoomed = false; buyOpen = false;
+  $('buy-menu').classList.remove('active');
 
   initScene();
   if (selectedMode === 'team') {
@@ -1392,7 +1655,7 @@ function startGame() {
   } else player.pos.set(0, PLAYER_HEIGHT, 0);
   player.vel.set(0, 0, 0); player.yaw = 0; player.pitch = 0; player.hp = 100;
 
-  ['menu','mode-select','map-select','team-select','profile','avatar','inventory','shop'].forEach(s => hide($(s)));
+  ['menu','mode-select','map-select','team-select','profile','avatar','inventory','shop','friends'].forEach(s => hide($(s)));
   $('hud').classList.add('active');
   $('wave-info').textContent = 'ВОЛНА 1';
   $('wave-info').style.display = 'block';
@@ -1407,9 +1670,7 @@ function startGame() {
       spawnTeamBot('ct', -half + Math.random() * 8, -half + Math.random() * 8);
       spawnTeamBot('t', half - Math.random() * 8, half - Math.random() * 8);
     }
-  } else {
-    startWave();
-  }
+  } else startWave();
 
   updateHUD();
   gameState = 'playing';
@@ -1435,7 +1696,6 @@ function cleanupGame() {
   $('mobile-controls').classList.remove('active');
   $('click-hint').classList.remove('active');
 }
-
 function pauseGame() {
   if (gameState !== 'playing') return;
   gameState = 'paused';
@@ -1467,7 +1727,6 @@ function backToMenu() {
   refreshMenu();
   if (document.exitPointerLock) document.exitPointerLock();
 }
-
 function requestPointerLock() {
   if (IS_MOBILE || !renderer) return;
   const p = renderer.domElement.requestPointerLock();
@@ -1477,7 +1736,7 @@ document.addEventListener('pointerlockchange', () => {
   pointerLocked = document.pointerLockElement === (renderer && renderer.domElement);
   if (IS_MOBILE) return;
   if (pointerLocked) $('click-hint').classList.remove('active');
-  else if (gameState === 'playing') $('click-hint').classList.add('active');
+  else if (gameState === 'playing' && !buyOpen) $('click-hint').classList.add('active');
 });
 
 // ============================================================
@@ -1485,11 +1744,13 @@ document.addEventListener('pointerlockchange', () => {
 // ============================================================
 window.addEventListener('keydown', e => {
   if (e.code === 'Escape') {
+    if (buyOpen) { closeBuyMenu(); return; }
     if (gameState === 'playing') pauseGame();
     else if (gameState === 'paused') resumeGame();
     return;
   }
-  if (gameState !== 'playing') return;
+  if (e.code === 'KeyB' && gameState === 'playing') { e.preventDefault(); if (buyOpen) closeBuyMenu(); else openBuyMenu(); return; }
+  if (gameState !== 'playing' || buyOpen) return;
   switch (e.code) {
     case 'KeyW': case 'ArrowUp': input.forward = true; break;
     case 'KeyS': case 'ArrowDown': input.back = true; break;
@@ -1512,14 +1773,14 @@ window.addEventListener('keyup', e => {
 });
 window.addEventListener('blur', () => { for (const k in input) input[k] = false; mouseDown = false; });
 document.addEventListener('mousemove', e => {
-  if (IS_MOBILE || !pointerLocked || gameState !== 'playing') return;
+  if (IS_MOBILE || !pointerLocked || gameState !== 'playing' || buyOpen) return;
   const s = settings.sensitivity * 0.0009 * (zoomed ? 0.4 : 1);
   player.yaw -= e.movementX * s;
   player.pitch -= e.movementY * s;
   player.pitch = Math.max(-Math.PI/2 + 0.01, Math.min(Math.PI/2 - 0.01, player.pitch));
 });
 document.addEventListener('mousedown', e => {
-  if (IS_MOBILE || gameState !== 'playing') return;
+  if (IS_MOBILE || gameState !== 'playing' || buyOpen) return;
   if (e.button === 0) {
     if (!pointerLocked) requestPointerLock();
     else { mouseDown = true; shoot(); }
@@ -1532,7 +1793,6 @@ document.addEventListener('mousedown', e => {
 document.addEventListener('mouseup', () => { if (!IS_MOBILE) mouseDown = false; });
 document.addEventListener('contextmenu', e => e.preventDefault());
 $('click-hint').addEventListener('click', () => requestPointerLock());
-
 function applyZoom() {
   const w = WEAPONS[currentWeaponKey];
   camera.fov = (w.zoom && zoomed) ? 30 : 75;
@@ -1541,62 +1801,26 @@ function applyZoom() {
 }
 
 // ============================================================
-// МОБИЛЬНОЕ УПРАВЛЕНИЕ
+// МОБИЛЬНОЕ
 // ============================================================
 function setupMobile() {
   if (!IS_MOBILE) return;
   const joyZone = $('joystick-zone'), joyStick = $('joystick-stick');
   let joyId = null, jx = 0, jy = 0;
-  joyZone.addEventListener('touchstart', e => {
-    e.preventDefault();
-    const t = e.changedTouches[0]; joyId = t.identifier;
-    const r = joyZone.getBoundingClientRect(); jx = r.left + r.width/2; jy = r.top + r.height/2;
-    updateJoy(t.clientX, t.clientY);
-  }, { passive: false });
-  joyZone.addEventListener('touchmove', e => {
-    e.preventDefault();
-    for (const t of e.changedTouches) if (t.identifier === joyId) updateJoy(t.clientX, t.clientY);
-  }, { passive: false });
-  joyZone.addEventListener('touchend', e => {
-    for (const t of e.changedTouches) if (t.identifier === joyId) { joyId = null; touchInput.moveX = 0; touchInput.moveY = 0; joyStick.style.transform = 'translate(0,0)'; }
-  });
-  function updateJoy(cx, cy) {
-    let dx = cx - jx, dy = cy - jy;
-    const d = Math.hypot(dx, dy), m = 50;
-    if (d > m) { dx = dx/d*m; dy = dy/d*m; }
-    joyStick.style.transform = `translate(${dx}px, ${dy}px)`;
-    touchInput.moveX = dx/m; touchInput.moveY = dy/m;
-  }
+  joyZone.addEventListener('touchstart', e => { e.preventDefault(); const t = e.changedTouches[0]; joyId = t.identifier; const r = joyZone.getBoundingClientRect(); jx = r.left + r.width/2; jy = r.top + r.height/2; updateJoy(t.clientX, t.clientY); }, { passive: false });
+  joyZone.addEventListener('touchmove', e => { e.preventDefault(); for (const t of e.changedTouches) if (t.identifier === joyId) updateJoy(t.clientX, t.clientY); }, { passive: false });
+  joyZone.addEventListener('touchend', e => { for (const t of e.changedTouches) if (t.identifier === joyId) { joyId = null; touchInput.moveX = 0; touchInput.moveY = 0; joyStick.style.transform = 'translate(0,0)'; } });
+  function updateJoy(cx, cy) { let dx = cx - jx, dy = cy - jy; const d = Math.hypot(dx, dy), m = 50; if (d > m) { dx = dx/d*m; dy = dy/d*m; } joyStick.style.transform = `translate(${dx}px, ${dy}px)`; touchInput.moveX = dx/m; touchInput.moveY = dy/m; }
   const lookZone = $('look-zone');
   let lookId = null, lx = 0, ly = 0;
-  lookZone.addEventListener('touchstart', e => {
-    e.preventDefault();
-    if (lookId !== null) return;
-    const t = e.changedTouches[0]; lookId = t.identifier; lx = t.clientX; ly = t.clientY;
-  }, { passive: false });
-  lookZone.addEventListener('touchmove', e => {
-    e.preventDefault();
-    for (const t of e.changedTouches) if (t.identifier === lookId) {
-      const dx = t.clientX - lx, dy = t.clientY - ly;
-      lx = t.clientX; ly = t.clientY;
-      const s = settings.sensitivity * 0.0022 * (zoomed ? 0.4 : 1);
-      player.yaw -= dx * s;
-      player.pitch -= dy * s;
-      player.pitch = Math.max(-Math.PI/2 + 0.01, Math.min(Math.PI/2 - 0.01, player.pitch));
-    }
-  }, { passive: false });
+  lookZone.addEventListener('touchstart', e => { e.preventDefault(); if (lookId !== null) return; const t = e.changedTouches[0]; lookId = t.identifier; lx = t.clientX; ly = t.clientY; }, { passive: false });
+  lookZone.addEventListener('touchmove', e => { e.preventDefault(); for (const t of e.changedTouches) if (t.identifier === lookId) { const dx = t.clientX - lx, dy = t.clientY - ly; lx = t.clientX; ly = t.clientY; const s = settings.sensitivity * 0.0022 * (zoomed ? 0.4 : 1); player.yaw -= dx * s; player.pitch -= dy * s; player.pitch = Math.max(-Math.PI/2 + 0.01, Math.min(Math.PI/2 - 0.01, player.pitch)); } }, { passive: false });
   lookZone.addEventListener('touchend', e => { for (const t of e.changedTouches) if (t.identifier === lookId) lookId = null; });
-
-  function bind(id, on, off) {
-    const el = $(id);
-    el.addEventListener('touchstart', e => { e.preventDefault(); el.classList.add('pressed'); on && on(); }, { passive: false });
-    el.addEventListener('touchend', e => { e.preventDefault(); el.classList.remove('pressed'); off && off(); });
-    el.addEventListener('touchcancel', e => { el.classList.remove('pressed'); off && off(); });
-  }
+  function bind(id, on, off) { const el = $(id); el.addEventListener('touchstart', e => { e.preventDefault(); el.classList.add('pressed'); on && on(); }, { passive: false }); el.addEventListener('touchend', e => { e.preventDefault(); el.classList.remove('pressed'); off && off(); }); el.addEventListener('touchcancel', e => { el.classList.remove('pressed'); off && off(); }); }
   bind('btn-fire', () => { touchInput.fireActive = true; shoot(); }, () => { touchInput.fireActive = false; });
   bind('btn-jump', () => { input.jump = true; setTimeout(() => input.jump = false, 150); });
   bind('btn-reload', () => reload());
-  bind('btn-shop-mob', () => toast('🛒 Магазин в игре — в разработке'));
+  bind('btn-shop-mob', () => { if (buyOpen) closeBuyMenu(); else openBuyMenu(); });
 }
 
 // ============================================================
@@ -1606,15 +1830,16 @@ function gameLoop() {
   if (gameState !== 'playing') return;
   requestAnimationFrame(gameLoop);
   const dt = Math.min(0.05, clock.getDelta());
-
-  updatePlayer(dt);
-  updateWeapon(dt);
-  updateCamera();
-  if (selectedMode !== 'team') { updateEnemies(dt); if (selectedMode === 'allies') updateAllies(dt); }
-  else updateTeamBots(dt);
+  if (!buyOpen) {
+    updatePlayer(dt);
+    updateWeapon(dt);
+    updateCamera();
+    if (selectedMode !== 'team') { updateEnemies(dt); if (selectedMode === 'allies') updateAllies(dt); }
+    else updateTeamBots(dt);
+    if (mouseDown && pointerLocked) { const w = WEAPONS[currentWeaponKey]; if (w.auto) shoot(); }
+    if (IS_MOBILE && touchInput.fireActive) { const w = WEAPONS[currentWeaponKey]; if (w.auto) shoot(); }
+  }
   updateParticles(dt);
-  if (mouseDown && pointerLocked) { const w = WEAPONS[currentWeaponKey]; if (w.auto) shoot(); }
-  if (IS_MOBILE && touchInput.fireActive) { const w = WEAPONS[currentWeaponKey]; if (w.auto) shoot(); }
   renderer.render(scene, camera);
 }
 
@@ -1643,10 +1868,8 @@ function updatePlayer(dt) {
     player.bobPhase += dt * (input.sprint ? 14 : 10) * Math.min(1, hs/maxS);
   } else {
     const hs = Math.hypot(player.vel.x, player.vel.z);
-    if (hs > 0.01) {
-      const d = Math.min(hs, FRICTION * dt * 1.5);
-      player.vel.x -= (player.vel.x/hs)*d; player.vel.z -= (player.vel.z/hs)*d;
-    } else { player.vel.x = 0; player.vel.z = 0; }
+    if (hs > 0.01) { const d = Math.min(hs, FRICTION * dt * 1.5); player.vel.x -= (player.vel.x/hs)*d; player.vel.z -= (player.vel.z/hs)*d; }
+    else { player.vel.x = 0; player.vel.z = 0; }
     player.bobPhase *= 0.92;
   }
   player.vel.y -= GRAVITY * dt;
@@ -1705,9 +1928,7 @@ function updateEnemies(dt) {
       if (dist < 1.5) {
         e.lastShot -= dt;
         if (e.lastShot <= 0) {
-          e.lastShot = 1.0;
-          player.hp -= 8;
-          sfxHurt(); showDamage(); updateHUD();
+          e.lastShot = 1.0; player.hp -= 8; showDamage(); updateHUD();
           if (player.hp <= 0) { deaths++; gameOver(); return; }
         }
       }
@@ -1719,7 +1940,7 @@ function updateEnemies(dt) {
       sfxEnemyShoot();
       const acc = Math.max(0.15, 1 - dist/25) * Math.max(0.35, 0.75 - wave*0.03) * (IS_MOBILE ? 0.6 : 1);
       if (Math.random() < acc) {
-        if (target === player) { player.hp -= 5 + wave * 1.2 + Math.random() * 3; sfxHurt(); showDamage(); updateHUD(); if (player.hp <= 0) { deaths++; gameOver(); return; } }
+        if (target === player) { player.hp -= 5 + wave * 1.2 + Math.random() * 3; showDamage(); updateHUD(); if (player.hp <= 0) { deaths++; gameOver(); return; } }
         else if (target.isAlly) { target.hp -= 5 + wave * 1.2; if (target.hp <= 0) killUnit(target); }
       }
     }
@@ -1768,7 +1989,7 @@ function updateTeamBots(dt) {
         sfxEnemyShoot();
         const acc = Math.max(0.15, 1 - dist/25) * 0.5 * (IS_MOBILE ? 0.6 : 1);
         if (Math.random() < acc) {
-          if (target === 'player') { player.hp -= 12; sfxHurt(); showDamage(); updateHUD(); if (player.hp <= 0) { deaths++; gameOver('ВЫ УБИТЫ'); return; } }
+          if (target === 'player') { player.hp -= 12; showDamage(); updateHUD(); if (player.hp <= 0) { deaths++; gameOver('ВЫ УБИТЫ'); return; } }
           else { target.hp -= 30; if (target.hp <= 0) killUnit(target); }
         }
       }
@@ -1829,13 +2050,12 @@ function updateCamera() {
 window.addEventListener('DOMContentLoaded', () => {
   setupMobile();
   if (IS_MOBILE) { document.body.addEventListener('contextmenu', e => e.preventDefault()); document.body.addEventListener('touchstart', () => initAudio(), { passive: true }); }
-
   if (autoLogin()) {
     hide($('auth-screen')); show($('menu'));
     refreshMenu();
     toast(`👋 С возвращением, ${currentUser.name}!`);
   }
-  console.log('%c🎯 STANDOFF3 v4.0', 'color:#5b7aff;font-size:20px;font-weight:900');
+  console.log('%c🎯 STANDOFF3 v5.0', 'color:#5b7aff;font-size:20px;font-weight:900');
 });
 </script>
 </body>
