@@ -10,22 +10,20 @@
 html,body{width:100vw;height:100vh;height:100dvh;overflow:hidden;background:#0a0a12;color:#fff;position:fixed;top:0;left:0;touch-action:none}
 canvas{display:block;position:fixed;inset:0;width:100%!important;height:100%!important;z-index:1}
 
-/* ЭКРАНЫ */
 .scr{position:fixed;inset:0;z-index:100;display:none;flex-direction:column;align-items:center;justify-content:center;background:#0a0a12;padding:20px;overflow-y:auto}
 .scr.on{display:flex}
 .scr.col{justify-content:flex-start;padding-top:50px}
 
-/* МЕНЮ */
 #menu{background:linear-gradient(135deg,#1a2030,#0a0a12)}
 .logo{font-size:44px;font-weight:900;letter-spacing:3px;background:linear-gradient(180deg,#fff,#ff8800);-webkit-background-clip:text;-webkit-text-fill-color:transparent;text-align:center;margin-bottom:8px;filter:drop-shadow(0 0 30px rgba(255,136,0,.5));line-height:1.1}
 .logo .n{color:#f33;-webkit-text-fill-color:#f33}
-.tag{color:#7a8499;letter-spacing:6px;font-size:11px;margin-bottom:36px;text-align:center}
-.btn{display:block;width:340px;max-width:90vw;padding:16px 22px;margin:5px;background:rgba(35,42,58,.85);border:none;border-left:4px solid #f80;border-radius:8px;color:#e0e5ee;font-size:15px;font-weight:700;cursor:pointer;text-align:left;transition:.2s;font-family:inherit}
+.tag{color:#7a8499;letter-spacing:6px;font-size:11px;margin-bottom:30px;text-align:center}
+.btn{display:block;width:340px;max-width:90vw;padding:15px 22px;margin:5px;background:rgba(35,42,58,.85);border:none;border-left:4px solid #f80;border-radius:8px;color:#e0e5ee;font-size:14px;font-weight:700;cursor:pointer;text-align:left;transition:.2s;font-family:inherit}
 .btn:hover{background:rgba(50,60,80,1);transform:translateX(6px)}
-.btn.pri{background:linear-gradient(90deg,#f80,#fa3);color:#fff;border-left-color:#fc0;font-size:17px;font-weight:900;box-shadow:0 4px 20px rgba(255,136,0,.4)}
+.btn.pri{background:linear-gradient(90deg,#f80,#fa3);color:#fff;border-left-color:#fc0;font-size:16px;font-weight:900;box-shadow:0 4px 20px rgba(255,136,0,.4)}
 .bal{margin-top:18px;color:#4ade80;font-weight:900;font-size:14px}
+.bal .coin{color:#fc0}
 
-/* AUTH */
 .auth{background:rgba(20,24,34,.95);border-top:3px solid #f80;padding:28px;width:380px;max-width:90vw;border-radius:12px}
 .a-logo{text-align:center;margin-bottom:20px}
 .a-logo .t{font-size:22px;font-weight:900;letter-spacing:2px;text-transform:uppercase;line-height:1.2}
@@ -41,14 +39,13 @@ canvas{display:block;position:fixed;inset:0;width:100%!important;height:100%!imp
 .a-btn{width:100%;padding:14px;background:linear-gradient(90deg,#f80,#fa3);border:none;border-radius:8px;color:#fff;font-size:13px;font-weight:900;letter-spacing:3px;cursor:pointer;margin-top:6px;text-transform:uppercase;font-family:inherit}
 .err{color:#f55;font-size:12px;text-align:center;margin-top:8px;min-height:16px}
 
-/* ОБЩЕЕ */
 .ttl{font-size:26px;font-weight:900;letter-spacing:4px;color:#f80;margin-bottom:20px;text-transform:uppercase;text-align:center}
 .bk{position:fixed;top:14px;right:14px;padding:10px 18px;background:rgba(35,42,58,.9);border:none;border-radius:8px;color:#fff;font-size:12px;font-weight:700;cursor:pointer;font-family:inherit;z-index:200}
 .startb{width:100%;padding:15px;background:linear-gradient(90deg,#f80,#fa3);border:none;border-radius:10px;color:#fff;font-size:15px;font-weight:900;cursor:pointer;font-family:inherit;text-transform:uppercase;letter-spacing:2px;margin-top:10px}
 .startb:disabled{opacity:.5;cursor:not-allowed}
+.sec{color:#7a8499;font-size:11px;font-weight:800;letter-spacing:3px;text-transform:uppercase;margin-bottom:10px}
 
-/* КЕЙСЫ */
-.cgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px;width:100%;max-width:900px;margin-bottom:18px}
+.cgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px;width:100%;max-width:900px;margin-bottom:18px}
 .ccard{padding:16px;background:rgba(28,34,48,.9);border:2px solid rgba(255,136,0,.2);border-radius:12px;cursor:pointer;text-align:center;transition:.2s}
 .ccard:hover{border-color:#f80;transform:translateY(-4px)}
 .ccard.sel{border-color:#f80;background:rgba(255,136,0,.1)}
@@ -64,9 +61,7 @@ canvas{display:block;position:fixed;inset:0;width:100%!important;height:100%!imp
 .rou-i .rn{font-size:8px;color:#7a8499;text-align:center;max-width:90px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .rou-i .rl{position:absolute;bottom:0;left:0;right:0;height:3px;border-radius:0 0 8px 8px}
 .open-b{width:100%;max-width:900px;padding:15px;background:linear-gradient(90deg,#f80,#fa3);border:none;border-radius:10px;color:#fff;font-size:15px;font-weight:900;cursor:pointer;font-family:inherit;text-transform:uppercase}
-.open-b:disabled{opacity:.5;cursor:not-allowed}
 
-/* INV */
 .igrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:10px;width:100%;max-width:900px;margin-bottom:18px}
 .icard{padding:10px;background:rgba(28,34,48,.9);border:2px solid rgba(255,136,0,.15);border-radius:10px;cursor:pointer;text-align:center;border-bottom-width:4px;position:relative;transition:.2s}
 .icard:hover{transform:translateY(-3px)}
@@ -76,32 +71,7 @@ canvas{display:block;position:fixed;inset:0;width:100%!important;height:100%!imp
 .icard .in{color:#fff;font-size:10px;font-weight:700}
 .icard .ir{font-size:8px;font-weight:800;margin-top:2px;text-transform:uppercase}
 
-/* PLAY */
-.pw{display:flex;flex-direction:column;gap:14px;width:100%;max-width:700px}
-.sec{color:#7a8499;font-size:11px;font-weight:800;letter-spacing:3px;text-transform:uppercase}
-.mgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:10px}
-.mcard{padding:14px;background:rgba(25,30,42,.8);border:2px solid rgba(255,136,0,.15);border-radius:10px;cursor:pointer;transition:.2s}
-.mcard:hover{border-color:rgba(255,136,0,.5)}
-.mcard.sel{border-color:#f80;background:rgba(255,136,0,.08)}
-.mcard .mt{color:#f80;font-size:13px;font-weight:900;margin-bottom:4px}
-.mcard.sel .mt{color:#fa3}
-.mcard .md{color:#a0a8b8;font-size:10px;line-height:1.4}
-.mapgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px}
-.mapcard{padding:10px;background:rgba(25,30,42,.8);border:2px solid rgba(255,136,0,.15);border-radius:10px;cursor:pointer;text-align:center;transition:.2s}
-.mapcard:hover{border-color:rgba(255,136,0,.5)}
-.mapcard.sel{border-color:#f80;background:rgba(255,136,0,.1)}
-.mapcard .mi{font-size:32px;margin-bottom:4px}
-.mapcard .mn{color:#fff;font-size:12px;font-weight:800}
-.orow{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
-.olbl{color:#a0a8b8;font-size:12px;font-weight:700;min-width:90px}
-.opt{padding:8px 14px;background:rgba(25,30,42,.8);border:2px solid rgba(255,136,0,.15);border-radius:8px;color:#7a8499;font-size:12px;font-weight:700;cursor:pointer;font-family:inherit}
-.opt.sel{color:#fa3;border-color:#f80;background:rgba(255,136,0,.1)}
-.sld{flex:1;height:6px;-webkit-appearance:none;background:rgba(255,255,255,.1);border-radius:3px;outline:none;min-width:140px}
-.sld::-webkit-slider-thumb{-webkit-appearance:none;width:20px;height:20px;background:linear-gradient(135deg,#f80,#fa3);border-radius:50%;cursor:pointer}
-.sld-v{color:#fa3;font-weight:900;font-size:13px;min-width:80px}
-
-/* MP */
-.mpbox{width:100%;max-width:520px;background:rgba(20,24,34,.9);border-top:3px solid #f80;border-radius:12px;padding:20px;margin-bottom:14px}
+.mpbox{width:100%;max-width:540px;background:rgba(20,24,34,.9);border-top:3px solid #f80;border-radius:12px;padding:20px;margin-bottom:14px}
 .mpbox h3{color:#f80;font-size:12px;letter-spacing:3px;margin-bottom:10px;text-transform:uppercase}
 .mpbox input{width:100%;padding:12px;background:rgba(0,0,0,.5);border:2px solid rgba(255,136,0,.3);color:#f80;font-size:17px;letter-spacing:4px;text-align:center;border-radius:8px;outline:none;font-family:'Courier New',monospace;font-weight:900;text-transform:uppercase;margin-bottom:10px}
 .rcode{text-align:center;font-size:30px;letter-spacing:8px;color:#f80;font-weight:900;padding:14px;background:rgba(0,0,0,.5);border:2px dashed rgba(255,136,0,.5);border-radius:8px;cursor:pointer;margin:10px 0;font-family:'Courier New',monospace}
@@ -111,7 +81,6 @@ canvas{display:block;position:fixed;inset:0;width:100%!important;height:100%!imp
 .prow.ct{border-left-color:#5b7aff}
 .prow.t{border-left-color:#ffaa00}
 
-/* HUD */
 #hud{position:fixed;inset:0;display:none;pointer-events:none;z-index:10}
 #hud.on{display:block}
 #cross{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:20px;height:20px}
@@ -139,8 +108,10 @@ canvas{display:block;position:fixed;inset:0;width:100%!important;height:100%!imp
 #dmg{position:absolute;inset:0;background:radial-gradient(circle,transparent 30%,rgba(200,0,0,.7) 100%);opacity:0;transition:.15s}
 #chint{position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);background:rgba(0,0,0,.85);border:2px solid #f80;padding:18px 36px;color:#f80;font-size:14px;letter-spacing:3px;text-align:center;z-index:20;border-radius:8px;display:none;pointer-events:none}
 #chint.on{display:block}
+#mm-map{position:absolute;bottom:60px;left:12px;width:120px;height:120px;background:rgba(12,16,32,.85);border:2px solid rgba(255,136,0,.4);border-radius:8px;display:none}
+#mm-map.on{display:block}
+#mm-canvas{width:100%;height:100%;border-radius:6px}
 
-/* BUY */
 #buy{position:fixed;inset:0;display:none;align-items:center;justify-content:center;background:rgba(0,0,0,.9);z-index:15;padding:10px}
 #buy.on{display:flex}
 .bbox{width:min(900px,95vw);max-height:90vh;overflow-y:auto;background:linear-gradient(180deg,#121828,#0a0e1c);border:2px solid rgba(255,136,0,.4);border-top:4px solid #f80;border-radius:12px;padding:18px}
@@ -154,7 +125,6 @@ canvas{display:block;position:fixed;inset:0;width:100%!important;height:100%!imp
 .bi .bp{font-size:10px;font-weight:800;color:#4ade80}
 .bi .bp.locked{color:#f55}
 
-/* MOBILE */
 #mob{position:fixed;inset:0;z-index:12;display:none;pointer-events:none}
 #mob.on{display:block}
 #jz{position:absolute;bottom:20px;left:20px;width:130px;height:130px;pointer-events:auto;touch-action:none}
@@ -168,12 +138,12 @@ canvas{display:block;position:fixed;inset:0;width:100%!important;height:100%!imp
 #bb{bottom:85px;right:105px;width:46px;height:46px;font-size:18px}
 #lz{position:absolute;top:0;right:0;width:60%;height:100%;pointer-events:auto;touch-action:none}
 
-/* CHAT + VOICE */
 #chat{position:fixed;bottom:85px;left:16px;width:300px;max-width:80vw;z-index:30;display:none}
 #chat.on{display:block}
 #cmsgs{max-height:180px;overflow-y:auto;display:flex;flex-direction:column;gap:4px;margin-bottom:6px}
 .cm{background:rgba(15,20,32,.9);border-left:3px solid #f80;padding:5px 10px;border-radius:0 6px 6px 0;font-size:11px;animation:cin .25s}
 .cm.mine{border-left-color:#4ade80}
+.cm.team{border-left-color:#5b7aff}
 .cm .cn{color:#f80;font-weight:800;margin-right:6px}
 .cm.mine .cn{color:#4ade80}
 @keyframes cin{from{opacity:0;transform:translateX(-20px)}to{opacity:1;transform:translateX(0)}}
@@ -189,7 +159,6 @@ canvas{display:block;position:fixed;inset:0;width:100%!important;height:100%!imp
 #vc button{width:42px;height:42px;border-radius:50%;background:rgba(15,20,32,.85);border:2px solid rgba(255,136,0,.4);color:#f80;font-size:16px;cursor:pointer;font-family:inherit}
 #vc button.act{background:linear-gradient(135deg,#4ade80,#22c55e);border-color:#4ade80;color:#000}
 
-/* УТИЛИТЫ */
 #tst{position:fixed;top:20px;left:50%;transform:translateX(-50%) translateY(-30px);padding:12px 22px;background:rgba(20,24,34,.98);border:2px solid #4ade80;border-left:5px solid #4ade80;color:#fff;font-size:12px;font-weight:700;border-radius:8px;z-index:9999;opacity:0;transition:.3s;pointer-events:none}
 #tst.on{opacity:1;transform:translateX(-50%) translateY(0)}
 #tst.er{border-color:#f55;border-left-color:#f55}
@@ -206,25 +175,41 @@ canvas{display:block;position:fixed;inset:0;width:100%!important;height:100%!imp
 .lmp{height:100%;background:linear-gradient(90deg,#f80,#fa3);width:0%;transition:.3s}
 .lms{color:#7a8499;font-size:11px;letter-spacing:2px;text-transform:uppercase}
 
-/* RANK */
 #rank-badge{position:fixed;top:16px;left:16px;z-index:50;display:none;align-items:center;gap:10px;padding:8px 16px;background:rgba(20,24,34,.9);border:2px solid rgba(255,136,0,.4);border-radius:24px;font-size:12px;font-weight:800}
 #rank-badge.on{display:flex}
 #rank-icon{font-size:20px}
 #rank-name{color:#ffaa33;letter-spacing:1px}
 
-/* DEATH */
-#death{position:fixed;inset:0;z-index:50;display:none;flex-direction:column;align-items:center;justify-content:center;background:rgba(80,0,0,.5);pointer-events:none}
-#death.on{display:flex}
-#death h2{font-size:42px;font-weight:900;letter-spacing:8px;color:#ff3333;text-shadow:0 0 30px #f00;margin-bottom:16px}
-#death p{color:#fff;font-size:14px;letter-spacing:2px}
+/* BATTLE PASS */
+.bp-bar{width:100%;max-width:900px;height:8px;background:rgba(0,0,0,.5);border-radius:4px;overflow:hidden;margin-bottom:14px}
+.bp-fill{height:100%;background:linear-gradient(90deg,#f80,#fc0);box-shadow:0 0 15px #f80;transition:width .5s}
+.bp-info{display:flex;justify-content:space-between;color:#7a8499;font-size:11px;letter-spacing:2px;margin-bottom:20px}
+.bp-info .lvl{color:#f80;font-weight:900}
+
+/* ACHIEVEMENTS */
+.ach-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:10px;width:100%;max-width:900px}
+.ach{padding:14px;background:rgba(28,34,48,.9);border:2px solid rgba(255,136,0,.15);border-radius:10px;text-align:center;opacity:.4;transition:.3s}
+.ach.done{opacity:1;border-color:#4ade80;background:rgba(74,222,128,.1)}
+.ach .ai{font-size:32px;margin-bottom:6px}
+.ach .an{color:#fff;font-size:11px;font-weight:700;margin-bottom:4px}
+.ach .ad{color:#7a8499;font-size:9px;line-height:1.4}
+
+/* SETTINGS */
+.set-row{display:flex;align-items:center;gap:12px;width:100%;max-width:600px;padding:12px 0;border-bottom:1px solid rgba(255,255,255,.05);flex-wrap:wrap}
+.set-row label{min-width:140px;color:#a0a8b8;font-size:12px;font-weight:700}
+.set-row input[type=range]{flex:1;height:6px;-webkit-appearance:none;background:rgba(255,255,255,.1);border-radius:3px;outline:none;min-width:140px}
+.set-row input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:18px;height:18px;background:linear-gradient(135deg,#f80,#fa3);border-radius:50%;cursor:pointer}
+.set-row .val{color:#fa3;font-weight:900;font-size:13px;min-width:50px;text-align:right}
+.set-row select{padding:8px 12px;background:rgba(25,30,42,.9);border:2px solid rgba(255,136,0,.2);color:#fff;border-radius:6px;font-family:inherit;font-size:12px;font-weight:700;outline:none}
+.set-row input[type=checkbox]{width:20px;height:20px;accent-color:#f80;cursor:pointer}
 
 @media(max-width:700px){
   .logo{font-size:32px}
   .btn{width:100%}
   #chat{width:270px;bottom:170px}
   #cmsgs{max-height:110px}
-  #vi{top:100px}
   #rank-badge{top:auto;bottom:14px;left:14px;font-size:10px;padding:6px 12px}
+  #mm-map{width:90px;height:90px;bottom:50px}
 }
 </style>
 </head>
@@ -234,10 +219,9 @@ canvas{display:block;position:fixed;inset:0;width:100%!important;height:100%!imp
 
 <div id="rank-badge"><span id="rank-icon">🥉</span><span id="rank-name">Silver</span></div>
 
-<!-- AUTH -->
 <div class="scr on" id="auth">
   <div class="auth">
-    <div class="a-logo"><div class="t">SHOOT HIM<br><span>FIRST</span></div><div class="s">WEB EDITION</div></div>
+    <div class="a-logo"><div class="t">SHOOT HIM<br><span>FIRST</span></div><div class="s">ONLINE WEB SHOOTER</div></div>
     <div class="a-tabs"><button class="a-tab on" data-tab="login">Вход</button><button class="a-tab" data-tab="reg">Регистрация</button></div>
     <div class="fld"><label>Ник</label><input id="an" maxlength="16" placeholder="ТВОЙ НИК"></div>
     <div class="fld"><label>Пароль</label><input id="ap" type="password" maxlength="32" placeholder="••••••"></div>
@@ -246,19 +230,20 @@ canvas{display:block;position:fixed;inset:0;width:100%!important;height:100%!imp
   </div>
 </div>
 
-<!-- MENU -->
 <div class="scr" id="menu">
   <div class="logo">SHOOT HIM <span class="n">FIRST</span></div>
-  <div class="tag">WEB EDITION · ONLINE PVP</div>
+  <div class="tag">ONLINE PVP · BATTLE PASS · 8 CARDS</div>
   <button class="btn pri" id="b-mp">🌐 ИГРАТЬ ОНЛАЙН</button>
   <button class="btn" id="b-cases">🎁 КЕЙСЫ И СКИНЫ</button>
   <button class="btn" id="b-inv">🎒 ИНВЕНТАРЬ</button>
+  <button class="btn" id="b-bp">⭐ BATTLE PASS</button>
+  <button class="btn" id="b-ach">🏅 ДОСТИЖЕНИЯ</button>
   <button class="btn" id="b-stats">📊 СТАТИСТИКА</button>
+  <button class="btn" id="b-set">⚙ НАСТРОЙКИ</button>
   <button class="btn" id="b-out">🚪 ВЫЙТИ</button>
   <div class="bal">💰 $<span id="mm">1600</span></div>
 </div>
 
-<!-- CASES -->
 <div class="scr col" id="cases">
   <button class="bk" id="c-bk">← Назад</button>
   <div class="ttl">Кейсы и скины</div>
@@ -270,25 +255,47 @@ canvas{display:block;position:fixed;inset:0;width:100%!important;height:100%!imp
   </div>
 </div>
 
-<!-- INV -->
 <div class="scr col" id="inv">
   <button class="bk" id="i-bk">← Назад</button>
   <div class="ttl">Инвентарь</div>
   <div class="igrid" id="ig"></div>
 </div>
 
-<!-- STATS -->
 <div class="scr col" id="stats">
   <button class="bk" id="st-bk">← Назад</button>
   <div class="ttl">Статистика</div>
   <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:10px;width:100%;max-width:800px" id="stg"></div>
 </div>
 
-<!-- MP MAIN -->
+<div class="scr col" id="bp">
+  <button class="bk" id="bp-bk">← Назад</button>
+  <div class="ttl">⭐ Battle Pass</div>
+  <div style="width:100%;max-width:900px">
+    <div class="bp-info"><span>Уровень <span class="lvl" id="bp-lvl">1</span></span><span id="bp-xp">0 / 100 XP</span></div>
+    <div class="bp-bar"><div class="bp-fill" id="bp-fill" style="width:0%"></div></div>
+    <div class="sec" style="margin-top:20px">НАГРАДЫ</div>
+    <div class="igrid" id="bp-rewards"></div>
+  </div>
+</div>
+
+<div class="scr col" id="ach">
+  <button class="bk" id="ach-bk">← Назад</button>
+  <div class="ttl">🏅 Достижения</div>
+  <div class="ach-grid" id="ach-grid"></div>
+</div>
+
+<div class="scr col" id="set">
+  <button class="bk" id="set-bk">← Назад</button>
+  <div class="ttl">⚙ Настройки</div>
+  <div id="set-area" style="display:flex;flex-direction:column;align-items:center;width:100%"></div>
+</div>
+
 <div class="scr col" id="mp">
   <button class="bk" id="m-bk">← Назад</button>
   <div class="ttl">Игра по сети</div>
   <div class="mpbox" id="mp-main">
+    <h3>🌐 Сервер PeerJS (авто-выбор)</h3>
+    <div style="color:#7a8499;font-size:11px;margin-bottom:12px;text-align:center" id="srv-status">Проверка серверов...</div>
     <div class="fld"><label>Твой ник</label><input id="mp-name" maxlength="16" placeholder="ИГРОК"></div>
     <button class="startb" id="mp-new">СОЗДАТЬ КОМНАТУ</button>
     <div style="text-align:center;color:#7a8499;font-size:11px;margin:10px 0">— или —</div>
@@ -298,40 +305,40 @@ canvas{display:block;position:fixed;inset:0;width:100%!important;height:100%!imp
   </div>
 </div>
 
-<!-- MP LOBBY -->
-<div class="scr" id="mp-lobby">
-  <button class="bk" id="ml-bk">← Выйти</button>
+<div class="scr" id="lobby">
+  <button class="bk" id="l-bk">← Отключиться</button>
   <div class="ttl">Комната</div>
   <div class="mpbox">
     <h3>Код для друзей</h3>
-    <div class="rcode" id="ml-code">------</div>
+    <div class="rcode" id="l-code">------</div>
     <div style="text-align:center;color:#7a8499;font-size:10px;margin-bottom:12px">👆 клик чтобы скопировать</div>
     <h3>Команды</h3>
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:14px">
       <div style="background:rgba(91,122,255,.15);border:2px solid #5b7aff;border-radius:8px;padding:10px">
-        <div style="color:#5b7aff;font-size:11px;font-weight:900;text-align:center;margin-bottom:6px">🛡 CT</div>
-        <div id="ml-ct" style="min-height:40px;font-size:11px"></div>
+        <div style="color:#5b7aff;font-size:11px;font-weight:900;text-align:center;margin-bottom:6px">🛡 CT (<span id="l-ct-c">0</span>)</div>
+        <div id="l-ct" style="min-height:40px;font-size:11px"></div>
       </div>
       <div style="background:rgba(255,170,0,.15);border:2px solid #ffaa00;border-radius:8px;padding:10px">
-        <div style="color:#ffaa00;font-size:11px;font-weight:900;text-align:center;margin-bottom:6px">💣 T</div>
-        <div id="ml-t" style="min-height:40px;font-size:11px"></div>
+        <div style="color:#ffaa00;font-size:11px;font-weight:900;text-align:center;margin-bottom:6px">💣 T (<span id="l-t-c">0</span>)</div>
+        <div id="l-t" style="min-height:40px;font-size:11px"></div>
       </div>
     </div>
     <h3>Карта</h3>
-    <select id="ml-map" style="width:100%;padding:10px;background:rgba(0,0,0,.5);border:2px solid rgba(255,136,0,.3);color:#ff8800;font-weight:700;border-radius:8px;font-family:inherit;font-size:13px;margin-bottom:14px">
+    <select id="l-map" style="width:100%;padding:10px;background:rgba(0,0,0,.5);border:2px solid rgba(255,136,0,.3);color:#f80;font-weight:700;border-radius:8px;font-family:inherit;font-size:13px;margin-bottom:14px">
       <option value="sandstone">🏜 Sandstone</option>
       <option value="rust">🚂 Rust</option>
       <option value="province">🏛 Province</option>
       <option value="mirage">🕌 Mirage</option>
       <option value="inferno">🔥 Inferno</option>
       <option value="nuke">☢ Nuke</option>
+      <option value="office">🏢 Office</option>
+      <option value="dust2">🌵 Dust 2</option>
     </select>
-    <button class="startb" id="ml-start" style="display:none">▶ НАЧАТЬ МАТЧ</button>
-    <button class="startb" id="ml-switch" style="background:linear-gradient(90deg,#5b7aff,#7a9aff);margin-top:8px">🔄 СМЕНИТЬ КОМАНДУ</button>
+    <button class="startb" id="l-start" style="display:none">▶ НАЧАТЬ МАТЧ</button>
+    <button class="startb" id="l-switch" style="background:linear-gradient(90deg,#5b7aff,#7a9aff);margin-top:8px">🔄 СМЕНИТЬ КОМАНДУ</button>
   </div>
 </div>
 
-<!-- HUD -->
 <div id="hud">
   <div id="cross"></div>
   <div id="hm">✕</div>
@@ -342,9 +349,9 @@ canvas{display:block;position:fixed;inset:0;width:100%!important;height:100%!imp
   <div id="wv-h">РАУНД 1</div>
   <div id="score-h"><span class="ct">CT 0</span> | <span class="t">T 0</span></div>
   <div id="kf"></div>
+  <div id="mm-map"><canvas id="mm-canvas" width="200" height="200"></canvas></div>
 </div>
 
-<!-- BUY -->
 <div id="buy">
   <div class="bbox">
     <h2>🛒 МАГАЗИН</h2>
@@ -354,11 +361,8 @@ canvas{display:block;position:fixed;inset:0;width:100%!important;height:100%!imp
   </div>
 </div>
 
-<div id="chint">🖱 КЛИКНИ ЧТОБЫ ИГРАТЬ<small style="display:block;color:#7a8499;font-size:11px;margin-top:6px">ESC — пауза | B — магазин | V — войс | T — чат</small></div>
+<div id="chint">🖱 КЛИКНИ ЧТОБЫ ИГРАТЬ<small style="display:block;color:#7a8499;font-size:11px;margin-top:6px">ESC — пауза | B — магазин | V — войс | T — чат | M — карта</small></div>
 
-<div id="death"><h2>ВЫ УБИТЫ</h2><p>Возрождение через 3 сек...</p></div>
-
-<!-- MOBILE -->
 <div id="mob">
   <div id="jz"><div id="jb"></div><div id="js"></div></div>
   <div id="lz"></div>
@@ -368,17 +372,14 @@ canvas{display:block;position:fixed;inset:0;width:100%!important;height:100%!imp
   <div class="mb" id="bb">🛒</div>
 </div>
 
-<!-- CHAT -->
 <div id="chat">
   <div id="cmsgs"></div>
-  <div id="ciw"><input id="ci" maxlength="120" placeholder="Сообщение..."><button id="cs">➤</button></div>
+  <div id="ciw"><input id="ci" maxlength="120" placeholder="Сообщение... (Y — команде)"><button id="cs">➤</button></div>
 </div>
 
-<!-- VOICE -->
 <div id="vi"><span>🎤</span><span id="vs">Выкл</span></div>
 <div id="vc"><button id="bv2">🎤</button><button id="bc">💬</button></div>
 
-<!-- LOAD -->
 <div id="lm">
   <div class="lmt">Загрузка матча</div>
   <div class="lmm" id="lmm">SANDSTONE</div>
@@ -392,7 +393,7 @@ canvas{display:block;position:fixed;inset:0;width:100%!important;height:100%!imp
 <script src="https://unpkg.com/peerjs@1.5.2/dist/peerjs.min.js"></script>
 <script>
 // ============================================================
-// SHOOT HIM FIRST — Часть 2: Логика меню
+// SHOOT HIM FIRST — Часть 2: Логика
 // ============================================================
 
 const IS_M = ('ontouchstart' in window) || navigator.maxTouchPoints > 0;
@@ -407,58 +408,84 @@ const RAR = {
   arcana:    { name: 'Арканный',    color: '#ff8800', chance: 0.5 }
 };
 
-// СКИНЫ (больше контента)
+// СКИНЫ (24 штуки)
 const SKINS = {
-  default:        { name: 'Обычный',                rar: 'common',    icon: '⚪', color: null },
-  m16_ocean:      { name: 'M16 | Океан',            rar: 'uncommon',  icon: '🔫', color: 0x4aa3ff },
-  m4_lava:        { name: 'M4 | Лава',              rar: 'common',    icon: '🔫', color: 0xff6600 },
-  famas_toxin:    { name: 'FAMAS | Токсин',         rar: 'common',    icon: '🔫', color: 0x33ff33 },
-  aug_dragon:     { name: 'AUG | Дракон',           rar: 'common',    icon: '🔫', color: 0xff8800 },
-  deagle_blue:    { name: 'Deagle | Синий',         rar: 'uncommon',  icon: '🔫', color: 0x3366ff },
-  mp5_neon:       { name: 'MP5 | Неон',             rar: 'uncommon',  icon: '🔫', color: 0x00ff88 },
-  ak47_redline:   { name: 'AK-47 | Красная линия',  rar: 'uncommon',  icon: '🔫', color: 0xff3333 },
-  ak47_gold:      { name: 'AK-47 | Золото',         rar: 'rare',      icon: '🔫', color: 0xffcc00 },
-  awp_asiimov:    { name: 'AWP | Азимов',           rar: 'rare',      icon: '🎯', color: 0xff8800 },
-  m4_howl:        { name: 'M4 | Вой',               rar: 'rare',      icon: '🔫', color: 0xff6600 },
-  ak47_fire:      { name: 'AK-47 | Огонь',          rar: 'epic',      icon: '🔫', color: 0xff4400 },
-  awp_dragon:     { name: 'AWP | Дракон',           rar: 'epic',      icon: '🎯', color: 0x00ff88 },
-  ak47_hyper:     { name: 'AK-47 | Гипербист',      rar: 'legendary', icon: '🔫', color: 0xff00ff },
-  awp_medusa:     { name: 'AWP | Медуза',           rar: 'legendary', icon: '🎯', color: 0x00ffff },
-  ak47_arcana:    { name: 'AK-47 | Аркана',         rar: 'arcana',    icon: '🔫', color: 0xff8800 },
-  m4a4_asiimov:   { name: 'M4A4 | Азимов',          rar: 'rare',      icon: '🔫', color: 0xff8800 },
-  awp_hyper:      { name: 'AWP | Гипербист',        rar: 'epic',      icon: '🎯', color: 0xff00ff },
-  ak47_neon:      { name: 'AK-47 | Неон',           rar: 'epic',      icon: '🔫', color: 0x00ff88 },
-  awp_gold:       { name: 'AWP | Золото',           rar: 'legendary', icon: '🎯', color: 0xffcc00 },
-  m4a4_dragon:    { name: 'M4A4 | Дракон',          rar: 'legendary', icon: '🔫', color: 0x00ff00 }
+  default:       { name: 'Обычный',               rar: 'common',    icon: '⚪', color: null },
+  m16_ocean:     { name: 'M16 | Океан',           rar: 'uncommon',  icon: '🔫', color: 0x4aa3ff },
+  m4_lava:       { name: 'M4 | Лава',             rar: 'common',    icon: '🔫', color: 0xff6600 },
+  famas_toxin:   { name: 'FAMAS | Токсин',        rar: 'common',    icon: '🔫', color: 0x33ff33 },
+  aug_dragon:    { name: 'AUG | Дракон',          rar: 'common',    icon: '🔫', color: 0xff8800 },
+  deagle_blue:   { name: 'Deagle | Синий',        rar: 'uncommon',  icon: '🔫', color: 0x3366ff },
+  mp5_neon:      { name: 'MP5 | Неон',            rar: 'uncommon',  icon: '🔫', color: 0x00ff88 },
+  ak47_redline:  { name: 'AK-47 | Красная линия', rar: 'uncommon',  icon: '🔫', color: 0xff3333 },
+  ak47_gold:     { name: 'AK-47 | Золото',        rar: 'rare',      icon: '🔫', color: 0xffcc00 },
+  awp_asiimov:   { name: 'AWP | Азимов',          rar: 'rare',      icon: '🎯', color: 0xff8800 },
+  m4_howl:       { name: 'M4 | Вой',              rar: 'rare',      icon: '🔫', color: 0xff6600 },
+  m4a4_asiimov:  { name: 'M4A4 | Азимов',         rar: 'rare',      icon: '🔫', color: 0xff8800 },
+  ak47_fire:     { name: 'AK-47 | Огонь',         rar: 'epic',      icon: '🔫', color: 0xff4400 },
+  awp_dragon:    { name: 'AWP | Дракон',          rar: 'epic',      icon: '🎯', color: 0x00ff88 },
+  ak47_neon:     { name: 'AK-47 | Неон',          rar: 'epic',      icon: '🔫', color: 0x00ff88 },
+  awp_hyper:     { name: 'AWP | Гипербист',       rar: 'epic',      icon: '🎯', color: 0xff00ff },
+  m4a4_hyper:    { name: 'M4A4 | Гипербист',      rar: 'epic',      icon: '🔫', color: 0xff00ff },
+  ak47_hyper:    { name: 'AK-47 | Гипербист',     rar: 'legendary', icon: '🔫', color: 0xff00ff },
+  awp_medusa:    { name: 'AWP | Медуза',          rar: 'legendary', icon: '🎯', color: 0x00ffff },
+  awp_gold:      { name: 'AWP | Золото',          rar: 'legendary', icon: '🎯', color: 0xffcc00 },
+  m4a4_dragon:   { name: 'M4A4 | Дракон',         rar: 'legendary', icon: '🔫', color: 0x00ff00 },
+  ak47_arcana:   { name: 'AK-47 | Аркана',        rar: 'arcana',    icon: '🔫', color: 0xff8800 },
+  awp_arcana:    { name: 'AWP | Аркана',          rar: 'arcana',    icon: '🎯', color: 0xffaa00 },
+  m4a4_arcana:   { name: 'M4A4 | Аркана',         rar: 'arcana',    icon: '🔫', color: 0xff6600 }
 };
 
-// ОРУЖИЕ (8 стволов)
+// ОРУЖИЕ (12 штук)
 const WPN = {
   p250:  { name: 'P250',    cat: 'pistol',  icon: '🔫', dmg: 25, hm: 3,   fr: 350,  mag: 13,  res: 52,  spr: 0.008, rk: 0.35, rl: 1.8, auto: false, price: 0 },
+  glock: { name: 'Glock-18',cat: 'pistol',  icon: '🔫', dmg: 22, hm: 3.5, fr: 300,  mag: 20,  res: 120, spr: 0.009, rk: 0.30, rl: 1.7, auto: false, price: 200 },
   deagle:{ name: 'Deagle',  cat: 'pistol',  icon: '🔫', dmg: 63, hm: 4,   fr: 400,  mag: 7,   res: 35,  spr: 0.006, rk: 0.70, rl: 2.2, auto: false, price: 700 },
   mp5:   { name: 'MP5-SD',  cat: 'smg',     icon: '🔫', dmg: 22, hm: 2.8, fr: 100,  mag: 30,  res: 120, spr: 0.016, rk: 0.25, rl: 2.0, auto: true,  price: 1500 },
+  ump:   { name: 'UMP-45',  cat: 'smg',     icon: '🔫', dmg: 35, hm: 2.5, fr: 110,  mag: 25,  res: 100, spr: 0.014, rk: 0.40, rl: 2.1, auto: true,  price: 1200 },
   ak47:  { name: 'AK-47',   cat: 'rifle',   icon: '🔫', dmg: 34, hm: 3,   fr: 100,  mag: 30,  res: 90,  spr: 0.012, rk: 0.40, rl: 2.2, auto: true,  price: 2700 },
   m4a4:  { name: 'M4A4',    cat: 'rifle',   icon: '🔫', dmg: 30, hm: 3,   fr: 90,   mag: 30,  res: 90,  spr: 0.009, rk: 0.30, rl: 2.1, auto: true,  price: 3100 },
+  galil: { name: 'Galil AR',cat: 'rifle',   icon: '🔫', dmg: 30, hm: 3,   fr: 90,   mag: 35,  res: 90,  spr: 0.016, rk: 0.40, rl: 2.5, auto: true,  price: 1800 },
   awp:   { name: 'AWP',     cat: 'sniper',  icon: '🎯', dmg: 115,hm: 1.5, fr: 1400, mag: 10,  res: 30,  spr: 0.0005,rk: 1.20, rl: 3.0, auto: false, price: 4750, zoom: true },
+  ssg08: { name: 'SSG 08',  cat: 'sniper',  icon: '🎯', dmg: 88, hm: 2,   fr: 1200, mag: 10,  res: 40,  spr: 0.001, rk: 0.80, rl: 2.8, auto: false, price: 1700, zoom: true },
   nova:  { name: 'Nova',    cat: 'shotgun', icon: '💥', dmg: 26, hm: 1,   fr: 900,  mag: 8,   res: 32,  spr: 0.05,  rk: 0.90, rl: 3.0, auto: false, price: 1050, pellets: 9 },
   m249:  { name: 'M249',    cat: 'lmg',     icon: '🔫', dmg: 32, hm: 3,   fr: 80,   mag: 100, res: 200, spr: 0.025, rk: 0.55, rl: 5.0, auto: true,  price: 5200 }
 };
 
-// КЕЙСЫ
+// КЕЙСЫ (6 штук)
 const CASES = {
-  beginner: { name: 'Новичок',   icon: '🎁', desc: 'Пистолеты и ПП',      price: 250,  items: ['m4_lava','famas_toxin','aug_dragon','deagle_blue','mp5_neon'] },
-  assault:  { name: 'Штурмовой', icon: '🎁', desc: 'Штурмовые винтовки',  price: 400,  items: ['m4_lava','ak47_redline','ak47_gold','ak47_fire','ak47_hyper','ak47_arcana','ak47_neon'] },
-  sniper:   { name: 'Снайперский',icon: '🎯', desc: 'Снайперки',          price: 400,  items: ['awp_asiimov','awp_dragon','awp_medusa','awp_hyper','awp_gold'] },
-  elite:    { name: 'Элитный',   icon: '⭐', desc: 'Только редкие и выше', price: 1200, items: ['ak47_gold','awp_asiimov','m4_howl','ak47_fire','awp_dragon','ak47_hyper','awp_medusa','ak47_arcana','m4a4_dragon','awp_gold'] }
+  beginner: { name: 'Новичок',   icon: '🎁', desc: 'Пистолеты и ПП',       price: 250,  items: ['m4_lava','famas_toxin','aug_dragon','deagle_blue','mp5_neon'] },
+  assault:  { name: 'Штурмовой', icon: '🎁', desc: 'Штурмовые',            price: 400,  items: ['m4_lava','ak47_redline','ak47_gold','ak47_fire','ak47_hyper','ak47_arcana','ak47_neon'] },
+  sniper:   { name: 'Снайперский',icon: '🎯', desc: 'Снайперки',            price: 400,  items: ['awp_asiimov','awp_dragon','awp_medusa','awp_hyper','awp_gold','awp_arcana'] },
+  smg:      { name: 'ПП-кейс',   icon: '🎁', desc: 'Пистолеты-пулемёты',   price: 350,  items: ['mp5_neon','ump','m4_lava','deagle_blue','m16_ocean'] },
+  elite:    { name: 'Элитный',   icon: '💠', desc: 'Только редкие+',       price: 1200, items: ['ak47_gold','awp_asiimov','m4_howl','m4a4_asiimov','ak47_fire','awp_dragon','ak47_hyper','awp_medusa','ak47_arcana','awp_arcana','m4a4_arcana'] },
+  golden:   { name: 'Золотой',   icon: '⭐', desc: 'Легендарные шансы x3', price: 2000, items: ['ak47_hyper','awp_medusa','awp_gold','m4a4_dragon','ak47_arcana','awp_arcana','m4a4_arcana'] }
 };
 
-// РАНГИ
+// РАНГИ (8 штук)
 const RANKS = [
-  { icon: '🥉', name: 'Silver',    min: 0 },
-  { icon: '🥈', name: 'Gold Nova', min: 5 },
-  { icon: '🥇', name: 'Master',    min: 15 },
-  { icon: '💠', name: 'Legendary', min: 30 },
-  { icon: '👑', name: 'Global',    min: 50 }
+  { icon: '🥉', name: 'Silver I',    min: 0,   color: '#8a94a8' },
+  { icon: '🥈', name: 'Silver II',   min: 3,   color: '#a0aab0' },
+  { icon: '🥇', name: 'Gold Nova',   min: 7,   color: '#ffcc00' },
+  { icon: '🏅', name: 'Master',      min: 15,  color: '#5ba3ff' },
+  { icon: '💠', name: 'Legendary',   min: 25,  color: '#a866ff' },
+  { icon: '⚜️', name: 'Supreme',     min: 40,  color: '#ff66cc' },
+  { icon: '🌟', name: 'Global Elite',min: 60,  color: '#ff4444' },
+  { icon: '👑', name: 'Pro',         min: 100, color: '#ff8800' }
+];
+
+// ДОСТИЖЕНИЯ
+const ACHIEVEMENTS = [
+  { id: 'first_blood', icon: '🩸', name: 'Первая кровь', desc: 'Убей 1 врага', check: u => u.kills >= 1 },
+  { id: 'killer_10',   icon: '💀', name: 'Убийца',       desc: 'Убей 10 врагов', check: u => u.kills >= 10 },
+  { id: 'killer_100',  icon: '☠️', name: 'Маньяк',       desc: 'Убей 100 врагов', check: u => u.kills >= 100 },
+  { id: 'headhunter',  icon: '🎯', name: 'Хедшот-мастер',desc: 'Сделай 5 хедшотов', check: u => u.headshots >= 5 },
+  { id: 'winner',      icon: '🏆', name: 'Чемпион',      desc: 'Выиграй 1 матч', check: u => u.wins >= 1 },
+  { id: 'winner_10',   icon: '👑', name: 'Про',          desc: 'Выиграй 10 матчей', check: u => u.wins >= 10 },
+  { id: 'collector',   icon: '🎨', name: 'Коллекционер', desc: 'Собери 5 скинов', check: u => u.skins.length >= 5 },
+  { id: 'rich',        icon: '💰', name: 'Богач',        desc: 'Накопи $5000', check: u => u.money >= 5000 },
+  { id: 'addict',      icon: '🎮', name: 'Задрот',       desc: 'Сыграй 10 матчей', check: u => u.matches >= 10 },
+  { id: 'sniper_ace',  icon: '🎯', name: 'Снайпер',      desc: 'Убей 25 через AWP', check: u => (u.awpKills || 0) >= 25 }
 ];
 
 // СОСТОЯНИЕ
@@ -468,12 +495,22 @@ let userData = {
   skins: ['default'],
   equippedSkin: 'default',
   matches: 0, wins: 0, kills: 0, deaths: 0, headshots: 0, shots: 0, hits: 0,
-  settings: { sensitivity: 8, volume: 70, fov: 75 }
+  awpKills: 0,
+  bpLevel: 1, bpXp: 0,
+  achievements: [],
+  lastDaily: 0,
+  settings: {
+    sensitivity: 8, volume: 70, fov: 75,
+    quality: 'high', shadows: true, crosshairStyle: 'default',
+    crosshairColor: '#00ff00', showMinimap: true,
+    voiceVolume: 100, sfxVolume: 70, musicVolume: 50
+  }
 };
 
 let selCase = null;
 let opening = false;
-let myTeam = 'ct'; // ct или t
+let myTeam = 'ct';
+let matchCfgMap = 'sandstone';
 
 // ХЕЛПЕРЫ
 const $ = id => document.getElementById(id);
@@ -507,12 +544,46 @@ function updBal() {
 }
 
 function updRank() {
-  const total = userData.wins || 0;
   let rank = RANKS[0];
-  for (const r of RANKS) if (total >= r.min) rank = r;
+  for (const r of RANKS) if (userData.wins >= r.min) rank = r;
   $('rank-icon').textContent = rank.icon;
   $('rank-name').textContent = rank.name;
   $('rank-badge').classList.add('on');
+}
+
+function addBpXp(amount) {
+  userData.bpXp += amount;
+  const need = 100 + (userData.bpLevel - 1) * 50;
+  while (userData.bpXp >= need && userData.bpLevel < 50) {
+    userData.bpXp -= need;
+    userData.bpLevel++;
+    userData.money += 200;
+    toast(`🎉 Battle Pass уровень ${userData.bpLevel}! +$200`);
+  }
+  saveUser();
+}
+
+function checkAch() {
+  ACHIEVEMENTS.forEach(a => {
+    if (!userData.achievements.includes(a.id) && a.check(userData)) {
+      userData.achievements.push(a.id);
+      userData.money += 500;
+      toast(`🏅 Достижение: ${a.name}! +$500`);
+      saveUser();
+    }
+  });
+}
+
+function checkDaily() {
+  const now = Date.now();
+  const day = 24 * 60 * 60 * 1000;
+  if (now - userData.lastDaily > day) {
+    userData.lastDaily = now;
+    userData.money += 300;
+    addBpXp(50);
+    saveUser();
+    toast('🎁 Ежедневная награда: +$300, +50 XP');
+  }
 }
 
 // ============================================================
@@ -560,6 +631,8 @@ $('ab').addEventListener('click', () => {
     showScr('menu');
     updBal();
     updRank();
+    checkDaily();
+    checkAch();
   }, 250);
 });
 
@@ -573,24 +646,36 @@ $('ap').addEventListener('keydown', e => { if (e.key === 'Enter') $('ab').click(
   if (users[cur]) {
     Object.assign(userData, users[cur]);
     showScr('menu');
-    setTimeout(() => { updBal(); updRank(); }, 50);
+    setTimeout(() => {
+      updBal();
+      updRank();
+      checkDaily();
+      checkAch();
+    }, 50);
   }
 })();
 
 // ============================================================
 // МЕНЮ
 // ============================================================
-$('b-mp').onclick = () => { $('mp-name').value = userData.name; showScr('mp'); };
+$('b-mp').onclick = () => { $('mp-name').value = userData.name; showScr('mp'); probeServers(); };
 $('b-cases').onclick = () => { renderCases(); showScr('cases'); updBal(); };
 $('b-inv').onclick = () => { renderInv(); showScr('inv'); };
+$('b-bp').onclick = () => { renderBp(); showScr('bp'); };
+$('b-ach').onclick = () => { renderAch(); showScr('ach'); };
 $('b-stats').onclick = () => { renderStats(); showScr('stats'); };
+$('b-set').onclick = () => { renderSettings(); showScr('set'); };
 $('b-out').onclick = () => {
   if (confirm('Выйти?')) { localStorage.removeItem('shf_cur'); location.reload(); }
 };
 $('c-bk').onclick = () => showScr('menu');
 $('i-bk').onclick = () => showScr('menu');
 $('st-bk').onclick = () => showScr('menu');
+$('bp-bk').onclick = () => showScr('menu');
+$('ach-bk').onclick = () => showScr('menu');
+$('set-bk').onclick = () => showScr('menu');
 $('m-bk').onclick = () => { cleanupMP(); showScr('menu'); };
+$('l-bk').onclick = () => { cleanupMP(); showScr('mp'); };
 
 // ============================================================
 // КЕЙСЫ
@@ -643,8 +728,7 @@ function buildRou() {
 }
 
 $('ob').onclick = () => {
-  if (opening) return;
-  if (!selCase) return;
+  if (opening || !selCase) return;
   const c = CASES[selCase];
   if (userData.money < c.price) { toast('❌ Мало денег', true); return; }
 
@@ -684,8 +768,10 @@ $('ob').onclick = () => {
   setTimeout(() => {
     opening = false;
     if (!userData.skins.includes(drop)) userData.skins.push(drop);
+    addBpXp(20);
     saveUser();
     renderInv();
+    checkAch();
     const s = SKINS[drop];
     toast(`🎉 Получено: ${s.name}`);
     updBal();
@@ -694,12 +780,8 @@ $('ob').onclick = () => {
 
 function rollSkin(c) {
   const r = Math.random() * 100;
-  let target = 'common';
-  let cum = 0;
-  for (const k in RAR) {
-    cum += RAR[k].chance;
-    if (r < cum) { target = k; break; }
-  }
+  let target = 'common', cum = 0;
+  for (const k in RAR) { cum += RAR[k].chance; if (r < cum) { target = k; break; } }
   const m = c.items.filter(id => SKINS[id].rar === target);
   if (m.length === 0) return c.items[Math.floor(Math.random() * c.items.length)];
   return m[Math.floor(Math.random() * m.length)];
@@ -735,6 +817,64 @@ function renderInv() {
 }
 
 // ============================================================
+// BATTLE PASS
+// ============================================================
+function renderBp() {
+  $('bp-lvl').textContent = userData.bpLevel;
+  const need = 100 + (userData.bpLevel - 1) * 50;
+  $('bp-xp').textContent = `${userData.bpXp} / ${need} XP`;
+  $('bp-fill').style.width = Math.min(100, userData.bpXp / need * 100) + '%';
+
+  const rewards = [];
+  for (let i = 1; i <= 10; i++) {
+    const lvl = i * 5;
+    const unlocked = userData.bpLevel >= lvl;
+    rewards.push({
+      lvl,
+      icon: lvl >= 50 ? '👑' : lvl >= 40 ? '🌟' : lvl >= 30 ? '⚜️' : lvl >= 20 ? '💠' : lvl >= 10 ? '🥇' : '🥈',
+      name: `Уровень ${lvl}`,
+      desc: lvl >= 50 ? 'Глобал Элит скин' : `Награда за ${lvl} уровень`,
+      color: lvl >= 50 ? '#ff8800' : lvl >= 40 ? '#ff4444' : lvl >= 30 ? '#ff66cc' : lvl >= 20 ? '#a866ff' : '#5ba3ff',
+      unlocked
+    });
+  }
+
+  const rEl = $('bp-rewards');
+  rEl.innerHTML = '';
+  rewards.forEach(r => {
+    const d = document.createElement('div');
+    d.className = 'icard';
+    d.style.borderBottomColor = r.color;
+    if (r.unlocked) d.classList.add('eq');
+    d.innerHTML = `
+      <div class="ii" style="color:${r.color};opacity:${r.unlocked ? 1 : 0.3}">${r.icon}</div>
+      <div class="in">${r.name}</div>
+      <div class="ir" style="color:${r.unlocked ? '#4ade80' : '#7a8499'}">${r.unlocked ? 'ПОЛУЧЕНО' : 'ЗАКРЫТО'}</div>
+    `;
+    rEl.appendChild(d);
+  });
+}
+
+// ============================================================
+// ДОСТИЖЕНИЯ
+// ============================================================
+function renderAch() {
+  const g = $('ach-grid');
+  g.innerHTML = '';
+  ACHIEVEMENTS.forEach(a => {
+    const done = userData.achievements.includes(a.id);
+    const d = document.createElement('div');
+    d.className = 'ach' + (done ? ' done' : '');
+    d.innerHTML = `
+      <div class="ai">${done ? a.icon : '🔒'}</div>
+      <div class="an">${a.name}</div>
+      <div class="ad">${a.desc}</div>
+    `;
+    g.appendChild(d);
+  });
+}
+
+// ============================================================
 // СТАТИСТИКА
 // ============================================================
 function renderStats() {
@@ -742,6 +882,8 @@ function renderStats() {
   const kd = userData.deaths > 0 ? (userData.kills / userData.deaths).toFixed(2) : userData.kills;
   const acc = userData.shots > 0 ? Math.round(userData.hits / userData.shots * 100) : 0;
   const wr = userData.matches > 0 ? Math.round(userData.wins / userData.matches * 100) : 0;
+  let rank = RANKS[0];
+  for (const r of RANKS) if (userData.wins >= r.min) rank = r;
 
   const items = [
     ['Матчей', userData.matches],
@@ -753,25 +895,219 @@ function renderStats() {
     ['Хедшотов', userData.headshots],
     ['Точность', acc + '%'],
     ['Скинов', userData.skins.length],
-    ['Денег', '$' + userData.money]
+    ['Денег', '$' + userData.money],
+    ['BP уровень', userData.bpLevel],
+    ['Ранг', rank.name]
   ];
 
   sg.innerHTML = items.map(([l, v]) => `
     <div style="padding:20px 12px;background:rgba(25,30,42,.8);border:2px solid rgba(255,136,0,.15);border-radius:12px;text-align:center">
-      <div style="font-size:28px;font-weight:900;color:#fa3;margin-bottom:4px">${v}</div>
+      <div style="font-size:24px;font-weight:900;color:#fa3;margin-bottom:4px">${v}</div>
       <div style="color:#7a8499;font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase">${l}</div>
     </div>
   `).join('');
 }
 
 // ============================================================
-// МУЛЬТИПЛЕЕР
+// НАСТРОЙКИ
 // ============================================================
+function renderSettings() {
+  const a = $('set-area');
+  const s = userData.settings;
+  a.innerHTML = `
+    <div class="set-row"><label>Чувствительность</label>
+      <input type="range" id="s-sens" min="1" max="20" value="${s.sensitivity}">
+      <span class="val" id="s-sens-v">${s.sensitivity}</span>
+    </div>
+    <div class="set-row"><label>FOV</label>
+      <input type="range" id="s-fov" min="60" max="120" value="${s.fov}">
+      <span class="val" id="s-fov-v">${s.fov}</span>
+    </div>
+    <div class="set-row"><label>Громкость общая</label>
+      <input type="range" id="s-vol" min="0" max="100" value="${s.volume}">
+      <span class="val" id="s-vol-v">${s.volume}</span>
+    </div>
+    <div class="set-row"><label>Эффекты</label>
+      <input type="range" id="s-sfx" min="0" max="100" value="${s.sfxVolume}">
+      <span class="val" id="s-sfx-v">${s.sfxVolume}</span>
+    </div>
+    <div class="set-row"><label>Качество</label>
+      <select id="s-q">
+        <option value="low" ${s.quality==='low'?'selected':''}>Низкое</option>
+        <option value="medium" ${s.quality==='medium'?'selected':''}>Среднее</option>
+        <option value="high" ${s.quality==='high'?'selected':''}>Высокое</option>
+      </select>
+    </div>
+    <div class="set-row"><label>Тени</label>
+      <input type="checkbox" id="s-sh" ${s.shadows?'checked':''}>
+    </div>
+    <div class="set-row"><label>Мини-карта</label>
+      <input type="checkbox" id="s-mm" ${s.showMinimap?'checked':''}>
+    </div>
+    <div class="set-row"><label>Стиль прицела</label>
+      <select id="s-cs">
+        <option value="default" ${s.crosshairStyle==='default'?'selected':''}>Классический</option>
+        <option value="dot" ${s.crosshairStyle==='dot'?'selected':''}>Точка</option>
+        <option value="cross" ${s.crosshairStyle==='cross'?'selected':''}>Крест</option>
+        <option value="circle" ${s.crosshairStyle==='circle'?'selected':''}>Круг</option>
+      </select>
+    </div>
+    <div class="set-row"><label>Цвет прицела</label>
+      <input type="color" id="s-cc" value="${s.crosshairColor}" style="width:60px;height:30px;background:transparent;border:none;cursor:pointer">
+    </div>
+  `;
+  const upd = (id, key, isNum) => {
+    $(id).oninput = e => {
+      s[key] = isNum ? +e.target.value : e.target.value;
+      const vEl = $(id + '-v');
+      if (vEl) vEl.textContent = e.target.value;
+      saveUser();
+    };
+  };
+  upd('s-sens', 'sensitivity', true);
+  upd('s-fov', 'fov', true);
+  upd('s-vol', 'volume', true);
+  upd('s-sfx', 'sfxVolume', true);
+  $('s-q').onchange = e => { s.quality = e.target.value; saveUser(); };
+  $('s-sh').onchange = e => { s.shadows = e.target.checked; saveUser(); };
+  $('s-mm').onchange = e => { s.showMinimap = e.target.checked; saveUser(); };
+  $('s-cs').onchange = e => { s.crosshairStyle = e.target.value; saveUser(); };
+  $('s-cc').oninput = e => { s.crosshairColor = e.target.value; saveUser(); };
+}
+
+// ============================================================
+// МУЛЬТИПЛЕЕР — 5 РЕЗЕРВНЫХ СЕРВЕРОВ
+// ============================================================
+const PEER_SERVERS = [
+  { host: '0.peerjs.com', port: 443, path: '/', secure: true, name: '0.peerjs' },
+  { host: '1.peerjs.com', port: 443, path: '/', secure: true, name: '1.peerjs' },
+  { host: 'peerjs.92k.de', port: 443, path: '/', secure: true, name: '92k.de' },
+  { host: 'peer.techmo.dev', port: 443, path: '/', secure: true, name: 'techmo' },
+  { host: 'peerjs-server.herokuapp.com', port: 443, path: '/', secure: true, name: 'heroku' }
+];
+
+const ICE_SERVERS = [
+  { urls: 'stun:stun.l.google.com:19302' },
+  { urls: 'stun:stun1.l.google.com:19302' },
+  { urls: 'stun:stun2.l.google.com:19302' },
+  { urls: 'stun:stun3.l.google.com:19302' },
+  { urls: 'stun:global.stun.twilio.com:3478' }
+];
+
 let peer = null, conns = [], isHost = false, myId = null;
-let voiceEnabled = false;
-let localStream = null;
-let voiceCalls = {};
-let audioEls = {};
+let voiceEnabled = false, localStream = null;
+let voiceCalls = {}, audioEls = {};
+let serverStatus = {};
+
+// Проверка серверов
+function probeServers() {
+  const st = $('srv-status');
+  st.textContent = '⏳ Проверка 5 серверов...';
+  const status = [];
+  let done = 0;
+  PEER_SERVERS.forEach((srv, i) => {
+    const testPeer = new Peer('shf-test-' + Math.random().toString(36).slice(2, 10), {
+      host: srv.host, port: srv.port, path: srv.path, secure: srv.secure, debug: 0
+    });
+    const timer = setTimeout(() => {
+      if (!status[i]) {
+        status[i] = 'fail';
+        testPeer.destroy();
+        done++;
+        if (done === PEER_SERVERS.length) showProbeResult(status);
+      }
+    }, 3000);
+    testPeer.on('open', () => {
+      if (status[i]) return;
+      clearTimeout(timer);
+      status[i] = 'ok';
+      testPeer.destroy();
+      done++;
+      if (done === PEER_SERVERS.length) showProbeResult(status);
+    });
+    testPeer.on('error', () => {
+      if (status[i]) return;
+      clearTimeout(timer);
+      status[i] = 'fail';
+      testPeer.destroy();
+      done++;
+      if (done === PEER_SERVERS.length) showProbeResult(status);
+    });
+  });
+}
+
+function showProbeResult(status) {
+  const ok = status.filter(s => s === 'ok').length;
+  const el = $('srv-status');
+  el.textContent = `✅ Работают ${ok}/${PEER_SERVERS.length} серверов · Авто-выбор при подключении`;
+  el.style.color = ok > 0 ? '#4ade80' : '#f55';
+}
+
+let serverIdx = 0, retryCount = 0;
+
+function createPeer(peerId, cb) {
+  serverIdx = 0;
+  retryCount = 0;
+  tryNext(peerId, cb);
+}
+
+function tryNext(peerId, cb) {
+  if (retryCount >= PEER_SERVERS.length) {
+    $('mp-st').textContent = '❌ Все серверы недоступны. Попробуй позже.';
+    $('mp-st').style.color = '#f55';
+    return;
+  }
+  if (peer) { try { peer.destroy(); } catch(e) {} peer = null; }
+  const srv = PEER_SERVERS[serverIdx];
+  $('mp-st').textContent = `⏳ Сервер ${srv.name}... (${retryCount + 1}/${PEER_SERVERS.length})`;
+  $('mp-st').style.color = '#f0a500';
+
+  try {
+    peer = new Peer(peerId, {
+      host: srv.host, port: srv.port, path: srv.path, secure: srv.secure,
+      config: { iceServers: ICE_SERVERS },
+      debug: 0
+    });
+
+    const timer = setTimeout(() => {
+      if (peer && !peer.open) {
+        try { peer.destroy(); } catch(e) {}
+        retryCount++;
+        serverIdx = (serverIdx + 1) % PEER_SERVERS.length;
+        tryNext(peerId, cb);
+      }
+    }, 4000);
+
+    peer.on('open', id => {
+      clearTimeout(timer);
+      myId = id;
+      retryCount = 0;
+      $('mp-st').textContent = `✅ Подключено к ${srv.name}`;
+      $('mp-st').style.color = '#4ade80';
+      cb(id, srv.name);
+    });
+
+    peer.on('error', err => {
+      clearTimeout(timer);
+      console.warn('Peer error:', err.type, 'на', srv.name);
+      retryCount++;
+      serverIdx = (serverIdx + 1) % PEER_SERVERS.length;
+      tryNext(peerId, cb);
+    });
+
+    peer.on('connection', c => { if (isHost) setupConn(c); });
+
+    peer.on('call', call => {
+      if (!voiceEnabled || !localStream) { try { call.close(); } catch(e) {} return; }
+      call.answer(localStream);
+      handleVoiceCall(call, call.peer);
+    });
+  } catch(e) {
+    retryCount++;
+    serverIdx = (serverIdx + 1) % PEER_SERVERS.length;
+    setTimeout(() => tryNext(peerId, cb), 300);
+  }
+}
 
 function genCode() {
   const c = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
@@ -780,48 +1116,21 @@ function genCode() {
   return s;
 }
 
-const SRV = [
-  { host: '0.peerjs.com', port: 443, path: '/', secure: true },
-  { host: '1.peerjs.com', port: 443, path: '/', secure: true }
-];
-let srvIdx = 0, retry = 0;
-
-function tryConnect(peerId, cb) {
-  if (retry > 5) { $('mp-st').textContent = '❌ Не удалось подключиться'; return; }
-  if (peer) { try { peer.destroy(); } catch(e) {} }
-  const srv = SRV[srvIdx % SRV.length];
-  peer = new Peer(peerId, {
-    host: srv.host, port: srv.port, path: srv.path, secure: srv.secure,
-    config: { iceServers: [{ urls: 'stun:stun.l.google.com:19302' }] },
-    debug: 0
-  });
-  peer.on('open', id => {
-    myId = id;
-    retry = 0;
-    cb(id);
-  });
-  peer.on('error', e => {
-    if (e.type === 'network' || e.type === 'server-error') {
-      $('mp-st').textContent = '⏳ Пробуем сервер...';
-      retry++; srvIdx++;
-      setTimeout(() => tryConnect(peerId, cb), 500);
-    } else {
-      $('mp-st').textContent = '❌ ' + e.type;
-    }
-  });
-  peer.on('connection', c => { if (isHost) setupConn(c); });
-  peer.on('call', call => {
-    if (!voiceEnabled || !localStream) { try { call.close(); } catch(e) {} return; }
-    call.answer(localStream);
-    handleVoiceCall(call, call.peer);
-  });
-}
-
 function setupConn(c) {
   c.on('open', () => {
     conns.push(c);
-    try { c.send({ type: 'info', name: userData.name, id: userData.id, team: c.metadata?.team || 'ct' }); } catch(e) {}
-    updMPList();
+    try {
+      c.send({
+        type: 'info',
+        name: userData.name,
+        id: userData.id,
+        team: myTeam,
+        skin: userData.equippedSkin,
+        hp: 100
+      });
+    } catch(e) {}
+    updLobby();
+    addKF(userData.name, '→', (c.meta?.name || 'Игрок') + ' подключился');
   });
   c.on('data', d => {
     if (d.type === 'info') {
@@ -829,128 +1138,135 @@ function setupConn(c) {
       c.meta.name = d.name;
       c.meta.id = d.id;
       c.meta.team = d.team || 'ct';
-      updMPList();
-      addKF(d.name, '→', 'подключился');
+      c.meta.skin = d.skin;
+      updLobby();
+      addKF(d.name, '→', 'вошёл');
     } else if (d.type === 'chat') {
-      addChat(d.name, d.text);
+      addChat(d.name, d.text, false, d.teamOnly);
     } else if (d.type === 'start') {
       matchCfgMap = d.map;
       cleanupMP();
       startMatchLoading(d.map);
     } else if (d.type === 'switch-team') {
+      c.meta = c.meta || {};
       c.meta.team = d.team;
-      updMPList();
+      updLobby();
+    } else if (d.type === 'map-change') {
+      matchCfgMap = d.map;
+      const sm = $('l-map');
+      if (sm) sm.value = d.map;
     } else if (d.type === 'state') {
       if (typeof handleRemoteState === 'function') handleRemoteState(c.peer, d);
     } else if (d.type === 'shoot') {
       if (typeof handleRemoteShoot === 'function') handleRemoteShoot(d);
     } else if (d.type === 'hit') {
       if (typeof handleRemoteHit === 'function') handleRemoteHit(d);
+    } else if (d.type === 'kill') {
+      addKF(d.killer, '🔫', d.victim);
     }
   });
   c.on('close', () => {
     conns = conns.filter(x => x !== c);
     if (typeof removeRemotePlayer === 'function') removeRemotePlayer(c.peer);
-    updMPList();
+    updLobby();
   });
 }
 
-let matchCfgMap = 'sandstone';
+function updLobby() {
+  const ctEl = $('l-ct'), tEl = $('l-t');
+  if (!ctEl || !tEl) return;
 
-function updMPList() {
-  const ct = $('ml-ct'), t = $('ml-t');
-  if (!ct || !t) return;
-  let htmlCT = `<div style="color:#4ade80;font-size:11px">👤 ${userData.name}${isHost ? ' 👑' : ''}</div>`;
-  let htmlT = '';
-  if (myTeam === 't') { htmlT = htmlCT; htmlCT = ''; }
+  let ctHTML = '', tHTML = '';
+  let ctCount = 0, tCount = 0;
+
+  // Себя
+  const meRow = `<div style="color:#4ade80;font-size:11px;margin-bottom:3px">👤 ${userData.name}${isHost ? ' 👑' : ''}</div>`;
+  if (myTeam === 'ct') { ctHTML += meRow; ctCount++; }
+  else { tHTML += meRow; tCount++; }
 
   conns.forEach(c => {
     const n = c.meta?.name || 'Игрок';
     const team = c.meta?.team || 'ct';
-    const row = `<div style="color:#fff;font-size:11px;margin-top:3px">👤 ${n}</div>`;
-    if (team === 'ct') htmlCT += row;
-    else htmlT += row;
+    const row = `<div style="color:#fff;font-size:11px;margin-bottom:3px">👤 ${n}</div>`;
+    if (team === 'ct') { ctHTML += row; ctCount++; }
+    else { tHTML += row; tCount++; }
   });
 
-  ct.innerHTML = htmlCT || '<div style="color:#7a8499;font-size:10px;text-align:center;padding:8px">Пусто</div>';
-  t.innerHTML = htmlT || '<div style="color:#7a8499;font-size:10px;text-align:center;padding:8px">Пусто</div>';
+  ctEl.innerHTML = ctHTML || '<div style="color:#7a8499;font-size:10px;text-align:center;padding:8px">Пусто</div>';
+  tEl.innerHTML = tHTML || '<div style="color:#7a8499;font-size:10px;text-align:center;padding:8px">Пусто</div>';
+  $('l-ct-c').textContent = ctCount;
+  $('l-t-c').textContent = tCount;
 }
 
 $('mp-new').onclick = () => {
   const code = genCode();
   isHost = true;
   myTeam = 'ct';
-  $('mp-st').textContent = '⏳ Создание комнаты...';
-  tryConnect('shf-' + code, () => {
+  $('mp-st').textContent = '⏳ Создание...';
+  $('mp-st').style.color = '#f0a500';
+  createPeer('shf-' + code, () => {
     $('mp-main').style.display = 'none';
-    $('mp-lobby').classList.add('on');
-    $('mp').classList.remove('on');
-    $('ml-code').textContent = code;
-    $('ml-start').style.display = 'block';
-    updMPList();
+    showScr('lobby');
+    $('l-code').textContent = code;
+    $('l-start').style.display = 'block';
+    updLobby();
   });
 };
 
 $('mp-join').onclick = () => {
   const code = $('mp-code-in').value.trim().toUpperCase();
-  if (code.length !== 6) { $('mp-st').textContent = '❌ Код 6 символов'; return; }
+  if (code.length !== 6) { $('mp-st').textContent = '❌ Код 6 символов'; $('mp-st').style.color = '#f55'; return; }
   isHost = false;
   myTeam = 't';
   $('mp-st').textContent = '⏳ Подключение...';
+  $('mp-st').style.color = '#f0a500';
   const mid = 'shf-c-' + Math.random().toString(36).slice(2, 10);
-  tryConnect(mid, () => {
+  createPeer(mid, (id) => {
     const c = peer.connect('shf-' + code, {
       metadata: { name: userData.name, team: myTeam },
       reliable: true
     });
     setupConn(c);
     $('mp-main').style.display = 'none';
-    $('mp-lobby').classList.add('on');
-    $('mp').classList.remove('on');
-    $('ml-code').textContent = code;
-    $('ml-start').style.display = 'none';
-    updMPList();
+    showScr('lobby');
+    $('l-code').textContent = code;
+    $('l-start').style.display = 'none';
+    updLobby();
   });
 };
 
-$('ml-code').onclick = () => {
-  const code = $('ml-code').textContent;
+$('l-code').onclick = () => {
+  const code = $('l-code').textContent;
   if (code === '------') return;
   if (navigator.clipboard) navigator.clipboard.writeText(code).then(() => {
-    $('ml-code').textContent = 'СКОПИРОВАНО';
-    setTimeout(() => { $('ml-code').textContent = code; }, 800);
+    $('l-code').textContent = 'СКОПИРОВАНО';
+    setTimeout(() => { $('l-code').textContent = code; }, 800);
   });
 };
 
-$('ml-switch').onclick = () => {
+$('l-switch').onclick = () => {
   myTeam = myTeam === 'ct' ? 't' : 'ct';
   conns.forEach(c => {
     if (c.open) try { c.send({ type: 'switch-team', team: myTeam }); } catch(e) {}
   });
-  updMPList();
+  updLobby();
   toast(`🔄 Команда: ${myTeam.toUpperCase()}`);
 };
 
-$('ml-map').onchange = () => {
-  matchCfgMap = $('ml-map').value;
+$('l-map').onchange = () => {
+  matchCfgMap = $('l-map').value;
   conns.forEach(c => {
     if (c.open) try { c.send({ type: 'map-change', map: matchCfgMap }); } catch(e) {}
   });
 };
 
-$('ml-start').onclick = () => {
-  matchCfgMap = $('ml-map').value;
+$('l-start').onclick = () => {
+  matchCfgMap = $('l-map').value;
   conns.forEach(c => {
     if (c.open) try { c.send({ type: 'start', map: matchCfgMap }); } catch(e) {}
   });
   cleanupMP();
   startMatchLoading(matchCfgMap);
-};
-
-$('ml-bk').onclick = () => {
-  cleanupMP();
-  $('mp-lobby').classList.remove('on');
-  showScr('menu');
 };
 
 function cleanupMP() {
@@ -959,7 +1275,7 @@ function cleanupMP() {
   if (peer) { try { peer.destroy(); } catch(e) {} peer = null; }
   isHost = false;
   $('mp-main').style.display = 'block';
-  $('mp-lobby').classList.remove('on');
+  showScr('mp');
 }
 
 // ============================================================
@@ -967,7 +1283,8 @@ function cleanupMP() {
 // ============================================================
 const MAP_NAMES = {
   sandstone: 'SANDSTONE', rust: 'RUST', province: 'PROVINCE',
-  mirage: 'MIRAGE', inferno: 'INFERNO', nuke: 'NUKE'
+  mirage: 'MIRAGE', inferno: 'INFERNO', nuke: 'NUKE',
+  office: 'OFFICE', dust2: 'DUST 2'
 };
 
 function startMatchLoading(mapKey) {
@@ -978,8 +1295,8 @@ function startMatchLoading(mapKey) {
 
   const steps = [
     { p: 20, s: 'ЗАГРУЗКА КАРТЫ...' },
-    { p: 50, s: 'ПОДКЛЮЧЕНИЕ К СЕРВЕРУ...' },
-    { p: 80, s: 'СИНХРОНИЗАЦИЯ ИГРОКОВ...' },
+    { p: 50, s: 'СИНХРОНИЗАЦИЯ ИГРОКОВ...' },
+    { p: 80, s: 'ПОДГОТОВКА ОРУЖИЯ...' },
     { p: 100, s: 'В БОЙ!' }
   ];
 
@@ -1006,13 +1323,13 @@ function startMatchLoading(mapKey) {
 // ============================================================
 // ЧАТ
 // ============================================================
-function addChat(name, text, mine) {
+function addChat(name, text, mine, teamOnly) {
   const cm = $('cmsgs');
   if (!cm) return;
   $('chat').classList.add('on');
   const d = document.createElement('div');
-  d.className = 'cm' + (mine ? ' mine' : '');
-  d.innerHTML = `<span class="cn">${esc(name)}:</span><span>${esc(text)}</span>`;
+  d.className = 'cm' + (mine ? ' mine' : '') + (teamOnly ? ' team' : '');
+  d.innerHTML = `<span class="cn">${esc(name)}${teamOnly ? ' (CT)' : ''}:</span><span>${esc(text)}</span>`;
   cm.appendChild(d);
   cm.scrollTop = cm.scrollHeight;
   while (cm.children.length > 30) cm.removeChild(cm.firstChild);
@@ -1022,25 +1339,33 @@ function esc(s) {
   return String(s).replace(/[&<>"']/g, c => ({ '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;' }[c]));
 }
 
-function sendChat() {
+function sendChat(teamOnly) {
   const inp = $('ci');
   if (!inp) return;
   const t = inp.value.trim();
   if (!t) return;
-  addChat(userData.name, t, true);
+  addChat(userData.name, t, true, teamOnly);
   conns.forEach(c => {
-    if (c.open) try { c.send({ type: 'chat', name: userData.name, text: t }); } catch(e) {}
+    if (c.open) {
+      try { c.send({ type: 'chat', name: userData.name, text: t, teamOnly }); } catch(e) {}
+    }
   });
   inp.value = '';
   inp.blur();
   $('ciw').classList.remove('on');
 }
 
-function toggleChat() {
+function toggleChat(teamOnly) {
   const w = $('ciw');
   const isOn = w.classList.contains('on');
   if (isOn) { w.classList.remove('on'); $('ci').blur(); }
-  else { $('chat').classList.add('on'); w.classList.add('on'); $('ci').focus(); }
+  else {
+    $('chat').classList.add('on');
+    w.classList.add('on');
+    $('ci').placeholder = teamOnly ? 'Сообщение команде...' : 'Сообщение всем...';
+    $('ci').focus();
+    window._teamChat = teamOnly;
+  }
 }
 
 // ============================================================
@@ -1097,24 +1422,8 @@ function handleVoiceCall(c, id) {
   audioEls[id] = a;
 }
 
-// Кнопки
-$('bv2').onclick = toggleVoice;
-$('bc').onclick = toggleChat;
-$('cs').onclick = sendChat;
-$('ci').addEventListener('keydown', e => {
-  if (e.key === 'Enter') sendChat();
-  if (e.key === 'Escape') { $('ci').blur(); $('ciw').classList.remove('on'); }
-});
-
-// Горячие клавиши (только в бою)
-document.addEventListener('keydown', e => {
-  if (document.activeElement === $('ci')) return;
-  if (e.code === 'KeyV' && typeof window.startGame === 'function') { e.preventDefault(); toggleVoice(); }
-  if (e.code === 'KeyT' && typeof window.startGame === 'function') { e.preventDefault(); toggleChat(); }
-});
-
 // ============================================================
-// KILLFEED (используется и в меню, и в бою)
+// KILLFEED
 // ============================================================
 function addKF(a, i, v) {
   const kf = $('kf');
@@ -1126,7 +1435,34 @@ function addKF(a, i, v) {
   setTimeout(() => d.remove(), 5000);
 }
 
+// ============================================================
+// КНОПКИ ЧАТА
+// ============================================================
+$('bv2').onclick = toggleVoice;
+$('bc').onclick = () => toggleChat(false);
+$('cs').onclick = () => sendChat(window._teamChat);
+$('ci').addEventListener('keydown', e => {
+  if (e.key === 'Enter') sendChat(window._teamChat);
+  if (e.key === 'Escape') { $('ci').blur(); $('ciw').classList.remove('on'); }
+});
+
+// Горячие клавиши в бою
+document.addEventListener('keydown', e => {
+  if (document.activeElement === $('ci')) return;
+  if (gameState !== 'playing') return;
+  if (e.code === 'KeyV') { e.preventDefault(); toggleVoice(); }
+  if (e.code === 'KeyT') { e.preventDefault(); toggleChat(false); }
+  if (e.code === 'KeyY') { e.preventDefault(); toggleChat(true); }
+  if (e.code === 'KeyM') {
+    e.preventDefault();
+    const m = $('mm-map');
+    if (m) m.classList.toggle('on');
+  }
+});
+
+// ============================================================
 // Скрыть загрузку
+// ============================================================
 setTimeout(() => {
   const ld = $('ld');
   if (ld) ld.classList.add('hid');
@@ -1136,12 +1472,12 @@ console.log('%c🎯 SHOOT HIM FIRST — Часть 2 загружена', 'color
 </script>
 <script>
 // ============================================================
-// SHOOT HIM FIRST — Часть 3: 3D Геймплей (PvP)
+// SHOOT HIM FIRST — Часть 3: 3D Геймплей PvP
 // ============================================================
 
 let scene, camera, renderer, clock, worldGroup, weaponGroup;
 let raycaster = new THREE.Raycaster();
-let remotePlayers = {}; // { peerId: { mesh, nameSprite, name, team, hp } }
+let remotePlayers = {};
 let particles = [], bulletHoles = [], walls = [];
 let gameState = 'menu';
 let pointerLocked = false, mouseDown = false;
@@ -1154,11 +1490,12 @@ let pMoney = 800;
 let buyOpen = false;
 let curMap = 'sandstone';
 let lastNetSend = 0;
-let respawnTimer = 0;
+let minimapOn = true;
+let mmCanvas = null, mmCtx = null;
 
 const MAP_SIZE = 40, PH = 1.7, GRAV = 25;
 const MS = 6, RS = 9, ACC = 60, FRI = 12, MD = 100;
-const WIN_SCORE = 10;
+const WIN_SCORE = 15;
 
 const player = {
   pos: new THREE.Vector3(0, PH, 0), vel: new THREE.Vector3(),
@@ -1178,7 +1515,7 @@ function initAudio() {
 function tone(f, d, t='square', v=0.15) {
   if (!audioCtx) return;
   try {
-    const vol = v * ((userData.settings?.volume || 70) / 100);
+    const vol = v * ((userData.settings?.sfxVolume || 70) / 100);
     const o = audioCtx.createOscillator(), g = audioCtx.createGain();
     o.type = t; o.frequency.value = f;
     g.gain.setValueAtTime(vol, audioCtx.currentTime);
@@ -1201,6 +1538,7 @@ const sfxBuy = () => { tone(800,0.08,'sine',0.2); setTimeout(()=>tone(1200,0.08,
 window.startGame = function(mapKey) {
   initAudio();
   curMap = mapKey || 'sandstone';
+  minimapOn = userData.settings?.showMinimap !== false;
   gameState = 'playing';
   kills = 0; deaths = 0; scoreCT = 0; scoreT = 0;
   pMoney = 800;
@@ -1212,30 +1550,25 @@ window.startGame = function(mapKey) {
   player.vel.set(0, 0, 0);
   player.team = (typeof myTeam !== 'undefined') ? myTeam : 'ct';
 
-  // Позиция на карте
   if (player.team === 'ct') player.pos.set(-12, PH, -12);
   else player.pos.set(12, PH, 12);
 
-  // Убираем удалённых игроков из старого матча
-  Object.values(remotePlayers).forEach(r => { if (r.mesh) scene && scene.remove(r.mesh); });
+  Object.values(remotePlayers).forEach(r => { if (r.mesh && scene) scene.remove(r.mesh); });
   remotePlayers = {};
 
   initScene();
   buildMap();
+  initMinimap();
 
   $('hud').classList.add('on');
-  $('score-h').innerHTML = `<span class="ct">CT ${scoreCT}</span> | <span class="t">T ${scoreT}</span>`;
-  $('wv-h').textContent = `CT vs T · до ${WIN_SCORE}`;
+  $('vc').classList.add('on');
+  $('mm-map').classList.toggle('on', minimapOn);
+  updScore();
   updHUD();
 
-  if (IS_M) {
-    $('mob').classList.add('on');
-  } else {
-    requestLock();
-    $('chint').classList.add('on');
-  }
+  if (IS_M) $('mob').classList.add('on');
+  else { requestLock(); $('chint').classList.add('on'); }
 
-  // Сообщаем всем, кто в комнате, что мы зашли (пересоздаём удалённых)
   if (typeof conns !== 'undefined') {
     conns.forEach(c => {
       if (c.open) try { c.send({ type: 'state', x: player.pos.x, y: player.pos.y, z: player.pos.z, yaw: player.yaw, name: userData.name, team: player.team, hp: player.hp }); } catch(e) {}
@@ -1263,15 +1596,27 @@ function initScene() {
 
   camera = new THREE.PerspectiveCamera(userData.settings?.fov || 75, window.innerWidth/window.innerHeight, 0.1, 500);
 
-  renderer = new THREE.WebGLRenderer({ antialias: true, powerPreference: 'high-performance' });
-  renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.5));
-  renderer.shadowMap.enabled = false;
+  const q = userData.settings?.quality || 'high';
+  const pr = q === 'low' ? 0.6 : q === 'medium' ? 0.9 : Math.min(window.devicePixelRatio, 1.5);
+
+  renderer = new THREE.WebGLRenderer({ antialias: q !== 'low', powerPreference: 'high-performance' });
+  renderer.setPixelRatio(pr);
+  renderer.shadowMap.enabled = userData.settings?.shadows && q === 'high';
   renderer.domElement.style.cssText = 'position:fixed;inset:0;width:100%;height:100%;z-index:1;';
   document.body.appendChild(renderer.domElement);
 
   scene.add(new THREE.AmbientLight(cfg.amb, 0.75));
   const sun = new THREE.DirectionalLight(cfg.sun, 1);
   sun.position.set(30, 60, 20);
+  if (renderer.shadowMap.enabled) {
+    sun.castShadow = true;
+    sun.shadow.mapSize.width = 1024;
+    sun.shadow.mapSize.height = 1024;
+    sun.shadow.camera.left = -50;
+    sun.shadow.camera.right = 50;
+    sun.shadow.camera.top = 50;
+    sun.shadow.camera.bottom = -50;
+  }
   scene.add(sun);
   scene.add(new THREE.HemisphereLight(0xb8d8ff, 0x8a7a60, 0.5));
 
@@ -1302,7 +1647,9 @@ function getCfg(map) {
     province:  { sky:0xf0b060, fog:0xe0a050, amb:0xffe0b0, sun:0xffcc80, floor:['#e0c090','#d0b080'], wall:['#f0d0a0','#e0c090'], box:['#c09060','#a07040'], crate:['#a08050','#806030'] },
     mirage:    { sky:0x9bc8e8, fog:0xb8d4e8, amb:0xffe8c0, sun:0xffd699, floor:['#d4b890','#c4a880'], wall:['#f0d8b0','#e0c890'], box:['#c8965a','#a8764a'], crate:['#a88868','#907058'] },
     inferno:   { sky:0xd06040, fog:0xa05030, amb:0xffb090, sun:0xff8060, floor:['#8a4030','#7a3020'], wall:['#a05040','#904030'], box:['#c06050','#a04030'], crate:['#804030','#603020'] },
-    nuke:      { sky:0x708090, fog:0x506070, amb:0xa0b0c0, sun:0xc0d0e0, floor:['#606870','#505860'], wall:['#707880','#606870'], box:['#506070','#405060'], crate:['#607080','#506070'] }
+    nuke:      { sky:0x708090, fog:0x506070, amb:0xa0b0c0, sun:0xc0d0e0, floor:['#606870','#505860'], wall:['#707880','#606870'], box:['#506070','#405060'], crate:['#607080','#506070'] },
+    office:    { sky:0xa0a0b0, fog:0x9090a0, amb:0xc0c0d0, sun:0xd0d0e0, floor:['#a0a0b0','#9090a0'], wall:['#b0b0c0','#a0a0b0'], box:['#707080','#606070'], crate:['#808090','#707080'] },
+    dust2:     { sky:0xe8c080, fog:0xd8b070, amb:0xffe0b0, sun:0xffcc80, floor:['#e8d0a0','#d8c090'], wall:['#f0e0b0','#e0d0a0'], box:['#a08050','#806030'], crate:['#b09060','#907040'] }
   };
   return c[map] || c.sandstone;
 }
@@ -1341,44 +1688,44 @@ function buildMap() {
     new THREE.MeshLambertMaterial({ map: fT })
   );
   floor.rotation.x = -Math.PI/2;
+  floor.receiveShadow = renderer.shadowMap.enabled;
   worldGroup.add(floor);
 
   const wMat = new THREE.MeshLambertMaterial({ map: wT });
   function addWall(x, y, z, w, h, d, m) {
     const mesh = new THREE.Mesh(new THREE.BoxGeometry(w, h, d), m || wMat);
     mesh.position.set(x, y+h/2, z);
+    mesh.castShadow = renderer.shadowMap.enabled;
     worldGroup.add(mesh);
     walls.push(new THREE.Box3().setFromObject(mesh));
   }
 
-  // Периметр
   addWall(0, 0, -half, MAP_SIZE, 7, 1);
   addWall(0, 0, half, MAP_SIZE, 7, 1);
   addWall(-half, 0, 0, 1, 7, MAP_SIZE);
   addWall(half, 0, 0, 1, 7, MAP_SIZE);
 
-  // Здания
   addWall(-8, 0, -8, 8, 8, 6);
   addWall(10, 0, -6, 6, 6, 6);
   addWall(6, 0, 8, 8, 5, 8);
   addWall(-10, 0, 10, 6, 5, 6);
 
-  // Ящики
   const crates = [[-14,2],[-10,5],[-6,12],[0,-14],[4,-10],[12,4],[14,-10],[16,8],[-16,-4],[8,14],[-3,3],[3,14],[-14,-14],[12,12],[-8,14],[0,6],[-4,-4],[7,-3],[-12,6],[10,-12]];
   for (const [x, z] of crates) {
     const s = 1.2 + Math.random()*0.6;
     const mesh = new THREE.Mesh(new THREE.BoxGeometry(s, s, s), new THREE.MeshLambertMaterial({ map: bT }));
     mesh.position.set(x, s/2, z);
     mesh.rotation.y = Math.random() * Math.PI;
+    mesh.castShadow = renderer.shadowMap.enabled;
     worldGroup.add(mesh);
     walls.push(new THREE.Box3().setFromObject(mesh));
   }
 
-  // Деревянные
   const wood = [[5,5],[-5,-5],[12,-3],[-10,3],[3,-8],[-3,8]];
   for (const [x, z] of wood) {
     const mesh = new THREE.Mesh(new THREE.BoxGeometry(1, 1, 1), new THREE.MeshLambertMaterial({ map: cT }));
     mesh.position.set(x, 0.5, z);
+    mesh.castShadow = renderer.shadowMap.enabled;
     worldGroup.add(mesh);
     walls.push(new THREE.Box3().setFromObject(mesh));
   }
@@ -1458,44 +1805,37 @@ function makeRemotePlayerMesh(name, team) {
   const kMat = new THREE.MeshLambertMaterial({ color: 0x1a1a1a });
 
   const torso = new THREE.Mesh(new THREE.BoxGeometry(0.6, 0.85, 0.35), bMat);
-  torso.position.y = 1.1;
+  torso.position.y = 1.1; torso.castShadow = renderer?.shadowMap?.enabled;
   g.add(torso);
 
   const vest = new THREE.Mesh(new THREE.BoxGeometry(0.65, 0.65, 0.4), kMat);
-  vest.position.y = 1.15;
-  g.add(vest);
+  vest.position.y = 1.15; g.add(vest);
 
   const head = new THREE.Mesh(new THREE.BoxGeometry(0.36, 0.36, 0.36), sMat);
-  head.position.y = 1.75;
+  head.position.y = 1.75; head.castShadow = renderer?.shadowMap?.enabled;
   g.add(head);
 
   const helmet = new THREE.Mesh(new THREE.BoxGeometry(0.42, 0.22, 0.42), kMat);
-  helmet.position.y = 1.88;
-  g.add(helmet);
+  helmet.position.y = 1.88; g.add(helmet);
 
   const armL = new THREE.Mesh(new THREE.BoxGeometry(0.18, 0.6, 0.18), bMat);
-  armL.position.set(-0.42, 1.1, 0);
-  g.add(armL);
+  armL.position.set(-0.42, 1.1, 0); g.add(armL);
   const armR = new THREE.Mesh(new THREE.BoxGeometry(0.18, 0.6, 0.18), bMat);
-  armR.position.set(0.42, 1.1, 0);
-  g.add(armR);
+  armR.position.set(0.42, 1.1, 0); g.add(armR);
 
   const lMat = new THREE.MeshLambertMaterial({ color: 0x2a2a2a });
   const lL = new THREE.Mesh(new THREE.BoxGeometry(0.24, 0.9, 0.24), lMat);
-  lL.position.set(-0.16, 0.45, 0);
-  g.add(lL);
+  lL.position.set(-0.16, 0.45, 0); g.add(lL);
   const lR = new THREE.Mesh(new THREE.BoxGeometry(0.24, 0.9, 0.24), lMat);
-  lR.position.set(0.16, 0.45, 0);
-  g.add(lR);
+  lR.position.set(0.16, 0.45, 0); g.add(lR);
 
-  // Ник над головой
+  // Ник
   const canvas = document.createElement('canvas');
-  canvas.width = 256;
-  canvas.height = 64;
+  canvas.width = 256; canvas.height = 64;
   const ctx = canvas.getContext('2d');
-  ctx.fillStyle = 'rgba(0,0,0,0.7)';
+  ctx.fillStyle = 'rgba(0,0,0,0.75)';
   ctx.fillRect(0, 0, 256, 64);
-  ctx.font = 'bold 32px Arial';
+  ctx.font = 'bold 30px Arial';
   ctx.textAlign = 'center';
   ctx.textBaseline = 'middle';
   ctx.strokeStyle = '#000';
@@ -1514,50 +1854,56 @@ function makeRemotePlayerMesh(name, team) {
 }
 
 // ============================================================
-// СИНХРОНИЗАЦИЯ — приём данных от других игроков
+// СИНХРОНИЗАЦИЯ
 // ============================================================
 function handleRemoteState(peerId, d) {
   if (!scene) return;
   if (!remotePlayers[peerId]) {
-    // Создаём модель
     const mesh = makeRemotePlayerMesh(d.name || 'Игрок', d.team || 'ct');
     mesh.position.set(d.x, 0.9, d.z);
     scene.add(mesh);
     remotePlayers[peerId] = { mesh, name: d.name, team: d.team, hp: d.hp || 100, lastUpdate: performance.now() };
   } else {
-    // Обновляем позицию
     const rp = remotePlayers[peerId];
     rp.mesh.position.set(d.x, d.y - 0.8, d.z);
     rp.mesh.rotation.y = d.yaw || 0;
     rp.lastUpdate = performance.now();
+    rp.hp = d.hp || rp.hp;
   }
 }
 
 function removeRemotePlayer(peerId) {
   if (remotePlayers[peerId]) {
-    if (remotePlayers[peerId].mesh) scene.remove(remotePlayers[peerId].mesh);
+    if (remotePlayers[peerId].mesh && scene) scene.remove(remotePlayers[peerId].mesh);
     delete remotePlayers[peerId];
   }
 }
 
 function handleRemoteShoot(d) {
-  // Визуализация выстрела от другого игрока
   if (!scene) return;
-  // Просто звук
   sfxEnemy();
 }
 
 function handleRemoteHit(d) {
-  // Мы получили урон от другого игрока
   player.hp -= d.dmg || 20;
   sfxHurt();
   showDmg();
   updHUD();
   if (player.hp <= 0) {
     deaths++;
-    scoreCT += (player.team === 't' ? 1 : 0);
-    scoreT += (player.team === 'ct' ? 1 : 0);
+    userData.deaths++;
+    saveUser();
+    if (player.team === 'ct') scoreT++;
+    else scoreCT++;
+    updScore();
     respawn();
+    // Сообщаем убийце
+    if (typeof conns !== 'undefined') {
+      conns.forEach(c => {
+        if (c.open) try { c.send({ type: 'kill', killer: d.shooter || 'Игрок', victim: userData.name }); } catch(e) {}
+      });
+    }
+    checkWin();
   }
 }
 
@@ -1585,10 +1931,9 @@ function shoot() {
     weaponGroup.userData.flash.scale.setScalar(1 + Math.random()*0.5);
   }
 
-  // Отправляем всем что мы стреляем (для звука)
   if (typeof conns !== 'undefined') {
     conns.forEach(c => {
-      if (c.open) try { c.send({ type: 'shoot', name: userData.name, x: player.pos.x, y: player.pos.y, z: player.pos.z }); } catch(e) {}
+      if (c.open) try { c.send({ type: 'shoot', name: userData.name }); } catch(e) {}
     });
   }
 
@@ -1609,11 +1954,10 @@ function shoot() {
     const wallHits = raycaster.intersectObjects(worldGroup.children, true);
     const wDist = wallHits.length > 0 ? wallHits[0].distance : MD;
 
-    // Проверяем попадание по удалённым игрокам
-    let closest = null, cDist = wDist, part = null, hitPeerId = null;
+    let closestId = null, cDist = wDist, part = null;
     for (const id in remotePlayers) {
       const rp = remotePlayers[id];
-      if (rp.team === player.team) continue; // своих не бьём
+      if (rp.team === player.team) continue;
       if (!rp.mesh) continue;
       const center = new THREE.Vector3(rp.mesh.position.x, rp.mesh.position.y + 0.8, rp.mesh.position.z);
       const toE = center.clone().sub(origin);
@@ -1621,7 +1965,8 @@ function shoot() {
       if (proj < 0 || proj > wDist) continue;
       const onRay = origin.clone().add(dir.clone().multiplyScalar(proj));
       if (onRay.distanceTo(center) < 0.65 && proj < cDist) {
-        closest = rp; cDist = proj; hitPeerId = id;
+        closestId = id;
+        cDist = proj;
         const hy = origin.y + dir.y * proj;
         const rel = hy - rp.mesh.position.y;
         part = rel > 1.4 ? 'head' : rel > 0.4 ? 'body' : 'limb';
@@ -1630,7 +1975,7 @@ function shoot() {
 
     const hitP = origin.clone().add(dir.clone().multiplyScalar(cDist));
 
-    if (closest && hitPeerId) {
+    if (closestId) {
       userData.hits++;
       let dmg = w.dmg;
       if (part === 'head') { dmg = Math.round(w.dmg * w.hm); userData.headshots++; }
@@ -1638,30 +1983,35 @@ function shoot() {
       sfxHit();
       showHit(part === 'head');
 
-      // Отправляем урон игроку
       if (typeof conns !== 'undefined') {
         conns.forEach(c => {
-          if (c.open && c.peer === hitPeerId) {
-            try { c.send({ type: 'hit', dmg: dmg, shooter: userData.name }); } catch(e) {}
+          if (c.open && c.peer === closestId) {
+            try { c.send({ type: 'hit', dmg, shooter: userData.name }); } catch(e) {}
           }
         });
       }
 
-      // Проверяем смерть (упрощённо — 100 HP)
-      rp_hp = (closest.hp || 100) - dmg;
-      closest.hp = rp_hp;
-      if (rp_hp <= 0) {
+      const rp = remotePlayers[closestId];
+      rp.hp = (rp.hp || 100) - dmg;
+      if (rp.hp <= 0) {
         kills++;
         pMoney += 50;
         userData.kills++;
         userData.money += 20;
-        saveUser();
-        sfxKill();
+        if (curWpn === 'awp') userData.awpKills = (userData.awpKills || 0) + 1;
         if (player.team === 'ct') scoreCT++;
         else scoreT++;
-        addKF(userData.name, '🔫', closest.name || 'Игрок');
-        removeRemotePlayer(hitPeerId);
+        addBpXp(10);
+        sfxKill();
+        addKF(userData.name, '🔫', rp.name || 'Игрок');
+        if (typeof conns !== 'undefined') {
+          conns.forEach(c => {
+            if (c.open) try { c.send({ type: 'kill', killer: userData.name, victim: rp.name }); } catch(e) {}
+          });
+        }
+        removeRemotePlayer(closestId);
         updScore();
+        checkAch();
         checkWin();
       }
       saveUser();
@@ -1672,31 +2022,24 @@ function shoot() {
   updHUD();
 }
 
-function killBot() {} // больше не используется
-
 function respawn() {
-  $('death').classList.add('on');
-  respawnTimer = 3;
-  setTimeout(() => {
-    player.hp = 100;
-    if (player.team === 'ct') player.pos.set(-12, PH, -12);
-    else player.pos.set(12, PH, 12);
-    player.vel.set(0, 0, 0);
-    wpnAmmo = { p250: { ammo: 13, res: 52 } };
-    curWpn = 'p250';
-    if (weaponGroup && scene) scene.remove(weaponGroup);
-    weaponGroup = makeWeapon(curWpn);
-    scene.add(weaponGroup);
-    pMoney = 800;
-    updHUD();
-    updScore();
-    $('death').classList.remove('on');
-  }, 3000);
+  player.hp = 100;
+  if (player.team === 'ct') player.pos.set(-12, PH, -12);
+  else player.pos.set(12, PH, 12);
+  player.vel.set(0, 0, 0);
+  wpnAmmo = { p250: { ammo: 13, res: 52 } };
+  curWpn = 'p250';
+  if (weaponGroup && scene) scene.remove(weaponGroup);
+  weaponGroup = makeWeapon(curWpn);
+  scene.add(weaponGroup);
+  pMoney = 800;
+  updHUD();
+  toast('💀 Вы убиты. Респаун.', true);
 }
 
 function updScore() {
   $('score-h').innerHTML = `<span class="ct">CT ${scoreCT}</span> | <span class="t">T ${scoreT}</span>`;
-  $('wv-h').textContent = `CT ${scoreCT} — ${scoreT} T`;
+  $('wv-h').textContent = `CT ${scoreCT} — ${scoreT} T · до ${WIN_SCORE}`;
 }
 
 function checkWin() {
@@ -1709,6 +2052,7 @@ function checkWin() {
     saveUser();
     $('hud').classList.remove('on');
     $('mob').classList.remove('on');
+    $('vc').classList.remove('on');
     if (document.exitPointerLock) document.exitPointerLock();
     toast(`${won ? '🏆 ПОБЕДА' : '💀 ПОРАЖЕНИЕ'} — ${winner}`, !won);
     setTimeout(() => {
@@ -1717,11 +2061,11 @@ function checkWin() {
       }
       renderer = null;
       scene = null;
-      // Убираем всех удалённых игроков
       remotePlayers = {};
-      showScr('menu');
       updBal();
       updRank();
+      checkAch();
+      showScr('menu');
     }, 2500);
   }
 }
@@ -1863,6 +2207,61 @@ function showDmg() {
 }
 
 // ============================================================
+// МИНИ-КАРТА
+// ============================================================
+function initMinimap() {
+  mmCanvas = $('mm-canvas');
+  if (mmCanvas) mmCtx = mmCanvas.getContext('2d');
+}
+
+function updMinimap() {
+  if (!mmCtx || !mmCanvas || !minimapOn) return;
+  const w = mmCanvas.width, h = mmCanvas.height;
+  mmCtx.clearRect(0, 0, w, h);
+  mmCtx.fillStyle = 'rgba(10,14,22,0.9)';
+  mmCtx.fillRect(0, 0, w, h);
+
+  const scale = w / MAP_SIZE;
+  const cx = player.pos.x * scale + w/2;
+  const cy = player.pos.z * scale + h/2;
+
+  // Стены
+  mmCtx.fillStyle = 'rgba(255,136,0,0.3)';
+  walls.forEach(box => {
+    const bx = box.min.x * scale + w/2;
+    const bz = box.min.z * scale + h/2;
+    const bw = (box.max.x - box.min.x) * scale;
+    const bh = (box.max.z - box.min.z) * scale;
+    mmCtx.fillRect(bx, bz, bw, bh);
+  });
+
+  // Удалённые игроки
+  for (const id in remotePlayers) {
+    const rp = remotePlayers[id];
+    if (!rp.mesh) continue;
+    const px = rp.mesh.position.x * scale + w/2;
+    const py = rp.mesh.position.z * scale + h/2;
+    mmCtx.fillStyle = rp.team === 'ct' ? '#5b7aff' : '#ffaa00';
+    mmCtx.beginPath();
+    mmCtx.arc(px, py, 4, 0, Math.PI*2);
+    mmCtx.fill();
+  }
+
+  // Игрок
+  mmCtx.save();
+  mmCtx.translate(cx, cy);
+  mmCtx.rotate(-player.yaw + Math.PI);
+  mmCtx.fillStyle = '#4ade80';
+  mmCtx.beginPath();
+  mmCtx.moveTo(0, -8);
+  mmCtx.lineTo(-5, 6);
+  mmCtx.lineTo(5, 6);
+  mmCtx.closePath();
+  mmCtx.fill();
+  mmCtx.restore();
+}
+
+// ============================================================
 // УПРАВЛЕНИЕ
 // ============================================================
 window.addEventListener('keydown', e => {
@@ -1976,8 +2375,7 @@ if (IS_M) {
   jz.addEventListener('touchend', e => {
     for (const t of e.changedTouches)
       if (t.identifier === jid) {
-        jid = null;
-        touch.mx = 0; touch.my = 0;
+        jid = null; touch.mx = 0; touch.my = 0;
         js.style.transform = 'translate(0,0)';
       }
   });
@@ -2048,6 +2446,7 @@ function loop() {
   updParticles(dt);
   updNetwork(dt);
   updRemoteTimeout();
+  updMinimap();
 
   renderer.render(scene, camera);
 }
@@ -2132,7 +2531,6 @@ function updPlayer(dt) {
   }
 }
 
-// Синхронизация 20 раз/сек
 function updNetwork(dt) {
   if (typeof conns === 'undefined') return;
   const now = performance.now();
@@ -2149,7 +2547,6 @@ function updNetwork(dt) {
   });
 }
 
-// Убираем игроков, которые давно не обновлялись
 function updRemoteTimeout() {
   const now = performance.now();
   for (const id in remotePlayers) {
@@ -2214,6 +2611,10 @@ function updCam() {
 }
 
 console.log('%c🎯 SHOOT HIM FIRST — Часть 3 загружена!', 'color:#4ade80;font-size:14px;font-weight:900');
-console.log('🎮 Всё готово. Открывай меню и играй с друзьями!');
-console.log('📌 V — войс, T — чат, B — магазин, R — перезарядка, ESC — пауза');
+console.log('🎮 Управление:');
+console.log('  WASD — движение');
+console.log('  ЛКМ — стрельба, ПКМ — зум (AWP)');
+console.log('  R — перезарядка, B — магазин');
+console.log('  V — войс, T — чат, Y — командный чат');
+console.log('  M — мини-карта, ESC — пауза');
 </script>
